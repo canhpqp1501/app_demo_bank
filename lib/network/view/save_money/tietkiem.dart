@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers, avoid_types_as_parameter_names, non_constant_identifier_names
+
 import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +27,9 @@ class _TietKiemState extends State<TietKiem> {
           body: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 55, horizontal: 40),
-                child: Row(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 32, horizontal: 40),
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -47,13 +50,13 @@ class _TietKiemState extends State<TietKiem> {
                   ],
                 ),
               ),
-              Size1(),
-              SizedBox(
+              const Size1(),
+              const SizedBox(
                 height: 15,
               ),
               Container(
-                padding: EdgeInsets.only(right: 100),
-                child: Text(
+                padding: const EdgeInsets.only(right: 100),
+                child: const Text(
                   "MỤC TIÊU TIẾT KIỆM",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
@@ -62,7 +65,7 @@ class _TietKiemState extends State<TietKiem> {
                       fontSize: 25),
                 ),
               ),
-              Size2(),
+              const Size2(),
             ],
           ),
         ));
@@ -75,10 +78,10 @@ class Size1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 174),
+      padding: const EdgeInsets.only(right: 174),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 35),
-        child: Column(
+        padding: const EdgeInsets.symmetric(horizontal: 35),
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
@@ -131,10 +134,10 @@ class Size2 extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 10),
+                    margin: const EdgeInsets.only(top: 10),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color(0xffDCF6F8),
+                        color: const Color(0xffDCF6F8),
                         boxShadow: const [
                           BoxShadow(
                             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -163,7 +166,7 @@ class Size2 extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.only(left: 15),
+                                padding: const EdgeInsets.only(left: 15),
                                 child: Text(
                                   'Tiết kiệm điện tử 06/05/2023',
                                   style: GoogleFonts.lato(
@@ -180,7 +183,8 @@ class Size2 extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 15),
                     child: TextField(
                       onChanged: (ValueKey) {},
                       decoration: InputDecoration(
@@ -202,8 +206,8 @@ class Size2 extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(right: 242),
-                    child: Text(
+                    padding: const EdgeInsets.only(right: 242),
+                    child: const Text(
                       "KỲ HẠN",
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
@@ -212,8 +216,8 @@ class Size2 extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 14),
-                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    margin: const EdgeInsets.only(top: 14),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: Row(
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -221,7 +225,7 @@ class Size2 extends StatelessWidget {
                           width: 75,
                           height: 34,
                           decoration: BoxDecoration(
-                            color: Color(0xffDCF6F8),
+                            color: const Color(0xffDCF6F8),
                             boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -242,14 +246,14 @@ class Size2 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Container(
                           width: 75,
                           height: 34,
                           decoration: BoxDecoration(
-                            color: Color(0xffDCF6F8),
+                            color: const Color(0xffDCF6F8),
                             boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -271,14 +275,14 @@ class Size2 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Container(
                           width: 75,
                           height: 34,
                           decoration: BoxDecoration(
-                            color: Color(0xffDCF6F8),
+                            color: const Color(0xffDCF6F8),
                             boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -300,14 +304,14 @@ class Size2 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Container(
                           width: 75,
                           height: 34,
                           decoration: BoxDecoration(
-                            color: Color(0xffDCF6F8),
+                            color: const Color(0xffDCF6F8),
                             boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -332,12 +336,12 @@ class Size2 extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 14),
-                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    margin: const EdgeInsets.only(top: 14),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: Row(
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -345,7 +349,7 @@ class Size2 extends StatelessWidget {
                           width: 75,
                           height: 34,
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 250, 180, 75),
+                            color: const Color.fromARGB(255, 250, 180, 75),
                             boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -366,14 +370,14 @@ class Size2 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Container(
                           width: 75,
                           height: 34,
                           decoration: BoxDecoration(
-                            color: Color(0xffDCF6F8),
+                            color: const Color(0xffDCF6F8),
                             boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -395,14 +399,14 @@ class Size2 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Container(
                           width: 75,
                           height: 34,
                           decoration: BoxDecoration(
-                            color: Color(0xffDCF6F8),
+                            color: const Color(0xffDCF6F8),
                             boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -424,14 +428,14 @@ class Size2 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Container(
                           width: 75,
                           height: 34,
                           decoration: BoxDecoration(
-                            color: Color(0xffDCF6F8),
+                            color: const Color(0xffDCF6F8),
                             boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -456,13 +460,13 @@ class Size2 extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color(0xffDCF6F8),
+                        color: const Color(0xffDCF6F8),
                         boxShadow: const [
                           BoxShadow(
                             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -480,7 +484,8 @@ class Size2 extends StatelessWidget {
                           Column(
                             children: [
                               Container(
-                                padding: EdgeInsets.only(right: 100, top: 3),
+                                padding:
+                                    const EdgeInsets.only(right: 100, top: 3),
                                 child: Text(
                                   '6 tháng',
                                   style: GoogleFonts.lato(
@@ -489,23 +494,23 @@ class Size2 extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.only(left: 5),
+                                padding: const EdgeInsets.only(left: 5),
                                 child: Text(
                                   'Kết thúc ngày 06/11/2023',
                                   style: GoogleFonts.lato(
                                     fontStyle: FontStyle.normal,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
-                                    textStyle:
-                                        TextStyle(color: Color(0xff979797)),
+                                    textStyle: const TextStyle(
+                                        color: Color(0xff979797)),
                                   ),
                                 ),
                               )
                             ],
                           ),
                           Container(
-                            padding: EdgeInsets.only(left: 76, top: 5),
-                            child: Column(
+                            padding: const EdgeInsets.only(left: 76, top: 5),
+                            child: const Column(
                               children: [
                                 Text(
                                   'Lãi Suất \n7,8%/Năm',
@@ -520,13 +525,13 @@ class Size2 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   Container(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color(0xffDCF6F8),
+                        color: const Color(0xffDCF6F8),
                         boxShadow: const [
                           BoxShadow(
                             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -554,7 +559,7 @@ class Size2 extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.only(left: 5),
+                                padding: const EdgeInsets.only(left: 5),
                                 child: Text(
                                   '--VND',
                                   style: GoogleFonts.lato(
@@ -573,7 +578,7 @@ class Size2 extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ElevatedButton(

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 
@@ -21,8 +23,9 @@ class _TietKiem2State extends State<TietKiem2> {
           body: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 55, horizontal: 40),
-                child: Row(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 32, horizontal: 40),
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -43,11 +46,11 @@ class _TietKiem2State extends State<TietKiem2> {
                   ],
                 ),
               ),
-              Size3(),
-              SizedBox(
+              const Size3(),
+              const SizedBox(
                 height: 45,
               ),
-              Size4(),
+              const Size4(),
             ],
           ),
         ));
@@ -60,26 +63,26 @@ class Size3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 174),
+      padding: const EdgeInsets.only(right: 174),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
-            Text(
+            const Text(
               "Giá trị sổ",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.w400),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Row(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 18),
-                  child: Text(
+                  padding: const EdgeInsets.only(left: 18),
+                  child: const Text(
                     "10,000,000",
                     style: TextStyle(
                         color: Colors.white,
@@ -87,10 +90,10 @@ class Size3 extends StatelessWidget {
                         fontWeight: FontWeight.w400),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
-                Text(
+                const Text(
                   "VND",
                   style: TextStyle(
                       color: Colors.white,
@@ -99,10 +102,10 @@ class Size3 extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Text(
+            const Text(
               "Kỳ hạn 6 tháng",
               style: TextStyle(
                   color: Colors.white,
@@ -132,8 +135,8 @@ class Size4 extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.only(top: 10, right: 92),
-                    child: Text(
+                    padding: const EdgeInsets.only(top: 10, right: 92),
+                    child: const Text(
                       "TÀI KHOẢN TRÍCH TIỀN",
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
@@ -141,13 +144,13 @@ class Size4 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color(0xffDCF6F8),
+                        color: const Color(0xffDCF6F8),
                         boxShadow: const [
                           BoxShadow(
                             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -177,7 +180,7 @@ class Size4 extends StatelessWidget {
                               ),
                               Container(
                                 child: Container(
-                                  padding: EdgeInsets.only(left: 13),
+                                  padding: const EdgeInsets.only(left: 13),
                                   child: Text(
                                     '10,000,000  VND',
                                     style: GoogleFonts.lato(
@@ -193,8 +196,8 @@ class Size4 extends StatelessWidget {
                           Row(
                             children: [
                               Container(
-                                  padding: EdgeInsets.only(right: 7),
-                                  child: Icon(Icons.keyboard_arrow_down))
+                                  padding: const EdgeInsets.only(right: 7),
+                                  child: const Icon(Icons.keyboard_arrow_down))
                             ],
                           ),
                           // nút chọn tài khoản gửi tiền
@@ -202,12 +205,12 @@ class Size4 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Container(
-                    padding: EdgeInsets.only(right: 200),
-                    child: Text(
+                    padding: const EdgeInsets.only(right: 200),
+                    child: const Text(
                       "KHI HẾT HẠN",
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
@@ -215,13 +218,13 @@ class Size4 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 250, 180, 75),
+                        color: const Color.fromARGB(255, 250, 180, 75),
                         boxShadow: const [
                           BoxShadow(
                             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -261,7 +264,7 @@ class Size4 extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Row(
+                          const Row(
                             children: [Icon(Icons.done_all)],
                           )
                         ],
@@ -269,13 +272,13 @@ class Size4 extends StatelessWidget {
                     ),
                   ),
                   /////
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Container(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color(0xffDCF6F8),
+                        color: const Color(0xffDCF6F8),
                         boxShadow: const [
                           BoxShadow(
                             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -295,7 +298,7 @@ class Size4 extends StatelessWidget {
                             children: [
                               Container(
                                 padding: const EdgeInsets.only(
-                                  top: 3,
+                                  top: 2,
                                 ),
                                 child: Text(
                                   'Nhận lãi, chuyển gốc sang ký hạn mới',
@@ -317,20 +320,20 @@ class Size4 extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Row(
+                          const Row(
                             children: [Icon(Icons.done_all)],
                           )
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Container(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color(0xffDCF6F8),
+                        color: const Color(0xffDCF6F8),
                         boxShadow: const [
                           BoxShadow(
                             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -350,17 +353,17 @@ class Size4 extends StatelessWidget {
                             children: [
                               Container(
                                 padding:
-                                    const EdgeInsets.only(top: 3, right: 112),
+                                    const EdgeInsets.only(top: 3, right: 133),
                                 child: Text(
                                   'Nhận cả gốc và lãi',
                                   style: GoogleFonts.lato(
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w700,
-                                      fontSize: 18),
+                                      fontSize: 15),
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.only(left: 7),
+                                padding: const EdgeInsets.only(left: 7),
                                 child: Text(
                                   'Tự động chuyển tiền gốc và lãi vào tài khoản nhận tiền',
                                   style: GoogleFonts.lato(
@@ -371,7 +374,7 @@ class Size4 extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Row(
+                          const Row(
                             children: [Icon(Icons.done_all)],
                           )
                         ],
@@ -381,7 +384,7 @@ class Size4 extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 105,
             ),
             ElevatedButton(

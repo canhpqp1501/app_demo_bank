@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 BoxDecoration bgColor = const BoxDecoration(
     gradient: LinearGradient(
   begin: Alignment.topRight,

@@ -1,8 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, no_leading_underscores_for_local_identifiers
 class UserInfo {
   late final String email;
   late final int number;
-  late final int money;
+  late final String money;
   late final String name;
 
   UserInfo(

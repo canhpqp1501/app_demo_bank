@@ -1,7 +1,9 @@
-// ignore_for_file: unnecessary_import, implementation_imports, unused_import, avoid_types_as_parameter_names
+// ignore_for_file: unnecessary_import, implementation_imports, unused_import, avoid_types_as_parameter_names, empty_catches, non_constant_identifier_names
 
 import 'package:app_demo_banking/authentication.dart';
 import 'package:app_demo_banking/color.dart';
+import 'package:app_demo_banking/network/view/widget_tree/widget_tree.dart';
+import 'package:app_demo_banking/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -23,7 +25,7 @@ class _SignUpState extends State<SignUp> {
   String? passValue;
 
   bool isShowpass = false;
-  // ignore: non_constant_identifier_names
+  
   SharedPreferences? Prefs;
   @override
   void initState() {
@@ -38,9 +40,17 @@ class _SignUpState extends State<SignUp> {
   }
 
   void signupHandle() async {
-    await Auth().signupWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passController.text.trim());
+    try {
+      await Auth().signupWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passController.text.trim());
+      if (mounted) {
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          AppRouterName.widgetTree,
+          ModalRoute.withName(AppRouterName.widgetTree),
+        );
+      }
+    } catch (error) {}
   }
 
   @override
@@ -91,8 +101,9 @@ class _SignUpState extends State<SignUp> {
                           Container(
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: TextField(
-                              // ignore: non_constant_identifier_names
+                              
                               onChanged: (ValueKey) {},
+                              controller: emailController,
                               decoration: InputDecoration(
                                 filled: true,
                                 fillColor:
@@ -121,6 +132,7 @@ class _SignUpState extends State<SignUp> {
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: TextField(
                               onChanged: (ValueKey) {},
+                              controller: passController,
                               decoration: InputDecoration(
                                 // icon: Icon(
                                 //   Icons.person,

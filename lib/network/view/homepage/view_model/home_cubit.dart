@@ -11,7 +11,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(state.copyWith(isLoading: true));
 
     final response = await HomeReponsitoryImpl().getUserInfo();
-    print(response.data?.userInfoList);
+    // print(response.data?.userInfoList);
     if (response is DataSuccess) {
       for (var element in response.data!.userInfoList) {
         if (element.email == email) {

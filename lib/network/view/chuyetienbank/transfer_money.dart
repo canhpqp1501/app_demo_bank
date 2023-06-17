@@ -13,7 +13,7 @@ class _TransferMoneyState extends State<TransferMoney> {
   Widget build(BuildContext context) {
     return Container(
       decoration: bgColor,
-      child: Scaffold(
+      child: const Scaffold(
         backgroundColor: Colors.transparent,
       ),
     );

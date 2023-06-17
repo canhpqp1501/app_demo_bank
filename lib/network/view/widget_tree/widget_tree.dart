@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:app_demo_banking/network/view/homepage/Home.dart';
 import 'package:app_demo_banking/network/view/homepage/view_model/home_cubit.dart';
 import 'package:app_demo_banking/network/view/login_screen/login.dart';

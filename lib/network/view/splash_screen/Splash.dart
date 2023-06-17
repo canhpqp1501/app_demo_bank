@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, avoid_unnecessary_containers
+
 import 'package:app_demo_banking/network/view/homepage/Home.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
@@ -58,6 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 214, 240, 225),

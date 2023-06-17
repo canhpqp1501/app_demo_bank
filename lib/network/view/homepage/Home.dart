@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, duplicate_ignore
+// ignore_for_file: must_be_immutable, avoid_unnecessary_containers, file_names
 
 import 'package:app_demo_banking/authentication.dart';
 import 'package:app_demo_banking/network/view/homepage/view_model/home_cubit.dart';
@@ -13,7 +13,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import '../../../../color.dart';
 
 class Home extends StatefulWidget {
-  Home({
+  const Home({
     super.key,
     this.args,
   });
@@ -41,23 +41,15 @@ class _HomeState extends State<Home> {
     return Container(
       decoration: bgColor,
       child: Scaffold(
-        // appBar: AppBar(
-        //   backgroundColor: const Color.fromARGB(255, 125, 221, 165),
-        //   elevation: 1,
-        //   centerTitle: true,
-        // ),
         bottomNavigationBar: Container(
           child: GNav(
               backgroundColor: const Color.fromRGBO(0, 0, 0, 0.25),
               color: Colors.white,
-              // tabBackgroundColor: Colors.grey.shade500,
               tabBackgroundGradient: const LinearGradient(
                   colors: [Color(0xff85d8ce), Color(0xff085078)]),
               gap: 8,
               padding: const EdgeInsets.all(25),
-              onTabChange: (index) {
-                print(index);
-              },
+              onTabChange: (index) {},
               activeColor: Colors.white,
               tabs: const [
                 GButton(
@@ -108,7 +100,6 @@ class _HomeState extends State<Home> {
                                           style:
                                               TextStyle(color: Colors.orange),
                                         )),
-                                        
                                   ],
                                 ),
                               ),
@@ -157,25 +148,11 @@ class _HomeState extends State<Home> {
                                   ]),
                             ],
                           ),
-                          // const SizedBox(height: 14),
-                          // Container(
-                          //   padding: const EdgeInsets.only(left: 24),
-                          //   child: Row(
-                          //     children: const [
-                          //       Text(
-                          //         "NGUYEN VAN CANH",
-                          //         style: TextStyle(
-                          //             fontSize: 15,
-                          //             fontWeight: FontWeight.w400,
-                          //             color: Color(0xff1c1313)),
-                          //       )
-                          //     ],
-                          //   ),
-                          // ),
-                          Sizebox1(),
-                          const Sizebox2(),
+
+                          const Sizebox1(),
+                          Sizebox2(),
                           Sizebox3(),
-                          const Sizebox4(),
+                          // const Sizebox4(),
                           // const Sizebox5(),
 
                           // vị trí của sizebox1
@@ -199,21 +176,16 @@ class ScreenArgument {
   });
 }
 
-// ignore: must_be_immutable
-
 class Sizebox1 extends StatefulWidget {
-  Sizebox1({super.key});
+  const Sizebox1({super.key});
 
   @override
   State<Sizebox1> createState() => _Sizebox1State();
 }
 
 class _Sizebox1State extends State<Sizebox1> {
-  MoneyCard data = MoneyCard(
-      acctNo: "1333333333",
-      amount: 99.000,
-      isShowAmount: false,
-      currency: "VND");
+  TextStyle style1 = GoogleFonts.lato(
+      fontWeight: FontWeight.w700, fontStyle: FontStyle.normal, fontSize: 15);
 
   bool isShowVND = false;
 
@@ -238,11 +210,12 @@ class _Sizebox1State extends State<Sizebox1> {
         children: [
           Container(
             padding: const EdgeInsets.only(top: 15, left: 15),
-            child: Row(
+            child: const Row(
               children: [
                 Text(
-                  data.acctNo,
-                  style: const TextStyle(
+                  '111111',
+                  //số tk bank
+                  style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w400,
                       color: Color(0xff085078)),
@@ -271,9 +244,9 @@ class _Sizebox1State extends State<Sizebox1> {
                 ),
                 Row(
                   children: [
-                    Text(
-                      data.isShowAmount ? data.currency : data.currency,
-                      style: const TextStyle(
+                    const Text(
+                      'VND',
+                      style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w400,
                           color: Color(0xff085078)),
@@ -282,21 +255,11 @@ class _Sizebox1State extends State<Sizebox1> {
                       width: 10,
                     ),
                     GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          data = MoneyCard(
-                              acctNo: "1333333333",
-                              amount: 5152111.5515,
-                              isShowAmount: false,
-                              currency: "VND");
-                        });
-                      },
-                      child: Icon(
-                        data.isShowAmount
-                            ? Icons.visibility
-                            : Icons.visibility_off,
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.visibility,
                         size: 17,
-                        color: const Color(0xff085078),
+                        color: Color(0xff085078),
                       ),
                     )
                   ],
@@ -305,7 +268,7 @@ class _Sizebox1State extends State<Sizebox1> {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(
                 children: [
@@ -316,22 +279,21 @@ class _Sizebox1State extends State<Sizebox1> {
                         Radius.circular(30),
                       ),
                     ),
-                    child: Image.asset(
-                      "assets/images/CK.png",
-                      width: 46,
-                      height: 46,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 8),
+                      child: Image.asset(
+                        "assets/images/CK.png",
+                      ),
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.only(
-                      top: 10,
+                      top: 13,
                     ),
-                    child: const Text(
+                    child: Text(
                       "Chuyển tiền",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: style1,
                     ),
                   ),
                 ],
@@ -345,22 +307,21 @@ class _Sizebox1State extends State<Sizebox1> {
                         Radius.circular(30),
                       ),
                     ),
-                    child: Image.asset(
-                      "assets/images/timer.png",
-                      width: 46,
-                      height: 46,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 8),
+                      child: Image.asset(
+                        "assets/images/timer.png",
+                      ),
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.only(
                       top: 10,
                     ),
-                    child: const Text(
+                    child: Text(
                       "Tra cứu GD",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: style1,
                     ),
                   ),
                 ],
@@ -374,22 +335,21 @@ class _Sizebox1State extends State<Sizebox1> {
                         Radius.circular(30),
                       ),
                     ),
-                    child: Image.asset(
-                      "assets/images/QR.png",
-                      width: 46,
-                      height: 46,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 10),
+                      child: Image.asset(
+                        "assets/images/QR.png",
+                      ),
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.only(
                       top: 10,
                     ),
-                    child: const Text(
+                    child: Text(
                       "My QR",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: style1,
                     ),
                   ),
                 ],
@@ -403,7 +363,9 @@ class _Sizebox1State extends State<Sizebox1> {
 }
 
 class Sizebox2 extends StatelessWidget {
-  const Sizebox2({super.key});
+  TextStyle style2 = GoogleFonts.lato(
+      fontWeight: FontWeight.w700, fontStyle: FontStyle.normal, fontSize: 15);
+  Sizebox2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -412,12 +374,9 @@ class Sizebox2 extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.only(top: 41, left: 11),
-          child: const Text(
+          child: Text(
             "Tính năng ưu thích",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-            ),
+            style: style2,
           ),
         ),
         const SizedBox(
@@ -429,11 +388,6 @@ class Sizebox2 extends StatelessWidget {
           ),
           child: const Text(
             "Xem tất cả",
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w700,
-              color: Colors.orange,
-            ),
           ),
         ),
         Container(
@@ -463,6 +417,10 @@ class Style extends StatelessWidget {
 }
 
 class Sizebox3 extends StatelessWidget {
+  TextStyle style3 = GoogleFonts.lato(
+    fontWeight: FontWeight.w700,
+    fontStyle: FontStyle.normal,
+  );
   Sizebox3({
     super.key,
   });
@@ -470,94 +428,91 @@ class Sizebox3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 9),
-      width: 367,
-      height: 175,
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
+      // margin: const EdgeInsets.only(top: 9),
+      // width: 367,
+      // height: 175,
       decoration: color2,
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                padding: const EdgeInsets.only(top: 7),
-                child: Column(
-                  children: [
-                    Image.asset("assets/images/im1.png"),
-                    Container(
-                      padding: const EdgeInsets.only(top: 7, left: 15),
-                      child: Text("    ChatPay     \n(Chuyển tiền)",
-                          style: GoogleFonts.lato(
-                            fontStyle: FontStyle.normal,
+          Container(
+            padding: const EdgeInsets.only(bottom: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  // padding: EdgeInsets.only(bottom: 20),
+                  child: Column(
+                    children: [
+                      Image.asset("assets/images/im1.png"),
+                      Container(
+                        // padding: const EdgeInsets.only(
+                        //   top: 7,
+                        // ),
+                        child: Text(
+                          "    ChatPay\n(Chuyển tiền)",
+                          style: style3,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  // padding: const EdgeInsets.only(top: 7),
+                  child: Column(
+                    children: [
+                      Image.asset("assets/images/im2.png"),
+                      Container(
+                        padding: const EdgeInsets.only(top: 7, left: 8),
+                        child: Text("Nạp ĐT", style: style3),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  // padding: const EdgeInsets.only(
+                  //   top: 7,
+                  // ),
+                  child: Column(
+                    children: [
+                      Container(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: IconButton(
+                            icon: Image.asset("assets/images/im3.png"),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, AppRouterName.transferMoney);
+                            },
                           )),
-                    )
-                  ],
+                      Container(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Text("Chuyển Tiền", style: style3)),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.only(top: 7),
-                child: Column(
-                  children: [
-                    Image.asset("assets/images/im2.png"),
-                    Container(
-                      padding: const EdgeInsets.only(top: 7, left: 15),
-                      child: Text("Nạp ĐT",
-                          style: GoogleFonts.lato(
-                            fontStyle: FontStyle.normal,
-                          )),
-                    )
-                  ],
+                Container(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Column(
+                    children: [
+                      Image.asset("assets/images/im4.png"),
+                      Container(
+                          padding: const EdgeInsets.only(right: 2),
+                          child: Text("Ví Điện Tử", style: style3)),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.only(
-                  top: 7,
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: IconButton(
-                          icon: Image.asset("assets/images/im3.png"),
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context, AppRouterName.transferMoney);
-                          },
-                        )),
-                    Container(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Text("Chuyển Tiền",
-                            style: GoogleFonts.lato(
-                              fontStyle: FontStyle.normal,
-                            ))),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.only(top: 7, left: 15),
-                child: Column(
-                  children: [
-                    Image.asset("assets/images/im4.png"),
-                    Container(
-                        padding: const EdgeInsets.only(top: 7, right: 2),
-                        child: Text("Ví Điện Tử",
-                            style: GoogleFonts.lato(
-                              fontStyle: FontStyle.normal,
-                            ))),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                padding: const EdgeInsets.only(top: 7),
+                // padding: const EdgeInsets.only(top: 7),
                 child: Column(
                   children: [
                     Container(
-                        padding: const EdgeInsets.only(left: 25),
+                        padding: const EdgeInsets.only(left: 10),
                         child: IconButton(
                           icon: Image.asset("assets/images/im5.png"),
                           onPressed: () {
@@ -565,16 +520,16 @@ class Sizebox3 extends StatelessWidget {
                           },
                         )),
                     Container(
-                        padding: const EdgeInsets.only(left: 20),
+                        padding: const EdgeInsets.only(left: 8),
                         child: Text(
                           "Tiết Kiệm",
-                          style: GoogleFonts.lato(fontStyle: FontStyle.normal),
+                          style: style3,
                         )),
                   ],
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(top: 7),
+                // padding: const EdgeInsets.only(top: 7),
                 child: Column(
                   children: [
                     Container(
@@ -582,15 +537,12 @@ class Sizebox3 extends StatelessWidget {
                         child: Image.asset("assets/images/im6.png")),
                     Container(
                         padding: const EdgeInsets.only(top: 7, left: 15),
-                        child: Text("Dịch Vụ Khác",
-                            style: GoogleFonts.lato(
-                              fontStyle: FontStyle.normal,
-                            ))),
+                        child: Text("Dịch Vụ Khác", style: style3)),
                   ],
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(top: 7),
+                // padding: const EdgeInsets.only(top: 7),
                 child: Column(
                   children: [
                     Container(
@@ -598,15 +550,12 @@ class Sizebox3 extends StatelessWidget {
                         child: Image.asset("assets/images/im7.png")),
                     Container(
                         padding: const EdgeInsets.only(top: 7, left: 15),
-                        child: Text("Tra Cứu",
-                            style: GoogleFonts.lato(
-                              fontStyle: FontStyle.normal,
-                            ))),
+                        child: Text("Tra Cứu", style: style3)),
                   ],
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(top: 7),
+                // padding: const EdgeInsets.only(top: 7),
                 child: Column(
                   children: [
                     Container(
@@ -614,46 +563,35 @@ class Sizebox3 extends StatelessWidget {
                         child: Image.asset("assets/images/im8.png")),
                     Container(
                         padding: const EdgeInsets.only(top: 7, left: 30),
-                        child: Text("QR & QR pay",
-                            style: GoogleFonts.lato(
-                              fontStyle: FontStyle.normal,
-                            ))),
+                        child: Text("QR & QR pay", style: style3)),
                   ],
                 ),
               ),
             ],
           ),
+          Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              child: Image.asset('assets/images/quangcao.png')),
         ],
       ),
     );
   }
 }
 
-class Sizebox4 extends StatelessWidget {
-  const Sizebox4({super.key});
+// class Sizebox4 extends StatelessWidget {
+//   const Sizebox4({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 31),
-      child: Image.asset(
-        "assets/images/quangcao.png",
-        width: double.infinity,
-        height: 135,
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       margin: const EdgeInsets.only(top: 31),
+//       child: Image.asset(
+//         "assets/images/quangcao.png",
+//         width: double.infinity,
+//         height: 135,
+//       ),
+//     );
+//   }
+// }
 
-class MoneyCard {
-  final String acctNo;
-  final double amount;
-  final bool isShowAmount;
-  final String currency;
-  MoneyCard({
-    required this.acctNo,
-    required this.amount,
-    required this.isShowAmount,
-    required this.currency,
-  });
-}
+

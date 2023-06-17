@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:app_demo_banking/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,8 +21,9 @@ class _Tietkiem3State extends State<Tietkiem3> {
           body: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 55, horizontal: 40),
-                child: Row(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 55, horizontal: 40),
+                child: const Row(
                   children: [
                     Text(
                       "Tiết Kiệm Điện Tử",
@@ -32,7 +35,7 @@ class _Tietkiem3State extends State<Tietkiem3> {
                   ],
                 ),
               ),
-              Size5(),
+              const Size5(),
             ],
           ),
         ));
@@ -40,7 +43,7 @@ class _Tietkiem3State extends State<Tietkiem3> {
 }
 
 class Size5 extends StatelessWidget {
-  Size5({super.key});
+  const Size5({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,37 +52,40 @@ class Size5 extends StatelessWidget {
             child: Column(children: [
       Container(
         width: 360,
-        height: 382,
+        height: 386,
         decoration: color2,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20),
           child: Column(
             children: [
               Text('XÁC NHẬN THÔNG  TIN TẠO SỐ',
                   style: GoogleFonts.lato(fontWeight: FontWeight.w700)),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text('10,000,000 VND',
                   style: GoogleFonts.lato(
-                      fontWeight: FontWeight.w700, fontSize: 23)),
-              SizedBox(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 23,
+                      color: const Color.fromARGB(255, 243, 179, 130))),
+              const SizedBox(
                 height: 30,
               ),
               ///// body
               Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.only(right: 110),
+                    padding: const EdgeInsets.only(right: 110),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          padding: EdgeInsets.only(left: 15),
+                          padding: const EdgeInsets.only(left: 15),
                           child: Column(
                             children: [
                               Container(
-                                padding: EdgeInsets.only(left: 15, right: 15),
+                                padding:
+                                    const EdgeInsets.only(left: 15, right: 15),
                                 width: 60,
                                 height: 60,
                                 child: Image.asset(
@@ -87,33 +93,35 @@ class Size5 extends StatelessWidget {
                                   width: 15,
                                   height: 15,
                                 ),
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: Color(0xFFe0f2f1)),
+                                    color: Color(0xFFFFCDA8)),
                               ),
                             ],
                           ),
                         ),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               ' Nguồn tiền ',
                               style: TextStyle(color: Color(0xff919294)),
                             ),
                             Text('       13335556666 ',
                                 style: GoogleFonts.lato(
-                                    fontWeight: FontWeight.w700)),
+                                    fontWeight: FontWeight.w700,
+                                    color: const Color.fromARGB(
+                                        255, 239, 204, 178))),
                           ],
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Container(
-                    padding: EdgeInsets.only(right: 210),
-                    child: Column(
+                    padding: const EdgeInsets.only(right: 210),
+                    child: const Column(
                       children: [
                         Icon(Icons.keyboard_double_arrow_down_outlined),
                       ],
@@ -123,27 +131,32 @@ class Size5 extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        padding: EdgeInsets.only(left: 65),
-                        child: Column(
+                        padding: const EdgeInsets.only(left: 65),
+                        child: const Column(
                           children: [
-                            Icon(Icons.savings),
+                            Icon(
+                              Icons.savings,
+                              color: Color(0xff47A992),
+                            ),
                           ],
                         ),
                       ),
                       Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.only(right: 85),
-                            child: Text(
+                            padding: const EdgeInsets.only(right: 85),
+                            child: const Text(
                               'Sổ tiết kiệm ',
                               style: TextStyle(color: Color(0xff919294)),
                             ),
                           ),
                           Container(
-                            padding: EdgeInsets.only(left: 30),
+                            padding: const EdgeInsets.only(left: 30),
                             child: Text(' Tiết Kiệm Điện Tử 13/05/2023',
                                 style: GoogleFonts.lato(
-                                    fontWeight: FontWeight.w700)),
+                                    fontWeight: FontWeight.w700,
+                                    color: const Color.fromARGB(
+                                        255, 239, 204, 178))),
                           )
                         ],
                       )
@@ -151,49 +164,56 @@ class Size5 extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Kỳ hạn & Lãi suất ', style: TextStyle(fontSize: 11)),
+                  const Text('Kỳ hạn & Lãi suất ',
+                      style: TextStyle(fontSize: 11)),
                   Text('1 tháng - 5,45%/Năm ',
-                      style: GoogleFonts.lato(fontWeight: FontWeight.w700)),
+                      style: GoogleFonts.lato(
+                          fontWeight: FontWeight.w700,
+                          color: const Color.fromARGB(255, 239, 204, 178))),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 18,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Lãi tạm tính ', style: TextStyle(fontSize: 11)),
-                  SizedBox(
+                  const Text('Lãi tạm tính ', style: TextStyle(fontSize: 11)),
+                  const SizedBox(
                     width: 10,
                   ),
                   Text('41,659 VND ',
-                      style: GoogleFonts.lato(fontWeight: FontWeight.w700)),
+                      style: GoogleFonts.lato(
+                          fontWeight: FontWeight.w700,
+                          color: const Color.fromARGB(255, 239, 204, 178))),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 18,
               ),
               Row(
                 children: [
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.only(left: 30),
-                      child: Text(
+                      padding: const EdgeInsets.only(left: 30),
+                      child: const Text(
                         'Cài đặt tự động tái tục',
                         style: TextStyle(fontSize: 11),
                       ),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(right: 35),
+                    padding: const EdgeInsets.only(right: 35),
                     child: Text('Chuyển cả gốc và lãi\n sang kỳ hạn mới',
-                        style: GoogleFonts.lato(fontWeight: FontWeight.w700)),
+                        style: GoogleFonts.lato(
+                            fontWeight: FontWeight.w700,
+                            color: const Color.fromARGB(255, 239, 204, 178))),
                   ),
                 ],
               ),
@@ -201,7 +221,7 @@ class Size5 extends StatelessWidget {
           ),
         ),
       ),
-      SizedBox(
+      const SizedBox(
         height: 222,
       ),
 
@@ -215,14 +235,14 @@ class Size5 extends StatelessWidget {
           Text(
             'Điều khoản & Chính sách sử dụng',
             style: GoogleFonts.lato(
-              color: Color.fromARGB(255, 250, 180, 75),
+              color: const Color.fromARGB(255, 250, 180, 75),
             ),
             // style: TextStyle(
             //   color: Color.fromARGB(255, 250, 180, 75),
             // ),
           ),
           Text(
-            'của SPBank',
+            'của FPBank',
             style: GoogleFonts.lato(),
           ),
         ],
@@ -231,14 +251,14 @@ class Size5 extends StatelessWidget {
       //   height: 200,
       // ),
       Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 22),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 22),
         child: Row(
           children: <Widget>[
             Expanded(
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size(250, 50),
-                      backgroundColor: Color.fromARGB(255, 231, 245, 240),
+                      backgroundColor: const Color.fromARGB(255, 231, 245, 240),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25))),
                   onPressed: () {},
@@ -246,11 +266,11 @@ class Size5 extends StatelessWidget {
                     " HỦY BỎ",
                     style: GoogleFonts.lato(
                         fontWeight: FontWeight.w700,
-                        color: Color.fromARGB(255, 229, 185, 114),
+                        color: const Color.fromARGB(255, 67, 88, 122),
                         fontSize: 19),
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               width: 18,
             ),
             Expanded(
@@ -265,7 +285,7 @@ class Size5 extends StatelessWidget {
                     " XÁC NHẬN",
                     style: GoogleFonts.lato(
                         fontWeight: FontWeight.w700,
-                        color: Color.fromARGB(255, 229, 185, 114),
+                        color: const Color.fromARGB(255, 229, 185, 114),
                         fontSize: 19),
                     // style: TextStyle(
                     //   color: Color.fromARGB(255, 229, 185, 114),

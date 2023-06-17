@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:app_demo_banking/network/view/splash_screen/Splash.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 import 'package:app_demo_banking/themes/themes_cubit.dart';
@@ -11,7 +13,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: non_constant_identifier_names
     return Sizer(builder: (context, Orientation, diviceType) {
       return BlocProvider(
         create: (context) => ThemeCubit(),
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: SplashScreen(),
+          home: const SplashScreen(),
         ),
       );
     });
