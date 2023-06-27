@@ -1,6 +1,8 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:app_demo_banking/color.dart';
+import 'package:app_demo_banking/router/app_router.dart';
+import 'package:app_demo_banking/view/save_money/tietkiem.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,11 +20,31 @@ class _Tietkiem3State extends State<Tietkiem3> {
         decoration: bgColor,
         child: Scaffold(
           backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            title: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Tiết Kiệm Điện Tử',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white)),
+                Icon(
+                  Icons.quiz,
+                  size: 35,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+            backgroundColor: const Color.fromARGB(255, 125, 221, 165),
+            elevation: 0,
+            centerTitle: true,
+          ),
           body: Column(
             children: [
               Container(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 55, horizontal: 40),
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 child: const Row(
                   children: [
                     Text(
@@ -120,7 +142,7 @@ class Size5 extends StatelessWidget {
                     height: 5,
                   ),
                   Container(
-                    padding: const EdgeInsets.only(right: 210),
+                    padding: const EdgeInsets.only(right: 213),
                     child: const Column(
                       children: [
                         Icon(Icons.keyboard_double_arrow_down_outlined),
@@ -131,7 +153,7 @@ class Size5 extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        padding: const EdgeInsets.only(left: 65),
+                        padding: const EdgeInsets.only(left: 63),
                         child: const Column(
                           children: [
                             Icon(
@@ -222,7 +244,7 @@ class Size5 extends StatelessWidget {
         ),
       ),
       const SizedBox(
-        height: 222,
+        height: 200,
       ),
 
       Text(
@@ -261,7 +283,9 @@ class Size5 extends StatelessWidget {
                       backgroundColor: const Color.fromARGB(255, 231, 245, 240),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRouterName.tietKiem2);
+                  },
                   child: Text(
                     " HỦY BỎ",
                     style: GoogleFonts.lato(
@@ -273,27 +297,35 @@ class Size5 extends StatelessWidget {
             const SizedBox(
               width: 18,
             ),
-            Expanded(
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(250, 50),
-                      backgroundColor: const Color(0xff8DF2D0),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25))),
-                  onPressed: () {},
-                  child: Text(
-                    " XÁC NHẬN",
-                    style: GoogleFonts.lato(
-                        fontWeight: FontWeight.w700,
-                        color: const Color.fromARGB(255, 229, 185, 114),
-                        fontSize: 19),
-                    // style: TextStyle(
-                    //   color: Color.fromARGB(255, 229, 185, 114),
-                    //   fontWeight: FontWeight.w700,
-                    //   fontSize: 19,
-                    // ),
-                  )),
+
+            ElevatedButtonWidget1(
+              buttonText: 'XÁC NHẬN',
+              onpressed: () {
+                Navigator.pushNamed(context, AppRouterName.widgetTree);
+              },
+              width: 180,
             )
+            // child: ElevatedButton(
+            //     style: ElevatedButton.styleFrom(
+            //         minimumSize: const Size(250, 50),
+            //         backgroundColor: const Color(0xff8DF2D0),
+            //         shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(25))),
+            //     onPressed: () {
+            //       Navigator.pushNamed(context, AppRouterName.widgetTree);
+            //     },
+            //     child: Text(
+            //       " XÁC NHẬN",
+            //       style: GoogleFonts.lato(
+            //           fontWeight: FontWeight.w700,
+            //           color: const Color.fromARGB(255, 182, 141, 87),
+            //           fontSize: 19),
+            //       // style: TextStyle(
+            //       //   color: Color.fromARGB(255, 229, 185, 114),
+            //       //   fontWeight: FontWeight.w700,
+            //       //   fontSize: 19,
+            //       // ),
+            //     )),
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:app_demo_banking/network/view/splash_screen/Splash.dart';
+import 'package:app_demo_banking/view/splash_screen/Splash.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 import 'package:app_demo_banking/themes/themes_cubit.dart';
 
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
+          
           home: const SplashScreen(),
         ),
       );

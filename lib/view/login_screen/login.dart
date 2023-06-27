@@ -2,9 +2,10 @@ import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../authentication.dart';
+import '../../authentication.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key, required this.title});
@@ -36,11 +37,17 @@ class _Login extends State<Login> {
   void initSharedPref() async {
     Prefs = await SharedPreferences.getInstance();
   }
-  void loginHandle() async{
-   await Auth().loginWithEmailAndPassword(
+
+  void loginHandle() async {
+    await Auth().loginWithEmailAndPassword(
         email: usernameController.text.trim(),
         password: passwordController.text.trim());
     // print(Auth().currentUser);
+
+    // await Auth().loginWithEmailAndPassword(
+    //     email: usernameController.text.trim(),
+    //     password: passwordController.text.trim());
+    // // print(Auth().currentUser);
   }
 
   @override
@@ -93,7 +100,7 @@ class _Login extends State<Login> {
                         onChanged: (value) {},
                         decoration: InputDecoration(
                           icon: const Icon(
-                            Icons.person,
+                            Icons.mail,
                             color: Color.fromRGBO(96, 216, 222, 0.65),
                           ),
                           filled: true,
@@ -163,28 +170,37 @@ class _Login extends State<Login> {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.only(top: 16),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(250, 50),
-                        backgroundColor:const Color(0xff8DF2D0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25))),
-                    onPressed: () {
-                      loginHandle();
-                    },
-                    child: const Text(
-                      'Đăng nhập',
-                      style: TextStyle(
-                        color: Color(0xff000000),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 19,
-                      ),
-                    )),
-              ),
               const SizedBox(
                 height: 16,
+              ),
+              ElevatedButtonWidget(
+                onpressed: () {
+                  loginHandle();
+                },
+                buttonText: 'Đăng Nhập',
+                width: 300,
+              ),
+              // Container(
+              //   padding: const EdgeInsets.only(top: 16),
+              //   child: ElevatedButton(
+              //       style: ElevatedButton.styleFrom(
+              //           minimumSize: const Size(250, 50),
+              //           shape: RoundedRectangleBorder(
+              //               borderRadius: BorderRadius.circular(25))),
+              //       onPressed: () {
+              //         loginHandle();
+              //       },
+              //       child: const Text(
+              //         'Đăng nhập',
+              //         style: TextStyle(
+              //           color: Color(0xff000000),
+              //           fontWeight: FontWeight.w700,
+              //           fontSize: 19,
+              //         ),
+              //       )),
+              // ),
+              const SizedBox(
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -209,6 +225,74 @@ class _Login extends State<Login> {
                 ],
               ),
             ]),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ElevatedButtonWidget extends StatelessWidget {
+  final String buttonText;
+  final double width;
+  final Function onpressed;
+
+  const ElevatedButtonWidget({
+    super.key,
+    required this.buttonText,
+    required this.width,
+    required this.onpressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: const [
+            BoxShadow(
+                color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
+          ],
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: const [0.0, 1.0],
+            colors: [
+              Colors.deepPurple.shade400,
+              Colors.deepPurple.shade200,
+            ],
+          ),
+          color: Colors.deepPurple.shade300,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: ElevatedButton(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+            ),
+            minimumSize: MaterialStateProperty.all(Size(width, 50)),
+            backgroundColor: MaterialStateProperty.all(Colors.transparent),
+            // elevation: MaterialStateProperty.all(3),
+            shadowColor: MaterialStateProperty.all(Colors.transparent),
+          ),
+          onPressed: () {
+            onpressed();
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 15,
+              bottom: 15,
+            ),
+            child: Text(
+              buttonText,
+              style: GoogleFonts.lato(
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xffffffff),
+                  fontSize: 20),
+            ),
           ),
         ),
       ),

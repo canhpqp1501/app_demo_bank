@@ -1,15 +1,15 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:app_demo_banking/network/view/chuyetienbank/transfer_money.dart';
-import 'package:app_demo_banking/network/view/homepage/Home.dart';
-import 'package:app_demo_banking/network/view/save_money/tietkiem2.dart';
-import 'package:app_demo_banking/network/view/save_money/tietkiem3.dart';
-import 'package:app_demo_banking/network/view/splash_screen/Splash.dart';
-import 'package:app_demo_banking/network/view/signup_screen/signup.dart';
+import 'package:app_demo_banking/view/chuyetienbank/transfer_money.dart';
+import 'package:app_demo_banking/view/homepage/Home.dart';
+import 'package:app_demo_banking/view/save_money/tietkiem2.dart';
+import 'package:app_demo_banking/view/save_money/tietkiem3.dart';
+import 'package:app_demo_banking/view/splash_screen/Splash.dart';
+import 'package:app_demo_banking/view/signup_screen/signup.dart';
 import 'package:flutter/material.dart';
 
-import '../network/view/save_money/tietkiem.dart';
-import '../network/view/widget_tree/widget_tree.dart';
+import '../view/save_money/tietkiem.dart';
+import '../view/widget_tree/widget_tree.dart';
 
 class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {

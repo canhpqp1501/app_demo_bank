@@ -2,7 +2,7 @@
 class UserInfo {
   late final String email;
   late final int number;
-  late final String money;
+  late final int money;
   late final String name;
 
   UserInfo(

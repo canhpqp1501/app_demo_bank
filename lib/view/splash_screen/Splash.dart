@@ -1,6 +1,6 @@
 // ignore_for_file: file_names, avoid_unnecessary_containers
 
-import 'package:app_demo_banking/network/view/homepage/Home.dart';
+import 'package:app_demo_banking/view/homepage/Home.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:flutter_svg/svg.dart';
@@ -12,7 +12,7 @@ import 'package:app_demo_banking/main.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../../router/app_router.dart';
+import '../../router/app_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

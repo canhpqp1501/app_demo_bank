@@ -2,7 +2,10 @@
 
 import 'package:app_demo_banking/authentication.dart';
 import 'package:app_demo_banking/color.dart';
-import 'package:app_demo_banking/network/view/widget_tree/widget_tree.dart';
+import 'package:app_demo_banking/network/remote/models/user_info.dart';
+import 'package:app_demo_banking/network/repositories/home_repository_impl.dart';
+import 'package:app_demo_banking/view/login_screen/login.dart';
+import 'package:app_demo_banking/view/widget_tree/widget_tree.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -21,17 +24,24 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   late TextEditingController emailController = TextEditingController();
   late TextEditingController passController = TextEditingController();
+  late TextEditingController pass1Controller = TextEditingController();
+  late TextEditingController nameController = TextEditingController();
+  String? nameTextError;
+  String? emailTextError;
+  String? passwordTextError;
+  String? password1TextError;
+
   String? emailValue;
   String? passValue;
 
   bool isShowpass = false;
-  
+
   SharedPreferences? Prefs;
   @override
   void initState() {
     // initSharedPref();
     emailController = TextEditingController(text: emailValue);
-    emailController = TextEditingController(text: passValue);
+    passController = TextEditingController(text: passValue);
     super.initState();
   }
 
@@ -40,17 +50,26 @@ class _SignUpState extends State<SignUp> {
   }
 
   void signupHandle() async {
-    try {
-      await Auth().signupWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passController.text.trim());
-      if (mounted) {
-        Navigator.of(context).pushNamedAndRemoveUntil(
-          AppRouterName.widgetTree,
-          ModalRoute.withName(AppRouterName.widgetTree),
-        );
-      }
-    } catch (error) {}
+    if (passController.text.isNotEmpty &&
+        passController.text == pass1Controller.text) {
+      try {
+        await Auth().signupWithEmailAndPassword(
+            email: emailController.text.trim(),
+            password: passController.text.trim());
+        HomeReponsitoryImpl().postListInfoItem(UserInfo(
+          name: nameController.text,
+          email: emailController.text,
+          money: 0,
+          number: 333333,
+        ));
+        if (mounted) {
+          Navigator.of(context).pushNamedAndRemoveUntil(
+            AppRouterName.widgetTree,
+            ModalRoute.withName(AppRouterName.widgetTree),
+          );
+        }
+      } catch (error) {}
+    }
   }
 
   @override
@@ -82,7 +101,7 @@ class _SignUpState extends State<SignUp> {
                       // width: 161,
                       // height: 40,
                       child: const Text(
-                        "Đăng kí",
+                        "ĐĂNG KÍ",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
@@ -91,9 +110,11 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                     Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 1, vertical: 20),
                       margin: const EdgeInsets.only(top: 36),
-                      width: 342,
-                      height: 248,
+                      // width: 342,
+                      // height: 248,
                       decoration: color2,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -101,10 +122,45 @@ class _SignUpState extends State<SignUp> {
                           Container(
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: TextField(
-                              
+                              onChanged: (ValueKey) {},
+                              controller: nameController,
+                              decoration: InputDecoration(
+                                icon: const Icon(
+                                  Icons.person,
+                                  color: Color.fromRGBO(96, 216, 222, 0.65),
+                                ),
+                                filled: true,
+                                fillColor:
+                                    const Color.fromRGBO(96, 216, 222, 0.24),
+                                hintText: 'Nhập Họ & Tên ',
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                      color:
+                                          Color.fromARGB(255, 244, 244, 244)),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                      color:
+                                          Color.fromARGB(255, 244, 244, 244)),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            child: TextField(
                               onChanged: (ValueKey) {},
                               controller: emailController,
                               decoration: InputDecoration(
+                                icon: const Icon(
+                                  Icons.mail,
+                                  color: Color.fromRGBO(96, 216, 222, 0.65),
+                                ),
                                 filled: true,
                                 fillColor:
                                     const Color.fromRGBO(96, 216, 222, 0.24),
@@ -134,10 +190,10 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (ValueKey) {},
                               controller: passController,
                               decoration: InputDecoration(
-                                // icon: Icon(
-                                //   Icons.person,
-                                //   color: Color.fromRGBO(96, 216, 222, 0.65),
-                                // ),
+                                icon: const Icon(
+                                  Icons.lock_clock,
+                                  color: Color.fromRGBO(96, 216, 222, 0.65),
+                                ),
                                 filled: true,
                                 fillColor:
                                     const Color.fromRGBO(96, 216, 222, 0.24),
@@ -165,7 +221,12 @@ class _SignUpState extends State<SignUp> {
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: TextField(
                               onChanged: (ValueKey) {},
+                              controller: pass1Controller,
                               decoration: InputDecoration(
+                                icon: const Icon(
+                                  Icons.lock_clock,
+                                  color: Color.fromRGBO(96, 216, 222, 0.65),
+                                ),
                                 // icon: Icon(
                                 //   Icons.person,
                                 //   color: Color.fromRGBO(96, 216, 222, 0.65),
@@ -196,27 +257,13 @@ class _SignUpState extends State<SignUp> {
                     const SizedBox(
                       height: 44,
                     ),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(250, 50),
-                            backgroundColor: const Color(0xff8DF2D0),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25))),
-                        onPressed: () {
-                          signupHandle();
-                        },
-                        child: Text(
-                          " Đăng kí",
-                          style: GoogleFonts.lato(
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black,
-                              fontSize: 19),
-                          // style: TextStyle(
-                          //   fontWeight: FontWeight.w700,
-                          //   color: Color(0xff000000),
-                          //   fontSize: 19,
-                          // ),
-                        )),
+                    ElevatedButtonWidget(
+                      buttonText: 'Đăng kí',
+                      onpressed: () {
+                        signupHandle();
+                      },
+                      width: 300,
+                    )
                   ]),
                 ),
               ),
