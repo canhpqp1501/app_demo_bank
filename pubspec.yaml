@@ -49,6 +49,10 @@ dependencies:
   intl: ^0.18.1
   image_picker: ^0.8.9
   moment_dart: ^0.17.4
+  flutter_animate: ^4.2.0
+  qr_flutter: ^4.1.0
+  qr_code_scanner: ^1.0.1
+  mobile_scanner: ^3.3.0
   
 
 dev_dependencies:

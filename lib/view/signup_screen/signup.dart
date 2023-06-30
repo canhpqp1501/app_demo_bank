@@ -2,6 +2,7 @@
 
 import 'package:app_demo_banking/authentication.dart';
 import 'package:app_demo_banking/color.dart';
+import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/network/remote/models/user_info.dart';
 import 'package:app_demo_banking/network/repositories/home_repository_impl.dart';
 import 'package:app_demo_banking/view/login_screen/login.dart';
@@ -122,8 +123,13 @@ class _SignUpState extends State<SignUp> {
                           Container(
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: TextField(
-                              onChanged: (ValueKey) {},
+                              onChanged: (ValueKey) {
+                                setState(() {
+                                  nameTextError = null;
+                                });
+                              },
                               controller: nameController,
+                              keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
                                 icon: const Icon(
                                   Icons.person,
@@ -133,17 +139,20 @@ class _SignUpState extends State<SignUp> {
                                 fillColor:
                                     const Color.fromRGBO(96, 216, 222, 0.24),
                                 hintText: 'Nhập Họ & Tên ',
-                                enabledBorder: OutlineInputBorder(
+                                suffixIcon: IconButton(
+                                    onPressed: () {
+                                      nameController.clear();
+                                    },
+                                    icon: const Icon(Icons.clear)),
+                                errorText: nameTextError,
+                                border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 244, 244, 244)),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 244, 244, 244)),
+                                  borderSide: nameTextError != null
+                                      ? const BorderSide(
+                                          color: Color.fromARGB(
+                                              255, 244, 244, 244),
+                                        )
+                                      : BorderSide.none,
                                 ),
                               ),
                             ),
@@ -154,8 +163,13 @@ class _SignUpState extends State<SignUp> {
                           Container(
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: TextField(
-                              onChanged: (ValueKey) {},
+                              onChanged: (ValueKey) {
+                                setState(() {
+                                  emailTextError = null;
+                                });
+                              },
                               controller: emailController,
+                              keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
                                 icon: const Icon(
                                   Icons.mail,
@@ -166,17 +180,20 @@ class _SignUpState extends State<SignUp> {
                                     const Color.fromRGBO(96, 216, 222, 0.24),
                                 // labelText: 'Nhập Email',
                                 hintText: 'Nhập Email của bạn ',
-                                enabledBorder: OutlineInputBorder(
+                                errorText: emailTextError,
+                                suffixIcon: IconButton(
+                                    onPressed: () {
+                                      emailController.clear();
+                                    },
+                                    icon: const Icon(Icons.clear)),
+                                border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 244, 244, 244)),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 244, 244, 244)),
+                                  borderSide: emailTextError != null
+                                      ? const BorderSide(
+                                          color: Color.fromARGB(
+                                              255, 244, 244, 244),
+                                        )
+                                      : BorderSide.none,
                                 ),
                               ),
                             ),
@@ -187,8 +204,14 @@ class _SignUpState extends State<SignUp> {
                           Container(
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: TextField(
-                              onChanged: (ValueKey) {},
+                              onChanged: (ValueKey) {
+                                setState(() {
+                                  passwordTextError = null;
+                                });
+                              },
                               controller: passController,
+                              obscureText: !isShowpass,
+                              keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
                                 icon: const Icon(
                                   Icons.lock_clock,
@@ -199,17 +222,28 @@ class _SignUpState extends State<SignUp> {
                                     const Color.fromRGBO(96, 216, 222, 0.24),
                                 // labelText: 'Nhập Email',
                                 hintText: 'Nhập password ',
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 244, 244, 244)),
+                                suffixIcon: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      isShowpass = !isShowpass;
+                                    });
+                                  },
+                                  child: Icon(
+                                    isShowpass
+                                        ? Icons.visibility_off
+                                        : Icons.visibility,
+                                  ),
                                 ),
-                                focusedBorder: OutlineInputBorder(
+                                errorText: passwordTextError,
+
+                                border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 244, 244, 244)),
+                                  borderSide: passwordTextError != null
+                                      ? const BorderSide(
+                                          color: Color.fromARGB(
+                                              255, 244, 244, 244),
+                                        )
+                                      : BorderSide.none,
                                 ),
                               ),
                             ),
@@ -220,33 +254,44 @@ class _SignUpState extends State<SignUp> {
                           Container(
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: TextField(
-                              onChanged: (ValueKey) {},
+                              onChanged: (ValueKey) {
+                                setState(() {
+                                  password1TextError = null;
+                                });
+                              },
                               controller: pass1Controller,
+                              obscureText: !isShowpass,
+                              keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
                                 icon: const Icon(
                                   Icons.lock_clock,
                                   color: Color.fromRGBO(96, 216, 222, 0.65),
                                 ),
-                                // icon: Icon(
-                                //   Icons.person,
-                                //   color: Color.fromRGBO(96, 216, 222, 0.65),
-                                // ),
                                 filled: true,
                                 fillColor:
                                     const Color.fromRGBO(96, 216, 222, 0.24),
-                                // labelText: 'Nhập Email',
                                 hintText: 'Nhập lại password ',
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 244, 244, 244)),
+                                suffixIcon: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      isShowpass = !isShowpass;
+                                    });
+                                  },
+                                  child: Icon(
+                                    isShowpass
+                                        ? Icons.visibility_off
+                                        : Icons.visibility,
+                                  ),
                                 ),
-                                focusedBorder: OutlineInputBorder(
+                                errorText: password1TextError,
+                                border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                      color:
-                                          Color.fromARGB(255, 244, 244, 244)),
+                                  borderSide: password1TextError != null
+                                      ? const BorderSide(
+                                          color: Color.fromARGB(
+                                              255, 244, 244, 244),
+                                        )
+                                      : BorderSide.none,
                                 ),
                               ),
                             ),
@@ -261,6 +306,24 @@ class _SignUpState extends State<SignUp> {
                       buttonText: 'Đăng kí',
                       onpressed: () {
                         signupHandle();
+                        if (nameController.text.isEmpty &&
+                            emailController.text.isEmpty &&
+                            passController.text.isEmpty &&
+                            pass1Controller.text.isEmpty) {
+                          setState(() {
+                            nameTextError = 'Họ & tên không được để trống';
+                            emailTextError = 'Email không được để trống';
+                            passwordTextError = 'passwork không được để trống';
+                            password1TextError = 'Không được để trống';
+                          });
+                        } else {
+                          setState(() {
+                            nameTextError = null;
+                            emailTextError = null;
+                            passwordTextError = null;
+                            password1TextError = null;
+                          });
+                        }
                       },
                       width: 300,
                     )

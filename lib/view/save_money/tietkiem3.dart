@@ -1,8 +1,9 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:app_demo_banking/color.dart';
+import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
-import 'package:app_demo_banking/view/save_money/tietkiem.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -244,12 +245,11 @@ class Size5 extends StatelessWidget {
         ),
       ),
       const SizedBox(
-        height: 200,
+        height: 190,
       ),
-
       Text(
         'Bằng việc Xác Nhận Quý Khách sẽ đồng ý với ',
-        style: GoogleFonts.lato(),
+        style: GoogleFonts.lato(), 
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -269,9 +269,6 @@ class Size5 extends StatelessWidget {
           ),
         ],
       ),
-      // SizedBox(
-      //   height: 200,
-      // ),
       Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 22),
         child: Row(
@@ -297,35 +294,13 @@ class Size5 extends StatelessWidget {
             const SizedBox(
               width: 18,
             ),
-
-            ElevatedButtonWidget1(
+            ElevatedButtonWidget(
               buttonText: 'XÁC NHẬN',
               onpressed: () {
                 Navigator.pushNamed(context, AppRouterName.widgetTree);
               },
               width: 180,
             )
-            // child: ElevatedButton(
-            //     style: ElevatedButton.styleFrom(
-            //         minimumSize: const Size(250, 50),
-            //         backgroundColor: const Color(0xff8DF2D0),
-            //         shape: RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.circular(25))),
-            //     onPressed: () {
-            //       Navigator.pushNamed(context, AppRouterName.widgetTree);
-            //     },
-            //     child: Text(
-            //       " XÁC NHẬN",
-            //       style: GoogleFonts.lato(
-            //           fontWeight: FontWeight.w700,
-            //           color: const Color.fromARGB(255, 182, 141, 87),
-            //           fontSize: 19),
-            //       // style: TextStyle(
-            //       //   color: Color.fromARGB(255, 229, 185, 114),
-            //       //   fontWeight: FontWeight.w700,
-            //       //   fontSize: 19,
-            //       // ),
-            //     )),
           ],
         ),
       ),

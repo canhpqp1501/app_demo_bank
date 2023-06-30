@@ -1,8 +1,9 @@
 import 'package:app_demo_banking/color.dart';
+import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../authentication.dart';
@@ -19,9 +20,9 @@ class Login extends StatefulWidget {
 class _Login extends State<Login> {
   late TextEditingController usernameController = TextEditingController();
   late TextEditingController passwordController = TextEditingController();
-  String? usernameValue;
-  String? passwordValue;
-  String? usernameError;
+  // String? usernameValue;
+  // String? passwordValue;
+  String? userEmailError;
   String? passwordError;
   bool isShowpass = false;
   // ignore: non_constant_identifier_names
@@ -29,8 +30,8 @@ class _Login extends State<Login> {
   @override
   void initState() {
     // initSharedPref();
-    usernameController = TextEditingController(text: usernameValue);
-    passwordController = TextEditingController(text: passwordValue);
+    // usernameController = TextEditingController(text: usernameValue);
+    // passwordController = TextEditingController(text: passwordValue);
     super.initState();
   }
 
@@ -43,11 +44,6 @@ class _Login extends State<Login> {
         email: usernameController.text.trim(),
         password: passwordController.text.trim());
     // print(Auth().currentUser);
-
-    // await Auth().loginWithEmailAndPassword(
-    //     email: usernameController.text.trim(),
-    //     password: passwordController.text.trim());
-    // // print(Auth().currentUser);
   }
 
   @override
@@ -97,76 +93,84 @@ class _Login extends State<Login> {
                       padding: const EdgeInsets.only(left: 32, right: 32),
                       child: TextField(
                         controller: usernameController,
-                        onChanged: (value) {},
+                        onChanged: (value) {
+                          setState(() {
+                            userEmailError = null;
+                          });
+                        },
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
+                          errorText: userEmailError,
                           icon: const Icon(
                             Icons.mail,
                             color: Color.fromRGBO(96, 216, 222, 0.65),
                           ),
                           filled: true,
                           fillColor: const Color.fromRGBO(96, 216, 222, 0.24),
-                          // labelText: 'Nhập Email',
                           hintText: 'Nhập Email của bạn ',
-                          errorText: usernameError,
-                          enabledBorder: OutlineInputBorder(
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                usernameController.clear();
+                              },
+                              icon: const Icon(Icons.clear)),
+                          border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
-                            borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 244, 244, 244)),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 244, 244, 244)),
+                            borderSide: passwordError != null
+                                ? const BorderSide(
+                                    color: Color.fromARGB(255, 244, 244, 244),
+                                  )
+                                : BorderSide.none,
                           ),
                         ),
-                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
                     const SizedBox(
                       height: 15,
                     ),
                     Container(
-                      padding: const EdgeInsets.only(left: 32, right: 32),
-                      child: TextField(
-                        controller: passwordController,
-                        onChanged: (value) {},
-                        obscureText: !isShowpass,
-                        decoration: InputDecoration(
-                          icon: const Icon(
-                            Icons.lock,
-                            color: Color.fromRGBO(96, 216, 222, 0.65),
-                          ),
-                          errorText: passwordError,
-                          suffixIcon: InkWell(
-                            onTap: () {
-                              setState(() {
-                                isShowpass = !isShowpass;
-                              });
-                            },
-                            child: Icon(
-                              isShowpass
-                                  ? Icons.visibility_off
-                                  : Icons.visibility,
+                        padding: const EdgeInsets.only(left: 32, right: 32),
+                        child: TextField(
+                          controller: passwordController,
+                          onChanged: (value) {
+                            setState(() {
+                              passwordError = null;
+                            });
+                          },
+                          obscureText: !isShowpass,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            icon: const Icon(
+                              Icons.lock,
+                              color: Color.fromRGBO(96, 216, 222, 0.65),
+                            ),
+                            errorText: passwordError,
+                            suffixIcon: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  isShowpass = !isShowpass;
+                                });
+                              },
+                              child: Icon(
+                                isShowpass
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                            ),
+                            filled: true,
+                            fillColor: const Color.fromRGBO(96, 216, 222, 0.24),
+                            // labelText: 'Nhập Password',
+                            hintText: 'Nhập Password ',
+
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: passwordError != null
+                                  ? const BorderSide(
+                                      color: Color.fromARGB(255, 244, 244, 244),
+                                    )
+                                  : BorderSide.none,
                             ),
                           ),
-                          filled: true,
-                          fillColor: const Color.fromRGBO(96, 216, 222, 0.24),
-                          // labelText: 'Nhập Password',
-                          hintText: 'Nhập Password ',
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 244, 244, 244)),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 244, 244, 244)),
-                          ),
-                        ),
-                        keyboardType: TextInputType.emailAddress,
-                      ),
-                    ),
+                        )),
                   ],
                 ),
               ),
@@ -176,6 +180,18 @@ class _Login extends State<Login> {
               ElevatedButtonWidget(
                 onpressed: () {
                   loginHandle();
+                  if (usernameController.text.isEmpty &&
+                      passwordController.text.isEmpty) {
+                    setState(() {
+                      userEmailError = 'Email không được để trống';
+                      passwordError = 'password không được để trống';
+                    });
+                  } else {
+                    setState(() {
+                      userEmailError = null;
+                      passwordError = null;
+                    });
+                  }
                 },
                 buttonText: 'Đăng Nhập',
                 width: 300,
@@ -225,74 +241,6 @@ class _Login extends State<Login> {
                 ],
               ),
             ]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ElevatedButtonWidget extends StatelessWidget {
-  final String buttonText;
-  final double width;
-  final Function onpressed;
-
-  const ElevatedButtonWidget({
-    super.key,
-    required this.buttonText,
-    required this.width,
-    required this.onpressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Container(
-        decoration: BoxDecoration(
-          boxShadow: const [
-            BoxShadow(
-                color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
-          ],
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            stops: const [0.0, 1.0],
-            colors: [
-              Colors.deepPurple.shade400,
-              Colors.deepPurple.shade200,
-            ],
-          ),
-          color: Colors.deepPurple.shade300,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: ElevatedButton(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-            ),
-            minimumSize: MaterialStateProperty.all(Size(width, 50)),
-            backgroundColor: MaterialStateProperty.all(Colors.transparent),
-            // elevation: MaterialStateProperty.all(3),
-            shadowColor: MaterialStateProperty.all(Colors.transparent),
-          ),
-          onPressed: () {
-            onpressed();
-          },
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 15,
-              bottom: 15,
-            ),
-            child: Text(
-              buttonText,
-              style: GoogleFonts.lato(
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0xffffffff),
-                  fontSize: 20),
-            ),
           ),
         ),
       ),

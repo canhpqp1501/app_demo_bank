@@ -2,6 +2,8 @@
 
 import 'package:app_demo_banking/view/chuyetienbank/transfer_money.dart';
 import 'package:app_demo_banking/view/homepage/Home.dart';
+import 'package:app_demo_banking/view/qr_scan.dart/qr.dart';
+
 import 'package:app_demo_banking/view/save_money/tietkiem2.dart';
 import 'package:app_demo_banking/view/save_money/tietkiem3.dart';
 import 'package:app_demo_banking/view/splash_screen/Splash.dart';
@@ -45,6 +47,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const Tietkiem3(),
         );
+      case AppRouterName.qr:
+        return MaterialPageRoute(
+          builder: (context) => const Qrscan(),
+        );
       case AppRouterName.home:
         return MaterialPageRoute(
           // builder: (context) => MyHomePage(
@@ -70,4 +76,5 @@ class AppRouterName {
   static const tietKiem2 = '/tietkiem2';
   static const tietKiem3 = '/tietkiem3';
   static const login = '/login';
+  static const qr = '/qr';
 }

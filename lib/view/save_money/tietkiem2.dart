@@ -1,9 +1,8 @@
 // ignore_for_file: avoid_unnecessary_containers, must_be_immutable, non_constant_identifier_names
 
 import 'package:app_demo_banking/color.dart';
+import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
-
-import 'package:app_demo_banking/view/save_money/tietkiem.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,13 +41,13 @@ class _TietKiem2State extends State<TietKiem2> {
             elevation: 0,
             centerTitle: true,
           ),
-          body: Column(
+          body: const Column(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 15,
               ),
-              const Size3(),
-              const SizedBox(
+              Size3(),
+              SizedBox(
                 height: 45,
               ),
               Size4(),
@@ -121,7 +120,7 @@ class Size3 extends StatelessWidget {
 }
 
 class Size4 extends StatefulWidget {
-  Size4({super.key});
+  const Size4({super.key});
 
   @override
   State<Size4> createState() => _Size4State();
@@ -134,7 +133,7 @@ class _Size4State extends State<Size4> {
     'Nhận cả gốc và lãi  '
   ];
 
-  int index_Color = 0;
+  int indexColor = 0;
 
   // void initState() {
   @override
@@ -238,18 +237,18 @@ class _Size4State extends State<Size4> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ...List.generate(3, (index) {
+                      ...List.generate(3, (indexGen) {
                         return GestureDetector(
                           onTap: () {
                             setState(() {
-                              index_Color == index;
+                              indexColor = indexGen;
                             });
                           },
                           child: Container(
                             margin: const EdgeInsets.symmetric(vertical: 12),
 
                             decoration: BoxDecoration(
-                              color: index_Color == index
+                              color: indexColor == indexGen
                                   ? const Color(0xffFF8551)
                                   : const Color(0xffDCF6F8),
                               boxShadow: const [
@@ -271,7 +270,7 @@ class _Size4State extends State<Size4> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  day[index],
+                                  day[indexGen],
                                   style: GoogleFonts.lato(
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w700,
@@ -439,29 +438,13 @@ class _Size4State extends State<Size4> {
             const SizedBox(
               height: 105,
             ),
-            ElevatedButtonWidget1(
+            ElevatedButtonWidget(
               buttonText: 'TIẾP TỤC',
               onpressed: () {
                 Navigator.pushNamed(context, AppRouterName.tietKiem3);
               },
               width: 250,
             )
-            // ElevatedButton(
-            //     style: ElevatedButton.styleFrom(
-            //         minimumSize: const Size(250, 50),
-            //         backgroundColor: const Color(0xff8DF2D0),
-            //         shape: RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.circular(25))),
-            //     onPressed: () {
-            //       Navigator.pushNamed(context, AppRouterName.tietKiem3);
-            //     },
-            //     child: Text(
-            //       " TIẾP TỤC",
-            //       style: GoogleFonts.lato(
-            //           fontWeight: FontWeight.w700,
-            //           color: Colors.black,
-            //           fontSize: 19),
-            //     )),
           ],
         ),
       ),

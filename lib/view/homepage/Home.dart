@@ -2,6 +2,7 @@
 // ignore_for_file: must_be_immutable, avoid_unnecessary_containers, file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -56,24 +57,28 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.all(18),
                   onTabChange: (index) {},
                   activeColor: Colors.white,
-                  tabs: const [
-                    GButton(
+                  tabs: [
+                    const GButton(
                       icon: Icons.home,
                       text: 'Trang chủ',
                     ),
-                    GButton(
+                    const GButton(
                       icon: Icons.search,
                       text: 'Tra cứu',
                     ),
                     GButton(
                       icon: Icons.qr_code_scanner,
                       iconSize: 30,
+                      onPressed: () {
+                        ///
+                        Navigator.pushNamed(context, AppRouterName.qr);
+                      },
                     ),
-                    GButton(
+                    const GButton(
                       icon: Icons.paid,
                       text: 'Giao dịch ',
                     ),
-                    GButton(
+                    const GButton(
                       icon: Icons.settings,
                       text: 'Cài đặt',
                     ),
@@ -85,7 +90,19 @@ class _HomeState extends State<Home> {
                 return SafeArea(
                   child: SingleChildScrollView(
                     child: state.isLoading
-                        ? const Center(child: CircularProgressIndicator())
+                        ? Animate(
+                                child: Icon(
+                                  Icons.back_hand,
+                                  size: size.height * 0.03,
+                                  color: Colors.orange,
+                                ),
+                                onComplete: (controller) {
+                                  controller.reverse();
+                                })
+                            .shake(
+                                duration: const Duration(seconds: 10),
+                                rotation: 0.3,
+                                hz: 0.1)
                         : Column(
                             children: [
                               Column(
@@ -144,11 +161,21 @@ class _HomeState extends State<Home> {
                                                     fontWeight: FontWeight.w600,
                                                     color: Colors.white),
                                               ),
-                                              Icon(
-                                                Icons.back_hand,
-                                                size: size.height * 0.03,
-                                                color: Colors.orange,
-                                              ),
+                                              Animate(
+                                                      child: Icon(
+                                                        Icons.back_hand,
+                                                        size:
+                                                            size.height * 0.03,
+                                                        color: Colors.orange,
+                                                      ),
+                                                      onComplete: (controller) {
+                                                        controller.reverse();
+                                                      })
+                                                  .shake(
+                                                      duration: const Duration(
+                                                          hours: 1),
+                                                      rotation: 0.3,
+                                                      hz: 3)
                                             ],
                                           ),
                                         ),
@@ -156,16 +183,32 @@ class _HomeState extends State<Home> {
                                           padding: const EdgeInsets.only(
                                             right: 24,
                                           ),
-                                          child: const Row(
+                                          child: Row(
                                             children: [
-                                              Icon(
+                                              const Icon(
                                                 Icons.search,
                                                 color: Colors.orange,
                                               ),
-                                              Icon(
-                                                Icons.notifications_on,
-                                                color: Colors.orange,
-                                              )
+                                              Animate(
+                                                child: Icon(
+                                                  Icons.notifications_on,
+                                                  size: size.height * 0.03,
+                                                  color: Colors.orange,
+                                                ),
+                                                onComplete: (controller) {
+                                                  controller.reverse();
+                                                },
+                                              ).shake(
+                                                  duration:
+                                                      const Duration(hours: 1),
+                                                  rotation: 0.3,
+                                                  hz: 3),
+                                              // Animate(
+                                              //   child: Icon(
+                                              //     Icons.notifications_on,
+                                              //     color: Colors.orange,
+                                              //   ),
+                                              // ).scale()
                                             ],
                                           ),
                                         ),
@@ -237,24 +280,8 @@ class _Sizebox1State extends State<Sizebox1> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      // decoration: BoxDecoration(
-      //   boxShadow: const [
-      //     BoxShadow(
-      //       color: Color.fromRGBO(0, 0, 0, 0.25),
-      //       spreadRadius: 2,
-      //       blurRadius: 7,
-      //       offset: Offset(0, 3), // changes position of shadow
-      //     ),
-      //   ],
-      //   borderRadius: BorderRadius.circular(30),
-      //   gradient: const LinearGradient(
-      //       colors: [Color(0xff85d8ce), Color(0xff085078)]),
-      // ),
       decoration: BoxDecoration(
-        boxShadow: const [
-          // BoxShadow(
-          //     color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
-        ],
+        boxShadow: const [],
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -400,10 +427,16 @@ class _Sizebox1State extends State<Sizebox1> {
                       child: Container(
                           padding: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 10),
-                          child: const Icon(
-                            Icons.qr_code_scanner,
-                            size: 35,
-                            color: Colors.amber,
+                          child: Animate(
+                            child: const Icon(
+                              Icons.qr_code_scanner,
+                              size: 35,
+                              color: Colors.amber,
+                            ),
+                          ).scaleXY(
+                            duration: const Duration(
+                              seconds: 2,
+                            ),
                           )),
                     ),
                     Container(
@@ -667,5 +700,3 @@ class Sizebox3 extends StatelessWidget {
 //     );
 //   }
 // }
-
-
