@@ -1,3 +1,5 @@
+
+
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:app_demo_banking/view/splash_screen/Splash.dart';

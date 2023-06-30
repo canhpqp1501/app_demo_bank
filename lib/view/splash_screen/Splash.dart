@@ -2,13 +2,10 @@
 
 import 'package:app_demo_banking/view/homepage/Home.dart';
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:flutter_svg/svg.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
-// ignore: unused_import
-import 'dart:convert';
-// ignore: unused_import
-import 'package:app_demo_banking/main.dart';
+
+
 
 import 'package:permission_handler/permission_handler.dart';
 
@@ -26,10 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   bool isLoading = true;
   @override
   void initState() {
-    // Future.delayed(const Duration(seconds: 1), () {
-    //   Navigator.pushNamed(context, "/Login");
-    // });
-    // initSharedPref();
+    
     requestPermission();
     super.initState();
   }

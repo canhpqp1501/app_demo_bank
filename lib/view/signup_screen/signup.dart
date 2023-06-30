@@ -99,8 +99,7 @@ class _SignUpState extends State<SignUp> {
                       alignment: Alignment.center,
                       padding: const EdgeInsets.only(top: 32),
 
-                      // width: 161,
-                      // height: 40,
+                      
                       child: const Text(
                         "ĐĂNG KÍ",
                         style: TextStyle(

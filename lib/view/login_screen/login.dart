@@ -20,8 +20,7 @@ class Login extends StatefulWidget {
 class _Login extends State<Login> {
   late TextEditingController usernameController = TextEditingController();
   late TextEditingController passwordController = TextEditingController();
-  // String? usernameValue;
-  // String? passwordValue;
+  
   String? userEmailError;
   String? passwordError;
   bool isShowpass = false;
@@ -29,9 +28,7 @@ class _Login extends State<Login> {
   SharedPreferences? Prefs;
   @override
   void initState() {
-    // initSharedPref();
-    // usernameController = TextEditingController(text: usernameValue);
-    // passwordController = TextEditingController(text: passwordValue);
+    
     super.initState();
   }
 
@@ -196,25 +193,7 @@ class _Login extends State<Login> {
                 buttonText: 'Đăng Nhập',
                 width: 300,
               ),
-              // Container(
-              //   padding: const EdgeInsets.only(top: 16),
-              //   child: ElevatedButton(
-              //       style: ElevatedButton.styleFrom(
-              //           minimumSize: const Size(250, 50),
-              //           shape: RoundedRectangleBorder(
-              //               borderRadius: BorderRadius.circular(25))),
-              //       onPressed: () {
-              //         loginHandle();
-              //       },
-              //       child: const Text(
-              //         'Đăng nhập',
-              //         style: TextStyle(
-              //           color: Color(0xff000000),
-              //           fontWeight: FontWeight.w700,
-              //           fontSize: 19,
-              //         ),
-              //       )),
-              // ),
+              
               const SizedBox(
                 height: 20,
               ),

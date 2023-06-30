@@ -203,12 +203,7 @@ class _HomeState extends State<Home> {
                                                       const Duration(hours: 1),
                                                   rotation: 0.3,
                                                   hz: 3),
-                                              // Animate(
-                                              //   child: Icon(
-                                              //     Icons.notifications_on,
-                                              //     color: Colors.orange,
-                                              //   ),
-                                              // ).scale()
+                                              
                                             ],
                                           ),
                                         ),
@@ -222,8 +217,7 @@ class _HomeState extends State<Home> {
                                 height: 7,
                               ),
                               Sizebox3(),
-                              // const Sizebox4(),
-                              // const Sizebox5(),
+                              
 
                               // vị trí của sizebox1
                             ],
@@ -648,32 +642,7 @@ class Sizebox3 extends StatelessWidget {
                   ],
                 ),
               ),
-              // Container(
-              //   // padding: const EdgeInsets.only(top: 7),
-              //   child: Column(
-              //     children: [
-              //       Container(
-              //           padding: const EdgeInsets.only(top: 7, left: 25),
-              //           child: Image.asset("assets/images/im7.png")),
-              //       Container(
-              //           padding: const EdgeInsets.only(top: 7, left: 15),
-              //           child: Text("Tra Cứu", style: style3)),
-              //     ],
-              //   ),
-              // ),
-              // Container(
-              //   // padding: const EdgeInsets.only(top: 7),
-              //   child: Column(
-              //     children: [
-              //       Container(
-              //           padding: const EdgeInsets.only(top: 7, left: 30),
-              //           child: Image.asset("assets/images/im8.png")),
-              //       Container(
-              //           padding: const EdgeInsets.only(top: 7, left: 30),
-              //           child: Text("QR & QR pay", style: style3)),
-              //     ],
-              //   ),
-              // ),
+              
             ],
           ),
           Container(
@@ -685,18 +654,3 @@ class Sizebox3 extends StatelessWidget {
   }
 }
 
-// class Sizebox4 extends StatelessWidget {
-//   const Sizebox4({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       margin: const EdgeInsets.only(top: 31),
-//       child: Image.asset(
-//         "assets/images/quangcao.png",
-//         width: double.infinity,
-//         height: 135,
-//       ),
-//     );
-//   }
-// }

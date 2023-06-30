@@ -135,7 +135,7 @@ class _Size4State extends State<Size4> {
 
   int indexColor = 0;
 
-  // void initState() {
+  
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -170,7 +170,7 @@ class _Size4State extends State<Size4> {
                             color: Color.fromRGBO(0, 0, 0, 0.25),
                             spreadRadius: 2,
                             blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
+                            offset: Offset(0, 3), 
                           ),
                         ],
                         borderRadius: BorderRadius.circular(30),
@@ -280,158 +280,13 @@ class _Size4State extends State<Size4> {
                               ],
                             ),
 
-                            // child: Row(
-                            //   mainAxisAlignment:
-                            //       MainAxisAlignment.spaceAround,
-                            //   children: [
-                            //     Column(
-                            //       children: [
-                            //         Container(
-                            //           padding: const EdgeInsets.only(
-                            //               top: 8, right: 10),
-                            //           child: Text(
-                            //             day[index],
-                            //             style: GoogleFonts.lato(
-                            //                 fontStyle: FontStyle.normal,
-                            //                 fontWeight: FontWeight.w700,
-                            //                 fontSize: 15),
-                            //           ),
-                            //         ),
-                            //         // Container(
-                            //         //   child: Text(
-                            //         //     'Tự động gửi tiếp cả gốc và lãi sang kỳ hạn tương đương',
-                            //         //     style: GoogleFonts.lato(
-                            //         //       fontStyle: FontStyle.normal,
-                            //         //       fontSize: 11,
-                            //         //     ),
-                            //         //   ),
-                            //         // ),
-                            //       ],
-                            //     ),
-                            //     const Row(
-                            //       children: [Icon(Icons.done_all)],
-                            //     )
-                            //   ],
-                            // ),
+                            
                           ),
                         );
                       }),
                     ],
                   ),
-                  // const SizedBox(
-                  //   height: 15,
-                  // ),
-                  // // Container(),
-                  // /////
-                  // const SizedBox(
-                  //   height: 24,
-                  // ),
-                  // Container(
-                  //   child: Container(
-                  //     decoration: BoxDecoration(
-                  //       color: const Color(0xffDCF6F8),
-                  //       boxShadow: const [
-                  //         BoxShadow(
-                  //           color: Color.fromRGBO(0, 0, 0, 0.25),
-                  //           spreadRadius: 2,
-                  //           blurRadius: 7,
-                  //           offset: Offset(0, 3), // changes position of shadow
-                  //         ),
-                  //       ],
-                  //       borderRadius: BorderRadius.circular(30),
-                  //     ),
-                  //     width: 335,
-                  //     height: 50,
-                  //     child: Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //         Column(
-                  //           children: [
-                  //             Container(
-                  //               padding: const EdgeInsets.only(
-                  //                 top: 2,
-                  //               ),
-                  //               child: Text(
-                  //                 'Nhận lãi, chuyển gốc sang ký hạn mới',
-                  //                 style: GoogleFonts.lato(
-                  //                     fontStyle: FontStyle.normal,
-                  //                     fontWeight: FontWeight.w700,
-                  //                     fontSize: 15),
-                  //               ),
-                  //             ),
-                  //             Container(
-                  //               // padding: EdgeInsets.only(left: 7),
-                  //               child: Text(
-                  //                 'Tiền gốc sẽ tự động gửi tiếp kỳ hạn tương đương. \nLãi của tiền gửi sẽ được tự động chuyển vào tài khoản nhận tiền',
-                  //                 style: GoogleFonts.lato(
-                  //                   fontStyle: FontStyle.normal,
-                  //                   fontSize: 9,
-                  //                 ),
-                  //               ),
-                  //             ),
-                  //           ],
-                  //         ),
-                  //         const Row(
-                  //           children: [Icon(Icons.done_all)],
-                  //         )
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 24,
-                  // ),
-                  // Container(
-                  //   child: Container(
-                  //     decoration: BoxDecoration(
-                  //       color: const Color(0xffDCF6F8),
-                  //       boxShadow: const [
-                  //         BoxShadow(
-                  //           color: Color.fromRGBO(0, 0, 0, 0.25),
-                  //           spreadRadius: 2,
-                  //           blurRadius: 7,
-                  //           offset: Offset(0, 3), // changes position of shadow
-                  //         ),
-                  //       ],
-                  //       borderRadius: BorderRadius.circular(30),
-                  //     ),
-                  //     width: 335,
-                  //     height: 50,
-                  //     child: Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //       children: [
-                  //         Column(
-                  //           children: [
-                  //             Container(
-                  //               padding:
-                  //                   const EdgeInsets.only(top: 3, right: 133),
-                  //               child: Text(
-                  //                 'Nhận cả gốc và lãi',
-                  //                 style: GoogleFonts.lato(
-                  //                     fontStyle: FontStyle.normal,
-                  //                     fontWeight: FontWeight.w700,
-                  //                     fontSize: 15),
-                  //               ),
-                  //             ),
-                  //             Container(
-                  //               padding: const EdgeInsets.only(left: 7),
-                  //               child: Text(
-                  //                 'Tự động chuyển tiền gốc và lãi vào tài khoản nhận tiền',
-                  //                 style: GoogleFonts.lato(
-                  //                   fontStyle: FontStyle.normal,
-                  //                   fontSize: 11,
-                  //                 ),
-                  //               ),
-                  //             ),
-                  //           ],
-                  //         ),
-                  //         const Row(
-                  //           children: [Icon(Icons.done_all)],
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
+                 
                 ],
               ),
             ),

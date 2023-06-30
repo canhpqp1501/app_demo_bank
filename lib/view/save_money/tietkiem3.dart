@@ -259,9 +259,7 @@ class Size5 extends StatelessWidget {
             style: GoogleFonts.lato(
               color: const Color.fromARGB(255, 250, 180, 75),
             ),
-            // style: TextStyle(
-            //   color: Color.fromARGB(255, 250, 180, 75),
-            // ),
+            
           ),
           Text(
             'của FPBank',
