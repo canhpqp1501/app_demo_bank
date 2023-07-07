@@ -1,14 +1,17 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_typing_uninitialized_variables
 // ignore_for_file: avoid_unnecessary_containers, avoid_types_as_parameter_names, non_constant_identifier_names, must_be_immutable
 
-import 'package:app_demo_banking/common/elevated_button_widget.dart';
-import 'package:app_demo_banking/view/save_money/saving_term.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:moment_dart/moment_dart.dart';
 
 import 'package:app_demo_banking/color.dart';
+import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
-import 'package:moment_dart/moment_dart.dart';
+import 'package:app_demo_banking/view/homepage/view_model/tiet_kiem_cubit.dart';
+import 'package:app_demo_banking/view/homepage/view_model/tiet_kiem_state.dart';
+import 'package:app_demo_banking/view/save_money/saving_term.dart';
 
 class TietKiem extends StatefulWidget {
   const TietKiem({super.key});
@@ -52,37 +55,42 @@ class _TietKiemState extends State<TietKiem> {
             elevation: 0,
             centerTitle: true,
           ),
-          body: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 15,
+          body: BlocBuilder<tietKiemCubit, tietKiemState>(
+            builder: (context, state) {
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Size1(
+                      month: activeMonth,
+                      money: state.money ?? 0,
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 25),
+                      child: const Text(
+                        "MỤC TIÊU TIẾT KIỆM",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
+                            color: Colors.white,
+                            fontSize: 25),
+                      ),
+                    ),
+                    Center(
+                        child: Size2(
+                      onChangeMonth: onChangeMonth,
+                      month: activeMonth,
+                    )),
+                  ],
                 ),
-                Size1(
-                  month: activeMonth,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  padding: const EdgeInsets.only(left: 25),
-                  child: const Text(
-                    "MỤC TIÊU TIẾT KIỆM",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontStyle: FontStyle.normal,
-                        color: Colors.white,
-                        fontSize: 25),
-                  ),
-                ),
-                Center(
-                    child: Size2(
-                  onChangeMonth: onChangeMonth,
-                  month: activeMonth,
-                )),
-              ],
-            ),
+              );
+            },
           ),
         ));
   }
@@ -90,9 +98,14 @@ class _TietKiemState extends State<TietKiem> {
 
 class Size1 extends StatelessWidget {
   final SavingTerm month;
-  final String userpost = '';
-  const Size1({super.key, required this.month});
+  final int money;
 
+  const Size1({
+    Key? key,
+    required this.month,
+    required this.money,
+  }) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -112,7 +125,7 @@ class Size1 extends StatelessWidget {
               height: 25,
             ),
             Text(
-              '---VND $userpost',
+              ' $money VND',
               style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -137,6 +150,7 @@ class Size1 extends StatelessWidget {
 
 class Size2 extends StatefulWidget {
   SavingTerm month;
+
   Size2({
     Key? key,
     required this.onChangeMonth,
@@ -151,7 +165,6 @@ class Size2 extends StatefulWidget {
 
 class _Size2State extends State<Size2> {
   TextEditingController moneyController = TextEditingController();
-  String userpost = '';
 
   final listTerm = [
     SavingTerm('1 tuần ', 7),
@@ -227,10 +240,9 @@ class _Size2State extends State<Size2> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                   child: TextField(
-                    onChanged: (ValueKey) {
-                      setState(() {
-                        userpost = moneyController.text;
-                      });
+                    onChanged: (value) {
+                      context.read<tietKiemCubit>().setMoneyHandle(
+                          int.tryParse(value.replaceAll("\$", "")) ?? 0);
                     },
                     controller: moneyController,
                     keyboardType: TextInputType.number,
@@ -238,12 +250,14 @@ class _Size2State extends State<Size2> {
                       filled: true,
                       fillColor: const Color.fromRGBO(96, 216, 222, 0.24),
                       hintText: 'Số tiền tiết kiệm ',
+                      prefixText: '\$',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide: const BorderSide(
                             color: Color.fromARGB(255, 244, 244, 244)),
                       ),
                     ),
+                    maxLength: 12,
                   ),
                 ),
                 Container(

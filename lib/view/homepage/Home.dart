@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: must_be_immutable, avoid_unnecessary_containers, file_names
 
+import 'package:app_demo_banking/view/qr_scan.dart/dialog_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -203,7 +204,6 @@ class _HomeState extends State<Home> {
                                                       const Duration(hours: 1),
                                                   rotation: 0.3,
                                                   hz: 3),
-                                              
                                             ],
                                           ),
                                         ),
@@ -217,7 +217,6 @@ class _HomeState extends State<Home> {
                                 height: 7,
                               ),
                               Sizebox3(),
-                              
 
                               // vị trí của sizebox1
                             ],
@@ -269,6 +268,13 @@ class _Sizebox1State extends State<Sizebox1> {
       fontWeight: FontWeight.w700, fontStyle: FontStyle.normal, fontSize: 15);
 
   bool isShowVND = false;
+  void createNewTask() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const DialogBox();
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -334,12 +340,21 @@ class _Sizebox1State extends State<Sizebox1> {
                       width: 10,
                     ),
                     GestureDetector(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.visibility,
-                        size: 17,
-                        color: Color(0xff085078),
+                      onTap: () {
+                        setState(() {
+                          isShowVND = !isShowVND;
+                        });
+                      },
+                      child: Icon(
+                        isShowVND ? Icons.visibility_off : Icons.visibility,
+                        size: 20,
+                        color: const Color(0xff085078),
                       ),
+                      // child: const Icon(
+                      //   Icons.visibility,
+                      //   size: 17,
+                      //   color: Color(0xff085078),
+                      // ),
                     )
                   ],
                 ),
@@ -361,11 +376,13 @@ class _Sizebox1State extends State<Sizebox1> {
                     child: Container(
                         padding: const EdgeInsets.symmetric(
                             vertical: 8, horizontal: 8),
-                        child: const Icon(
-                          Icons.arrow_forward,
-                          size: 35,
-                          color: Colors.amber,
-                        )),
+                        child: Animate(
+                          child: const Icon(
+                            Icons.arrow_forward,
+                            size: 38,
+                            color: Colors.amber,
+                          ),
+                        ).scaleXY(duration: const Duration(seconds: 4))),
                   ),
                   Container(
                     padding: const EdgeInsets.only(
@@ -390,11 +407,16 @@ class _Sizebox1State extends State<Sizebox1> {
                     child: Container(
                         padding: const EdgeInsets.symmetric(
                             vertical: 8, horizontal: 8),
-                        child: const Icon(
-                          Icons.timer,
-                          size: 35,
-                          color: Colors.amber,
-                        )),
+                        child: Animate(
+                          child: const Icon(
+                            Icons.timer,
+                            size: 38,
+                            color: Colors.amber,
+                          ),
+                        ).scaleXY(
+                            duration: const Duration(
+                          seconds: 4,
+                        ))),
                   ),
                   Container(
                     padding: const EdgeInsets.only(
@@ -411,28 +433,19 @@ class _Sizebox1State extends State<Sizebox1> {
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
                   children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(30),
-                        ),
-                      ),
-                      child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 10),
-                          child: Animate(
-                            child: const Icon(
-                              Icons.qr_code_scanner,
-                              size: 35,
-                              color: Colors.amber,
-                            ),
-                          ).scaleXY(
-                            duration: const Duration(
-                              seconds: 2,
-                            ),
-                          )),
-                    ),
+                    FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        onPressed: createNewTask,
+                        child: Animate(
+                          child: const Icon(
+                            Icons.qr_code_scanner,
+                            size: 35,
+                            color: Colors.amber,
+                          ),
+                        ).scaleXY(
+                          duration: const Duration(seconds: 2),
+                          curve: Curves.easeInOut,
+                        )),
                     Container(
                       padding: const EdgeInsets.only(
                         top: 10,
@@ -642,7 +655,6 @@ class Sizebox3 extends StatelessWidget {
                   ],
                 ),
               ),
-              
             ],
           ),
           Container(
@@ -653,4 +665,3 @@ class Sizebox3 extends StatelessWidget {
     );
   }
 }
-

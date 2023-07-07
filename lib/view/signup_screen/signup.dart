@@ -34,6 +34,7 @@ class _SignUpState extends State<SignUp> {
 
   String? emailValue;
   String? passValue;
+ 
 
   bool isShowpass = false;
 

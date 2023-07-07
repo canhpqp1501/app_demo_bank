@@ -2,6 +2,7 @@
 
 import 'package:app_demo_banking/view/chuyetienbank/transfer_money.dart';
 import 'package:app_demo_banking/view/homepage/Home.dart';
+import 'package:app_demo_banking/view/homepage/view_model/tiet_kiem_cubit.dart';
 import 'package:app_demo_banking/view/qr_scan.dart/qr.dart';
 
 import 'package:app_demo_banking/view/save_money/tietkiem2.dart';
@@ -9,6 +10,7 @@ import 'package:app_demo_banking/view/save_money/tietkiem3.dart';
 import 'package:app_demo_banking/view/splash_screen/Splash.dart';
 import 'package:app_demo_banking/view/signup_screen/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../view/save_money/tietkiem.dart';
 import '../view/widget_tree/widget_tree.dart';
@@ -32,7 +34,10 @@ class AppRouter {
         );
       case AppRouterName.saving:
         return MaterialPageRoute(
-          builder: (context) => const TietKiem(),
+          builder: (context) => BlocProvider(
+            create: (context) => tietKiemCubit(),
+            child: const TietKiem(),
+          ),
         );
 
       case AppRouterName.transferMoney:
@@ -53,10 +58,7 @@ class AppRouter {
         );
       case AppRouterName.home:
         return MaterialPageRoute(
-          // builder: (context) => MyHomePage(
-          //   title: 'dang nhap',
-          // ),
-
+          
           builder: (context) => Home(
             args: settings.arguments as ScreenArgument?,
           ),

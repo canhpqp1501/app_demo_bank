@@ -16,6 +16,7 @@ class Qrscan extends StatefulWidget {
 class _QrscanState extends State<Qrscan> {
   final GlobalKey _globalKey = GlobalKey();
   QRViewController? controller;
+
   Barcode? result;
   void qr(QRViewController controller) {
     this.controller = controller;
@@ -32,6 +33,11 @@ class _QrscanState extends State<Qrscan> {
       decoration: bgColor,
       child: Scaffold(
         backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 125, 221, 165),
+          elevation: 0,
+          centerTitle: true,
+        ),
         body: Column(
           children: [
             const Expanded(
@@ -40,29 +46,26 @@ class _QrscanState extends State<Qrscan> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    padding: EdgeInsets.symmetric(horizontal: 35),
                     child: Text(
                       'Quét mã QR để thanh toán, chuyển tiền và rút tiền mặt tại hệ thống ATM của FPBank',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 92, 121, 216),
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: 15,
                       ),
                     ),
                   )
                 ],
               ),
             ),
-            const SizedBox(
-              height: 15,
-            ),
             Expanded(
               flex: 5,
               child: Stack(children: <Widget>[
                 Center(
                   child: SizedBox(
-                    width: 300,
                     height: 300,
+                    width: 300,
                     child: QRView(key: _globalKey, onQRViewCreated: qr),
                   ),
                 ),
@@ -70,7 +73,7 @@ class _QrscanState extends State<Qrscan> {
                   child: (result != null)
                       ? Text('${result!.code}')
                       : const Text(
-                          'MÃ QR',
+                          'HƯỚNG CAMERA VÀO MÃ QR',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
@@ -80,6 +83,8 @@ class _QrscanState extends State<Qrscan> {
                 )
               ]),
             ),
+
+            /////
             const Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,8 +99,8 @@ class _QrscanState extends State<Qrscan> {
                         'Tạo mã QR',
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 10,
                         ),
                       )
                     ],
@@ -110,8 +115,8 @@ class _QrscanState extends State<Qrscan> {
                         'Lịch sử giao dịch',
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 10,
                         ),
                       )
                     ],
@@ -126,8 +131,8 @@ class _QrscanState extends State<Qrscan> {
                         'Điểm chấp nhận\n thanh toán',
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 10,
                         ),
                       )
                     ],
@@ -142,8 +147,8 @@ class _QrscanState extends State<Qrscan> {
                         'Chọn ảnh mã QR\n từ thư viện',
                         style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 13,
                         ),
                       )
                     ],

@@ -58,7 +58,9 @@ class _TietKiem2State extends State<TietKiem2> {
 }
 
 class Size3 extends StatelessWidget {
-  const Size3({super.key});
+  const Size3({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +108,7 @@ class Size3 extends StatelessWidget {
               height: 15,
             ),
             const Text(
-              "Kỳ hạn 6 tháng",
+              "Kỳ hạn ----",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -135,7 +137,6 @@ class _Size4State extends State<Size4> {
 
   int indexColor = 0;
 
-  
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -170,7 +171,7 @@ class _Size4State extends State<Size4> {
                             color: Color.fromRGBO(0, 0, 0, 0.25),
                             spreadRadius: 2,
                             blurRadius: 7,
-                            offset: Offset(0, 3), 
+                            offset: Offset(0, 3),
                           ),
                         ],
                         borderRadius: BorderRadius.circular(30),
@@ -246,7 +247,6 @@ class _Size4State extends State<Size4> {
                           },
                           child: Container(
                             margin: const EdgeInsets.symmetric(vertical: 12),
-
                             decoration: BoxDecoration(
                               color: indexColor == indexGen
                                   ? const Color(0xffFF8551)
@@ -262,7 +262,6 @@ class _Size4State extends State<Size4> {
                               ],
                               borderRadius: BorderRadius.circular(30),
                             ),
-
                             width: 335,
                             height: 50,
                             padding: const EdgeInsets.only(right: 10, left: 10),
@@ -279,14 +278,11 @@ class _Size4State extends State<Size4> {
                                 const Icon((Icons.done_all)),
                               ],
                             ),
-
-                            
                           ),
                         );
                       }),
                     ],
                   ),
-                 
                 ],
               ),
             ),

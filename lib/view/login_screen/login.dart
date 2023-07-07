@@ -1,3 +1,5 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
@@ -20,15 +22,15 @@ class Login extends StatefulWidget {
 class _Login extends State<Login> {
   late TextEditingController usernameController = TextEditingController();
   late TextEditingController passwordController = TextEditingController();
-  
+
   String? userEmailError;
   String? passwordError;
   bool isShowpass = false;
+  String errorMessage = "";
   // ignore: non_constant_identifier_names
   SharedPreferences? Prefs;
   @override
   void initState() {
-    
     super.initState();
   }
 
@@ -81,11 +83,16 @@ class _Login extends State<Login> {
               Container(
                 margin: const EdgeInsets.only(top: 22),
                 width: 342,
-                height: 200,
+                height: 210,
                 decoration: color2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    // Hiển thị thông báo lỗi (nếu có)
+                    Text(
+                      errorMessage,
+                      style: const TextStyle(color: Colors.red),
+                    ),
                     Container(
                       padding: const EdgeInsets.only(left: 32, right: 32),
                       child: TextField(
@@ -182,6 +189,7 @@ class _Login extends State<Login> {
                     setState(() {
                       userEmailError = 'Email không được để trống';
                       passwordError = 'password không được để trống';
+                      errorMessage = "Sai tài khoản hoặc mật khẩu";
                     });
                   } else {
                     setState(() {
@@ -193,7 +201,6 @@ class _Login extends State<Login> {
                 buttonText: 'Đăng Nhập',
                 width: 300,
               ),
-              
               const SizedBox(
                 height: 20,
               ),
