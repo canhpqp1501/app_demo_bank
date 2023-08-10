@@ -1,11 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: avoid_unnecessary_containers, must_be_immutable, non_constant_identifier_names
+
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
-
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TietKiem2 extends StatefulWidget {
   const TietKiem2({super.key});
@@ -50,7 +51,9 @@ class _TietKiem2State extends State<TietKiem2> {
               SizedBox(
                 height: 45,
               ),
-              Size4(),
+              Size4(
+                  // passData: ,
+                  ),
             ],
           ),
         ));
@@ -58,6 +61,7 @@ class _TietKiem2State extends State<TietKiem2> {
 }
 
 class Size3 extends StatelessWidget {
+  
   const Size3({
     super.key,
   });
@@ -122,7 +126,11 @@ class Size3 extends StatelessWidget {
 }
 
 class Size4 extends StatefulWidget {
-  const Size4({super.key});
+  // final int passData;
+  const Size4({
+    Key? key,
+    // required this.passData,
+  }) : super(key: key);
 
   @override
   State<Size4> createState() => _Size4State();
@@ -199,7 +207,9 @@ class _Size4State extends State<Size4> {
                                 child: Container(
                                   padding: const EdgeInsets.only(left: 13),
                                   child: Text(
-                                    '10,000,000  VND',
+                                    '10,000,000   VND',
+                                    //${widget.passData}
+                                    //pass data từ màn tiet kiem sang
                                     style: GoogleFonts.lato(
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w700,

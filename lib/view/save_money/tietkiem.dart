@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_typing_uninitialized_variables
+// ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_typing_uninitialized_variables, prefer_final_fields
 // ignore_for_file: avoid_unnecessary_containers, avoid_types_as_parameter_names, non_constant_identifier_names, must_be_immutable
 
 import 'package:flutter/material.dart';
@@ -31,81 +31,87 @@ class _TietKiemState extends State<TietKiem> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: bgColor,
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            title: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Tiết Kiệm Điện Tử',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white)),
-                Icon(
-                  Icons.quiz,
-                  size: 35,
-                  color: Colors.white,
-                ),
-              ],
+    return BlocProvider(
+      create: (context) => tietKiemCubit(),
+      child: Container(
+          decoration: bgColor,
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: AppBar(
+              title: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Tiết Kiệm Điện Tử',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white)),
+                  Icon(
+                    Icons.quiz,
+                    size: 35,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              backgroundColor: const Color.fromARGB(255, 125, 221, 165),
+              elevation: 0,
+              centerTitle: true,
             ),
-            backgroundColor: const Color.fromARGB(255, 125, 221, 165),
-            elevation: 0,
-            centerTitle: true,
-          ),
-          body: BlocBuilder<tietKiemCubit, tietKiemState>(
-            builder: (context, state) {
-              return SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Size1(
-                      month: activeMonth,
-                      money: state.money ?? 0,
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(left: 25),
-                      child: const Text(
-                        "MỤC TIÊU TIẾT KIỆM",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontStyle: FontStyle.normal,
-                            color: Colors.white,
-                            fontSize: 25),
+            body: BlocBuilder<tietKiemCubit, tietKiemState>(
+              builder: (context, state) {
+                return SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 15,
                       ),
-                    ),
-                    Center(
-                        child: Size2(
-                      onChangeMonth: onChangeMonth,
-                      month: activeMonth,
-                    )),
-                  ],
-                ),
-              );
-            },
-          ),
-        ));
+                      Size1(
+                        month: activeMonth,
+                        money: state.money ?? 0,
+                        //  passData: state.money ?? 0,
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(left: 25),
+                        child: const Text(
+                          "MỤC TIÊU TIẾT KIỆM",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontStyle: FontStyle.normal,
+                              color: Colors.white,
+                              fontSize: 25),
+                        ),
+                      ),
+                      Center(
+                          child: Size2(
+                        onChangeMonth: onChangeMonth,
+                        month: activeMonth,
+                      )),
+                    ],
+                  ),
+                );
+              },
+            ),
+          )),
+    );
   }
 }
 
 class Size1 extends StatelessWidget {
   final SavingTerm month;
   final int money;
+  // int passData = money;
 
   const Size1({
     Key? key,
     required this.month,
     required this.money,
+    // required this.passData,
   }) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -164,7 +170,7 @@ class Size2 extends StatefulWidget {
 }
 
 class _Size2State extends State<Size2> {
-  TextEditingController moneyController = TextEditingController();
+  TextEditingController _moneyController = TextEditingController();
 
   final listTerm = [
     SavingTerm('1 tuần ', 7),
@@ -244,7 +250,7 @@ class _Size2State extends State<Size2> {
                       context.read<tietKiemCubit>().setMoneyHandle(
                           int.tryParse(value.replaceAll("\$", "")) ?? 0);
                     },
-                    controller: moneyController,
+                    controller: _moneyController,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       filled: true,
@@ -400,6 +406,9 @@ class _Size2State extends State<Size2> {
             buttonText: " TIẾP TỤC",
             onpressed: () {
               Navigator.pushNamed(context, AppRouterName.tietKiem2);
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (context) => const TietKiem()));
+              // context.read<tietKiemCubit>().setMoneyHandle();
             },
             width: 250,
           ),

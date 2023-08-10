@@ -6,6 +6,7 @@ import 'package:app_demo_banking/router/app_router.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:moment_dart/moment_dart.dart';
 
 class Tietkiem3 extends StatefulWidget {
   const Tietkiem3({super.key});
@@ -175,7 +176,8 @@ class Size5 extends StatelessWidget {
                           ),
                           Container(
                             padding: const EdgeInsets.only(left: 30),
-                            child: Text(' Tiết Kiệm Điện Tử 13/05/2023',
+                            child: Text(
+                                ' Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}',
                                 style: GoogleFonts.lato(
                                     fontWeight: FontWeight.w700,
                                     color: const Color.fromARGB(
@@ -249,7 +251,7 @@ class Size5 extends StatelessWidget {
       ),
       Text(
         'Bằng việc Xác Nhận Quý Khách sẽ đồng ý với ',
-        style: GoogleFonts.lato(), 
+        style: GoogleFonts.lato(),
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -259,7 +261,6 @@ class Size5 extends StatelessWidget {
             style: GoogleFonts.lato(
               color: const Color.fromARGB(255, 250, 180, 75),
             ),
-            
           ),
           Text(
             'của FPBank',

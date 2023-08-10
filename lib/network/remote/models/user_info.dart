@@ -12,10 +12,10 @@ class UserInfo {
       required this.email});
 
   UserInfo.fromJson(Map<String, dynamic> json) {
-    email = json['email'];
-    name = json['name'];
-    number = json['number'];
-    money = json['money'];
+    email = json['email'] ?? '';
+    name = json['name'] ?? '';
+    number = json['number'] ?? 0;
+    money = json['money'] ?? 0;
   }
 
   Map<String, dynamic> toJson() {

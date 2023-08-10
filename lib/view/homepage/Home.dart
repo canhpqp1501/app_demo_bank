@@ -75,9 +75,12 @@ class _HomeState extends State<Home> {
                         Navigator.pushNamed(context, AppRouterName.qr);
                       },
                     ),
-                    const GButton(
+                    GButton(
                       icon: Icons.paid,
-                      text: 'Giao dịch ',
+                      text: 'Tra cứu ',
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRouterName.tracuu);
+                      },
                     ),
                     const GButton(
                       icon: Icons.settings,
@@ -211,7 +214,9 @@ class _HomeState extends State<Home> {
                                 ],
                               ),
 
-                              const Sizebox1(),
+                              Sizebox1(
+                                  money: state.userInfo?.money ?? 0,
+                                  number: state.userInfo?.number ?? 0),
                               Sizebox2(),
                               const SizedBox(
                                 height: 7,
@@ -241,18 +246,23 @@ class ScreenArgument {
   });
 }
 
-class Card {
-  late final int numberCard;
-  late final String moneyCard;
-  Card({
-    required this.numberCard,
-    required this.moneyCard,
-  });
-}
+// class Card {
+//   late final int numberCard;
+//   late final String moneyCard;
+//   Card({
+//     required this.numberCard,
+//     required this.moneyCard,
+//   });
+// }
 
 class Sizebox1 extends StatefulWidget {
+  final int money;
+  final int number;
+
   const Sizebox1({
     super.key,
+    required this.money,
+    required this.number,
   });
 
   @override
@@ -260,10 +270,10 @@ class Sizebox1 extends StatefulWidget {
 }
 
 class _Sizebox1State extends State<Sizebox1> {
-  Card card = Card(
-    moneyCard: '10,000,000',
-    numberCard: 333333,
-  );
+  // Card card = Card(
+  //   moneyCard: '10,000,000',
+  //   numberCard: 333333,
+  // );
   TextStyle style1 = GoogleFonts.lato(
       fontWeight: FontWeight.w700, fontStyle: FontStyle.normal, fontSize: 15);
 
@@ -298,7 +308,7 @@ class _Sizebox1State extends State<Sizebox1> {
             child: Row(
               children: [
                 Text(
-                  '${card.numberCard}',
+                  '${widget.number}',
                   //số tk bank
                   style: const TextStyle(
                       fontSize: 17,
@@ -316,7 +326,7 @@ class _Sizebox1State extends State<Sizebox1> {
                 Row(
                   children: [
                     Text(
-                      "\$ ${card.moneyCard} ",
+                      "\$ ${widget.money} ",
                       style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w400,
@@ -332,9 +342,9 @@ class _Sizebox1State extends State<Sizebox1> {
                     const Text(
                       'VND',
                       style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
-                      ),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xff085078)),
                     ),
                     const SizedBox(
                       width: 10,

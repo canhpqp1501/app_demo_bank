@@ -9,6 +9,8 @@ import 'package:app_demo_banking/view/save_money/tietkiem2.dart';
 import 'package:app_demo_banking/view/save_money/tietkiem3.dart';
 import 'package:app_demo_banking/view/splash_screen/Splash.dart';
 import 'package:app_demo_banking/view/signup_screen/signup.dart';
+import 'package:app_demo_banking/view/tracuu/tra_cuu_saving.dart';
+import 'package:app_demo_banking/view/tracuu/tra_cuu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -58,10 +60,17 @@ class AppRouter {
         );
       case AppRouterName.home:
         return MaterialPageRoute(
-          
           builder: (context) => Home(
             args: settings.arguments as ScreenArgument?,
           ),
+        );
+      case AppRouterName.tracuu:
+        return MaterialPageRoute(
+          builder: (context) => const TraCuuScreen(),
+        );
+      case AppRouterName.TraCuuSaving:
+        return MaterialPageRoute(
+          builder: (context) => const TraCuuSaving(),
         );
     }
     return null;
@@ -79,4 +88,6 @@ class AppRouterName {
   static const tietKiem3 = '/tietkiem3';
   static const login = '/login';
   static const qr = '/qr';
+  static const tracuu = 'tra_cuu_screen';
+  static const TraCuuSaving = 'tra_cuu_saving';
 }
