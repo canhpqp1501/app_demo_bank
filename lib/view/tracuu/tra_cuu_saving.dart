@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:moment_dart/moment_dart.dart';
 
 class TraCuuSaving extends StatefulWidget {
   const TraCuuSaving({super.key});
@@ -11,7 +12,7 @@ class TraCuuSaving extends StatefulWidget {
 class _TraCuuSavingState extends State<TraCuuSaving> {
   @override
   Widget build(BuildContext context) => DefaultTabController(
-      length: 4,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: const Row(
@@ -24,23 +25,39 @@ class _TraCuuSavingState extends State<TraCuuSaving> {
                       color: Colors.white)),
             ],
           ),
-          backgroundColor: const Color.fromARGB(255, 125, 221, 165),
+          backgroundColor: const Color.fromARGB(255, 155, 236, 189),
           elevation: 0,
           centerTitle: true,
           bottom: TabBar(
             //isScrollable: true,
             indicatorColor: Colors.purple.shade300,
-            indicatorWeight: 5,
+            indicatorWeight: 7,
             tabs: const [
-              Tab(text: 'TÀI KHOẢN'),
-              Tab(text: 'TIẾT KIỆM'),
-              Tab(text: 'THẺ TÍN DỤNG'),
-              Tab(text: 'KHOAN VAY'),
+              Tab(
+                child: Text(
+                  'TIẾT KIỆM',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 135, 7, 255), fontSize: 15),
+                ),
+              ),
+              Tab(
+                child: Text(
+                  'THẺ TÍN DỤNG',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 135, 7, 255), fontSize: 13),
+                ),
+              ),
+              Tab(
+                child: Text(
+                  'KHOẢN VAY',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 135, 7, 255), fontSize: 15),
+                ),
+              ),
             ],
           ),
         ),
         body: const TabBarView(children: [
-          Homepage(),
           Homepage1(),
           Homepage2(),
           Homepage3(),
@@ -72,27 +89,121 @@ class Homepage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.only(top: 8, left: 10),
-        child: Column(children: [
-          Text(
-            'TỔNG TIẾT KIỆM VND',
-            style: GoogleFonts.lato(
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w700,
-                color: const Color.fromARGB(255, 243, 179, 130),
-                fontSize: 12),
-          ),
-          Text(
-            '10,000,000 VND',
-            style: GoogleFonts.lato(
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.bold,
-                color: const Color.fromARGB(255, 243, 179, 130),
-                fontSize: 25),
-          ),
-        ]),
-      ),
+      body: Column(children: [
+        Text(
+          'TỔNG TIẾT KIỆM VND',
+          style: GoogleFonts.lato(
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.w700,
+              color: const Color.fromARGB(255, 243, 179, 130),
+              fontSize: 12),
+        ),
+        Text(
+          '10,000,000 VND',
+          style: GoogleFonts.lato(
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.bold,
+              color: const Color.fromARGB(255, 243, 179, 130),
+              fontSize: 25),
+        ),
+        Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: 555,
+              decoration: BoxDecoration(color: Colors.blueGrey.shade100),
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Tiết Kiệm Điện Tử (1)",
+                          style: GoogleFonts.lato(fontSize: 17),
+                        ),
+                        Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          color: Colors.amber.shade700,
+                          size: 30,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Icon(
+                          Icons.savings_rounded,
+                          color: Colors.pink.shade200,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}",
+                              style: GoogleFonts.lato(
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color.fromARGB(255, 141, 98, 25),
+                                  fontSize: 14),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(right: 105),
+                              child: Text(
+                                "1333 555 00E",
+                                style: GoogleFonts.lato(
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color.fromARGB(255, 139, 104, 77),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(right: 90),
+                              child: Text(
+                                "10,000,000 VND",
+                                style: GoogleFonts.lato(
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color.fromARGB(255, 141, 98, 25),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(right: 55),
+                              child: Text(
+                                "Tất Toán 12/10/2023",
+                                style: GoogleFonts.lato(
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color.fromARGB(255, 141, 98, 25),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Text("Xem chi tiết",
+                            style: TextStyle(color: Colors.purple.shade400)),
+                        Icon(Icons.arrow_forward_ios_outlined,
+                            color: Colors.purple.shade400),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        )
+      ]),
     );
   }
 }
@@ -102,8 +213,13 @@ class Homepage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(children: []),
+    return Scaffold(
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 130),
+        child: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Text("Không Có giữ Liệu")]),
+      ),
     );
   }
 }
@@ -113,8 +229,13 @@ class Homepage3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(children: []),
+    return Scaffold(
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 130),
+        child: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Text("Không Có giữ Liệu")]),
+      ),
     );
   }
 }

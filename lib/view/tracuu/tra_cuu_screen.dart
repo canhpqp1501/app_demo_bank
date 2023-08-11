@@ -67,8 +67,7 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
               children: [
                 IconButton(
                     onPressed: () {
-                      Navigator.pushNamed(
-                          context, AppRouterName.TraCuuSaving);
+                      Navigator.pushNamed(context, AppRouterName.TraCuuSaving);
                     },
                     icon: const Icon(
                       Icons.savings_rounded,
@@ -141,7 +140,7 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                   style: GoogleFonts.lato(
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.w700,
-                      fontSize: 15),
+                      fontSize: 14),
                 ),
               ],
             ),
@@ -161,8 +160,9 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                   style: GoogleFonts.lato(
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.w700,
-                      fontSize: 15),
+                      fontSize: 14),
                 ),
+                
               ],
             ),
           ),

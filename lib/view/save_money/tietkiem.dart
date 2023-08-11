@@ -2,6 +2,7 @@
 // ignore_for_file: avoid_unnecessary_containers, avoid_types_as_parameter_names, non_constant_identifier_names, must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moment_dart/moment_dart.dart';
@@ -252,6 +253,7 @@ class _Size2State extends State<Size2> {
                     },
                     controller: _moneyController,
                     keyboardType: TextInputType.number,
+                    inputFormatters: [TextInputMoneyFormatter()],
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color.fromRGBO(96, 216, 222, 0.24),
@@ -479,5 +481,28 @@ class _KyhanListState extends State<KyhanList> {
               ))
           .toList(),
     );
+  }
+}
+
+class TextInputMoneyFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    return TextEditingValue(
+        text: newValue.text.moneyFormat() ?? "",
+        selection: TextSelection.collapsed(
+            offset: (newValue.text.moneyFormat() ?? "").length));
+  }
+}
+
+extension StringMoney on String? {
+  String? moneyFormat() {
+    if ((this?.length ?? 0) > 2) {
+      var formatedText = this?.replaceAll(RegExp(r'\D'), '');
+      formatedText =
+          formatedText?.replaceAll(RegExp(r'\B(?=(\d{3})+(?!\d))'), ',');
+      return formatedText;
+    }
+    return this;
   }
 }
