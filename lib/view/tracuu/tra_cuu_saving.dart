@@ -218,7 +218,7 @@ class Homepage2 extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 130),
         child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Không Có giữ Liệu")]),
+            children: [Text("Không Có dữ Liệu")]),
       ),
     );
   }
@@ -234,7 +234,7 @@ class Homepage3 extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 130),
         child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Không Có giữ Liệu")]),
+            children: [Text("Không Có dữ Liệu")]),
       ),
     );
   }
