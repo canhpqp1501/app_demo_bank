@@ -61,7 +61,6 @@ class _TietKiem2State extends State<TietKiem2> {
 }
 
 class Size3 extends StatelessWidget {
-  
   const Size3({
     super.key,
   });
@@ -112,7 +111,7 @@ class Size3 extends StatelessWidget {
               height: 15,
             ),
             const Text(
-              "Kỳ hạn ----",
+              "Kỳ hạn 2 tháng ",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,

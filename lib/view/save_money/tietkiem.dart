@@ -176,8 +176,8 @@ class _Size2State extends State<Size2> {
   final listTerm = [
     SavingTerm('1 tuần ', 7),
     SavingTerm('2 tuần ', 14),
-    SavingTerm('3 tuần ', 21),
-    SavingTerm('1 tháng', 30),
+    SavingTerm('1 Tháng ', 30),
+    SavingTerm('2 tháng', 30 * 2),
     SavingTerm('6 tháng', 30 * 6),
     SavingTerm('9 tháng', 30 * 9),
     SavingTerm('12 tháng', 30 * 12),

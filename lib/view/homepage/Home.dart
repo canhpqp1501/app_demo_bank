@@ -65,7 +65,7 @@ class _HomeState extends State<Home> {
                     ),
                     const GButton(
                       icon: Icons.search,
-                      text: 'Tra cứu',
+                      text: 'Tìm Kiếm',
                     ),
                     GButton(
                       icon: Icons.qr_code_scanner,

@@ -27,11 +27,12 @@ class _TraCuuSavingState extends State<TraCuuSaving> {
           ),
           backgroundColor: const Color.fromARGB(255, 155, 236, 189),
           elevation: 0,
+          titleSpacing: 20,
           centerTitle: true,
           bottom: TabBar(
             //isScrollable: true,
             indicatorColor: Colors.purple.shade300,
-            indicatorWeight: 7,
+            indicatorWeight: 4,
             tabs: const [
               Tab(
                 child: Text(
@@ -160,7 +161,8 @@ class Homepage1 extends StatelessWidget {
                                 style: GoogleFonts.lato(
                                   fontStyle: FontStyle.normal,
                                   fontWeight: FontWeight.bold,
-                                  color: const Color.fromARGB(255, 139, 104, 77),
+                                  color:
+                                      const Color.fromARGB(255, 139, 104, 77),
                                 ),
                               ),
                             ),
@@ -218,7 +220,7 @@ class Homepage2 extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 130),
         child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Không Có dữ Liệu")]),
+            children: [Text("Không Có Dữ Liệu")]),
       ),
     );
   }
@@ -234,7 +236,7 @@ class Homepage3 extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 130),
         child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Không Có dữ Liệu")]),
+            children: [Text("Không Có Dữ Liệu")]),
       ),
     );
   }

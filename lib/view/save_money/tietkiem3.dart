@@ -197,7 +197,7 @@ class Size5 extends StatelessWidget {
                 children: [
                   const Text('Kỳ hạn & Lãi suất ',
                       style: TextStyle(fontSize: 11)),
-                  Text('1 tháng - 5,45%/Năm ',
+                  Text('2 tháng - 5,45%/Năm ',
                       style: GoogleFonts.lato(
                           fontWeight: FontWeight.w700,
                           color: const Color.fromARGB(255, 239, 204, 178))),
