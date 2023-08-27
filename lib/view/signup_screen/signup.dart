@@ -79,6 +79,7 @@ class _SignUpState extends State<SignUp> {
       decoration: const BoxDecoration(color: Colors.white),
       child: Scaffold(
         appBar: AppBar(
+          // ignore: use_full_hex_values_for_flutter_colors
           backgroundColor: const Color(0xff0FFF1E6FF),
           elevation: 0,
           centerTitle: true,
@@ -131,7 +132,7 @@ class _SignUpState extends State<SignUp> {
                                   child: Icon(Icons.person),
                                 ),
                                 filled: true,
-                                fillColor: Color(0xFFF1E6FF),
+                                fillColor: const Color(0xFFF1E6FF),
                                 hintText: 'Nhập Họ & Tên ',
                                 suffixIcon: IconButton(
                                     onPressed: () {
@@ -170,7 +171,7 @@ class _SignUpState extends State<SignUp> {
                                   child: Icon(Icons.mail),
                                 ),
                                 filled: true,
-                                fillColor: Color(0xFFF1E6FF),
+                                fillColor: const Color(0xFFF1E6FF),
 
                                 // labelText: 'Nhập Email',
                                 hintText: 'Nhập Email của bạn ',
@@ -212,7 +213,7 @@ class _SignUpState extends State<SignUp> {
                                   child: Icon(Icons.lock_clock),
                                 ),
                                 filled: true,
-                                fillColor: Color(0xFFF1E6FF),
+                                fillColor: const Color(0xFFF1E6FF),
 
                                 // labelText: 'Nhập Email',
                                 hintText: 'Nhập password ',
@@ -262,7 +263,7 @@ class _SignUpState extends State<SignUp> {
                                   child: Icon(Icons.lock_clock),
                                 ),
                                 filled: true,
-                                fillColor: Color(0xFFF1E6FF),
+                                fillColor: const Color(0xFFF1E6FF),
                                 hintText: 'Nhập lại password ',
                                 suffixIcon: InkWell(
                                   onTap: () {

@@ -173,6 +173,7 @@ class _Size4State extends State<Size4> {
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Container(
                       decoration: BoxDecoration(
+                        // ignore: use_full_hex_values_for_flutter_colors
                         color: const Color(0xff0FFF1E6FF),
                         boxShadow: const [
                           BoxShadow(
@@ -204,7 +205,7 @@ class _Size4State extends State<Size4> {
                                       fontSize: 15),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               Container(
@@ -263,7 +264,7 @@ class _Size4State extends State<Size4> {
                             decoration: BoxDecoration(
                               color: indexColor == indexGen
                                   ? const Color(0xffFF8551)
-                                  : Color(0xffffffff),
+                                  : const Color(0xffffffff),
                               boxShadow: const [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.15),

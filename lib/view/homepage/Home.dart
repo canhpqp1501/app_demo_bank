@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: must_be_immutable, avoid_unnecessary_containers, file_names
 
-import 'dart:ui';
 
 import 'package:app_demo_banking/view/qr_scan.dart/dialog_box.dart';
 import 'package:flutter/material.dart';
@@ -221,7 +220,7 @@ class _HomeState extends State<Home> {
                                   money: state.userInfo?.money ?? 0,
                                   number: state.userInfo?.number ?? 0),
                               Sizebox2(),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Sizebox3(),
@@ -315,7 +314,7 @@ class _Sizebox1State extends State<Sizebox1> {
                   //số tk bank
                   style: GoogleFonts.notoSans(
                       fontWeight: FontWeight.w700,
-                      color: Color(0xff085078),
+                      color: const Color(0xff085078),
                       fontSize: 17),
                 ),
               ],
@@ -332,7 +331,7 @@ class _Sizebox1State extends State<Sizebox1> {
                       " ${widget.money} ",
                       style: GoogleFonts.notoSans(
                           fontWeight: FontWeight.w700,
-                          color: Color(0xff085078),
+                          color: const Color(0xff085078),
                           fontSize: 20),
                     ),
                   ],
@@ -346,7 +345,7 @@ class _Sizebox1State extends State<Sizebox1> {
                       'VND',
                       style: GoogleFonts.notoSans(
                           fontWeight: FontWeight.w700,
-                          color: Color(0xff085078),
+                          color: const Color(0xff085078),
                           fontSize: 15),
                     ),
                     const SizedBox(
@@ -539,7 +538,7 @@ class Sizebox3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 14),
+      padding: const EdgeInsets.symmetric(horizontal: 14),
       child: Column(
         children: [
           Container(

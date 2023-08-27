@@ -34,7 +34,7 @@ class _TietKiemState extends State<TietKiem> {
     return BlocProvider(
       create: (context) => tietKiemCubit(),
       child: Container(
-          decoration: BoxDecoration(color: Colors.white),
+          decoration: const BoxDecoration(color: Colors.white),
           child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
@@ -80,7 +80,7 @@ class _TietKiemState extends State<TietKiem> {
                           "MỤC TIÊU TIẾT KIỆM",
                           style: GoogleFonts.notoSans(
                               fontWeight: FontWeight.w700,
-                              color: Color(0xff085078),
+                              color: const Color(0xff085078),
                               fontSize: 25),
                         ),
                       ),
@@ -123,7 +123,7 @@ class Size1 extends StatelessWidget {
               "Giá trị sổ",
               style: GoogleFonts.notoSans(
                   fontWeight: FontWeight.w700,
-                  color: Color(0xff085078),
+                  color: const Color(0xff085078),
                   fontSize: 20),
             ),
             const SizedBox(
@@ -133,7 +133,7 @@ class Size1 extends StatelessWidget {
               ' $money VND',
               style: GoogleFonts.notoSans(
                   fontWeight: FontWeight.w700,
-                  color: Color(0xff085078),
+                  color: const Color(0xff085078),
                   fontSize: 20),
             ),
             const SizedBox(
@@ -143,7 +143,7 @@ class Size1 extends StatelessWidget {
               'Kỳ hạn ${month.title}',
               style: GoogleFonts.notoSans(
                   fontWeight: FontWeight.w700,
-                  color: Color(0xff085078),
+                  color: const Color(0xff085078),
                   fontSize: 20),
             ),
           ],
@@ -255,6 +255,7 @@ class _Size2State extends State<Size2> {
                     inputFormatters: [TextInputMoneyFormatter()],
                     decoration: InputDecoration(
                       filled: true,
+                      // ignore: use_full_hex_values_for_flutter_colors
                       fillColor: const Color(0xff0FFF1E6FF),
                       hintText: 'Số tiền tiết kiệm ',
                       // prefixText: '\$',
@@ -290,6 +291,7 @@ class _Size2State extends State<Size2> {
                         widget.onChangeMonth(checked);
                       }),
                 ),
+                // ignore: prefer_const_constructors
                 SizedBox(
                   height: 5,
                 ),

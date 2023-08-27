@@ -171,7 +171,8 @@ class _Login extends State<Login> {
                               ),
                             ),
                             filled: true,
-                            fillColor: const Color(0xff0FFF1E6FF),
+                            // ignore: use_full_hex_values_for_flutter_colors
+                            fillColor: const Color(0xff0fff1e6ff),
                             // labelText: 'Nhập Password',
                             hintText: 'Nhập Password ',
 
