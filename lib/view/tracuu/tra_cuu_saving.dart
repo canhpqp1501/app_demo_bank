@@ -17,15 +17,15 @@ class _TraCuuSavingState extends State<TraCuuSaving> {
         appBar: AppBar(
           title: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Tra Cứu',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white)),
-            ],
+            // children: [
+            //   Text('Tra Cứu',
+            //       style: TextStyle(
+            //           fontSize: 20,
+            //           fontWeight: FontWeight.w700,
+            //           color: Colors.white)),
+            // ],
           ),
-          backgroundColor: const Color.fromARGB(255, 155, 236, 189),
+          backgroundColor: const Color.fromARGB(255, 217, 190, 252),
           elevation: 0,
           titleSpacing: 20,
           centerTitle: true,
@@ -33,26 +33,32 @@ class _TraCuuSavingState extends State<TraCuuSaving> {
             //isScrollable: true,
             indicatorColor: Colors.purple.shade300,
             indicatorWeight: 4,
-            tabs: const [
+            tabs: [
               Tab(
                 child: Text(
                   'TIẾT KIỆM',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 135, 7, 255), fontSize: 15),
+                  style: GoogleFonts.notoSans(
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                      fontSize: 15),
                 ),
               ),
               Tab(
                 child: Text(
                   'THẺ TÍN DỤNG',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 135, 7, 255), fontSize: 13),
+                  style: GoogleFonts.notoSans(
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                      fontSize: 13),
                 ),
               ),
               Tab(
                 child: Text(
                   'KHOẢN VAY',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 135, 7, 255), fontSize: 15),
+                  style: GoogleFonts.notoSans(
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                      fontSize: 15),
                 ),
               ),
             ],
@@ -90,30 +96,25 @@ class Homepage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        Text(
-          'TỔNG TIẾT KIỆM VND',
-          style: GoogleFonts.lato(
-              fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.w700,
-              color: const Color.fromARGB(255, 243, 179, 130),
-              fontSize: 12),
-        ),
-        Text(
-          '10,000,000 VND',
-          style: GoogleFonts.lato(
-              fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.bold,
-              color: const Color.fromARGB(255, 243, 179, 130),
-              fontSize: 25),
-        ),
-        Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 555,
-              decoration: BoxDecoration(color: Colors.blueGrey.shade100),
-              child: Container(
+      body: SingleChildScrollView(
+        child: Column(children: [
+          Text(
+            'TỔNG TIẾT KIỆM VND',
+            style: GoogleFonts.notoSans(
+                fontWeight: FontWeight.w700,
+                color: Colors.amber.shade900,
+                fontSize: 15),
+          ),
+          Text(
+            '10,000,000 VND',
+            style: GoogleFonts.notoSans(
+                fontWeight: FontWeight.w700,
+                color: Colors.amber.shade900,
+                fontSize: 29),
+          ),
+          Column(
+            children: [
+              Container(
                 padding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                 child: Column(
@@ -124,11 +125,14 @@ class Homepage1 extends StatelessWidget {
                       children: [
                         Text(
                           "Tiết Kiệm Điện Tử (1)",
-                          style: GoogleFonts.lato(fontSize: 17),
+                          style: GoogleFonts.notoSans(
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black,
+                              fontSize: 15),
                         ),
                         Icon(
                           Icons.keyboard_arrow_down_rounded,
-                          color: Colors.amber.shade700,
+                          color: Colors.amber.shade900,
                           size: 30,
                         ),
                       ],
@@ -148,44 +152,39 @@ class Homepage1 extends StatelessWidget {
                           children: [
                             Text(
                               "Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}",
-                              style: GoogleFonts.lato(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: const Color.fromARGB(255, 141, 98, 25),
-                                  fontSize: 14),
+                              style: GoogleFonts.notoSans(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black,
+                                  fontSize: 13),
                             ),
                             Container(
                               padding: const EdgeInsets.only(right: 105),
                               child: Text(
                                 "1333 555 00E",
-                                style: GoogleFonts.lato(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      const Color.fromARGB(255, 139, 104, 77),
-                                ),
+                                style: GoogleFonts.notoSans(
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black,
+                                    fontSize: 13),
                               ),
                             ),
                             Container(
                               padding: const EdgeInsets.only(right: 90),
                               child: Text(
                                 "10,000,000 VND",
-                                style: GoogleFonts.lato(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: const Color.fromARGB(255, 141, 98, 25),
-                                ),
+                                style: GoogleFonts.notoSans(
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black,
+                                    fontSize: 13),
                               ),
                             ),
                             Container(
                               padding: const EdgeInsets.only(right: 55),
                               child: Text(
                                 "Tất Toán 12/10/2023",
-                                style: GoogleFonts.lato(
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: const Color.fromARGB(255, 141, 98, 25),
-                                ),
+                                style: GoogleFonts.notoSans(
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black,
+                                    fontSize: 13),
                               ),
                             )
                           ],
@@ -193,19 +192,24 @@ class Homepage1 extends StatelessWidget {
                         const SizedBox(
                           height: 30,
                         ),
-                        Text("Xem chi tiết",
-                            style: TextStyle(color: Colors.purple.shade400)),
+                        Text(
+                          "Xem chi tiết",
+                          style: GoogleFonts.notoSans(
+                              fontWeight: FontWeight.w700,
+                              color: Colors.amber.shade900,
+                              fontSize: 15),
+                        ),
                         Icon(Icons.arrow_forward_ios_outlined,
-                            color: Colors.purple.shade400),
+                            color: Colors.amber.shade900),
                       ],
                     ),
                   ],
                 ),
               ),
-            ),
-          ],
-        )
-      ]),
+            ],
+          )
+        ]),
+      ),
     );
   }
 }
@@ -218,9 +222,13 @@ class Homepage2 extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 130),
-        child: const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Không Có Dữ Liệu")]),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(
+            "Không Có Dữ Liệu",
+            style: GoogleFonts.notoSans(
+                fontWeight: FontWeight.w700, color: Colors.black, fontSize: 14),
+          )
+        ]),
       ),
     );
   }
@@ -234,9 +242,13 @@ class Homepage3 extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 130),
-        child: const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Không Có Dữ Liệu")]),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(
+            "Không Có Dữ Liệu",
+            style: GoogleFonts.notoSans(
+                fontWeight: FontWeight.w700, color: Colors.black, fontSize: 14),
+          )
+        ]),
       ),
     );
   }

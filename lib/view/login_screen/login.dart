@@ -1,10 +1,10 @@
 // ignore_for_file: unrelated_type_equality_checks
 
-import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -48,7 +48,7 @@ class _Login extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: bgColor,
+      decoration: const BoxDecoration(color: Colors.white),
       child: Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.transparent,
@@ -58,12 +58,12 @@ class _Login extends State<Login> {
               Container(
                   alignment: Alignment.center,
                   margin: const EdgeInsets.only(
-                    top: 40,
+                    top: 10,
                   ),
                   child: SvgPicture.asset(
                     "assets/images/chat.svg",
                     width: 250,
-                    height: 350,
+                    height: 320,
                   )),
               Container(
                 alignment: Alignment.center,
@@ -74,17 +74,17 @@ class _Login extends State<Login> {
                 child: const Text(
                   "Đăng nhập",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.w700,
                     fontSize: 34,
                   ),
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 22),
+                margin: const EdgeInsets.only(top: 10),
                 width: 342,
-                height: 210,
-                decoration: color2,
+                height: 200,
+                // decoration: color2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -105,12 +105,17 @@ class _Login extends State<Login> {
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           errorText: userEmailError,
-                          icon: const Icon(
-                            Icons.mail,
-                            color: Color.fromRGBO(96, 216, 222, 0.65),
+                          // icon: const Icon(
+                          //   Icons.mail,
+                          //   color: Color(0xFF6F35A5),
+                          // ),
+
+                          prefixIcon: const Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Icon(Icons.mail),
                           ),
                           filled: true,
-                          fillColor: const Color.fromRGBO(96, 216, 222, 0.24),
+                          fillColor: const Color(0xFFF1E6FF),
                           hintText: 'Nhập Email của bạn ',
                           suffixIcon: IconButton(
                               onPressed: () {
@@ -142,10 +147,15 @@ class _Login extends State<Login> {
                           },
                           obscureText: !isShowpass,
                           keyboardType: TextInputType.emailAddress,
+                          cursorColor: const Color(0xFF6F35A5),
                           decoration: InputDecoration(
-                            icon: const Icon(
-                              Icons.lock,
-                              color: Color.fromRGBO(96, 216, 222, 0.65),
+                            // icon: const Icon(
+                            //   Icons.lock,
+                            //   color: Color(0xFF6F35A5),
+                            // ),
+                            prefixIcon: const Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Icon(Icons.lock),
                             ),
                             errorText: passwordError,
                             suffixIcon: InkWell(
@@ -161,7 +171,7 @@ class _Login extends State<Login> {
                               ),
                             ),
                             filled: true,
-                            fillColor: const Color.fromRGBO(96, 216, 222, 0.24),
+                            fillColor: const Color(0xff0FFF1E6FF),
                             // labelText: 'Nhập Password',
                             hintText: 'Nhập Password ',
 
@@ -178,9 +188,9 @@ class _Login extends State<Login> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              // const SizedBox(
+              //   height: 5,
+              // ),
               ElevatedButtonWidget(
                 onpressed: () {
                   loginHandle();
@@ -202,25 +212,27 @@ class _Login extends State<Login> {
                 width: 300,
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     "không có tài khoản?",
-                    style:
-                        TextStyle(color: Color.fromRGBO(33, 101, 105, 0.965)),
+                    style: GoogleFonts.notoSans(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                        fontSize: 15),
                   ),
                   TextButton(
                     onPressed: () {
                       Navigator.pushNamed(context, AppRouterName.signUp);
                     },
-                    child: const Text(
-                      'SignUp',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                    child: Text(
+                      'Đăng kí',
+                      style: GoogleFonts.notoSans(
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black,
                           fontSize: 16),
                     ),
                   ),

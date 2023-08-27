@@ -34,7 +34,6 @@ class _SignUpState extends State<SignUp> {
 
   String? emailValue;
   String? passValue;
- 
 
   bool isShowpass = false;
 
@@ -77,11 +76,10 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: bgColor,
+      decoration: const BoxDecoration(color: Colors.white),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 125, 221, 165),
+          backgroundColor: const Color(0xff0FFF1E6FF),
           elevation: 0,
           centerTitle: true,
         ),
@@ -99,15 +97,12 @@ class _SignUpState extends State<SignUp> {
                     Container(
                       alignment: Alignment.center,
                       padding: const EdgeInsets.only(top: 32),
-
-                      
-                      child: const Text(
+                      child: Text(
                         "ĐĂNG KÍ",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 34,
-                        ),
+                        style: GoogleFonts.notoSans(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black,
+                            fontSize: 30),
                       ),
                     ),
                     Container(
@@ -116,7 +111,7 @@ class _SignUpState extends State<SignUp> {
                       margin: const EdgeInsets.only(top: 36),
                       // width: 342,
                       // height: 248,
-                      decoration: color2,
+                      // decoration: color2,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -131,13 +126,12 @@ class _SignUpState extends State<SignUp> {
                               controller: nameController,
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
-                                icon: const Icon(
-                                  Icons.person,
-                                  color: Color.fromRGBO(96, 216, 222, 0.65),
+                                prefixIcon: const Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Icon(Icons.person),
                                 ),
                                 filled: true,
-                                fillColor:
-                                    const Color.fromRGBO(96, 216, 222, 0.24),
+                                fillColor: Color(0xFFF1E6FF),
                                 hintText: 'Nhập Họ & Tên ',
                                 suffixIcon: IconButton(
                                     onPressed: () {
@@ -171,13 +165,13 @@ class _SignUpState extends State<SignUp> {
                               controller: emailController,
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
-                                icon: const Icon(
-                                  Icons.mail,
-                                  color: Color.fromRGBO(96, 216, 222, 0.65),
+                                prefixIcon: const Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Icon(Icons.mail),
                                 ),
                                 filled: true,
-                                fillColor:
-                                    const Color.fromRGBO(96, 216, 222, 0.24),
+                                fillColor: Color(0xFFF1E6FF),
+
                                 // labelText: 'Nhập Email',
                                 hintText: 'Nhập Email của bạn ',
                                 errorText: emailTextError,
@@ -213,13 +207,13 @@ class _SignUpState extends State<SignUp> {
                               obscureText: !isShowpass,
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
-                                icon: const Icon(
-                                  Icons.lock_clock,
-                                  color: Color.fromRGBO(96, 216, 222, 0.65),
+                                prefixIcon: const Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Icon(Icons.lock_clock),
                                 ),
                                 filled: true,
-                                fillColor:
-                                    const Color.fromRGBO(96, 216, 222, 0.24),
+                                fillColor: Color(0xFFF1E6FF),
+
                                 // labelText: 'Nhập Email',
                                 hintText: 'Nhập password ',
                                 suffixIcon: InkWell(
@@ -263,13 +257,12 @@ class _SignUpState extends State<SignUp> {
                               obscureText: !isShowpass,
                               keyboardType: TextInputType.emailAddress,
                               decoration: InputDecoration(
-                                icon: const Icon(
-                                  Icons.lock_clock,
-                                  color: Color.fromRGBO(96, 216, 222, 0.65),
+                                prefixIcon: const Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Icon(Icons.lock_clock),
                                 ),
                                 filled: true,
-                                fillColor:
-                                    const Color.fromRGBO(96, 216, 222, 0.24),
+                                fillColor: Color(0xFFF1E6FF),
                                 hintText: 'Nhập lại password ',
                                 suffixIcon: InkWell(
                                   onTap: () {

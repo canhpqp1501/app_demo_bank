@@ -20,25 +20,25 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
       appBar: AppBar(
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('Tra Cứu',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white)),
-          ],
+          // children: [
+          //   Text('Tra Cứu',
+          //       style: TextStyle(
+          //           fontSize: 20,
+          //           fontWeight: FontWeight.w700,
+          //           color: Colors.white)),
+          // ],
         ),
-        backgroundColor: const Color.fromARGB(255, 125, 221, 165),
+        backgroundColor: const Color.fromARGB(255, 217, 190, 252),
         elevation: 0,
         centerTitle: true,
       ),
-      backgroundColor: const Color.fromARGB(255, 233, 236, 238),
+      backgroundColor: const Color(0xffffffff),
       body: GridView(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 55,
           mainAxisSpacing: 10,
-          childAspectRatio: 2,
+          childAspectRatio: 1.68,
         ),
         children: [
           Container(
@@ -53,9 +53,9 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Tài Khoản",
-                  style: GoogleFonts.lato(
-                      fontStyle: FontStyle.normal,
+                  style: GoogleFonts.notoSans(
                       fontWeight: FontWeight.w700,
+                      color: Colors.black,
                       fontSize: 15),
                 ),
               ],
@@ -77,9 +77,9 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Tiết Kiệm",
-                  style: GoogleFonts.lato(
-                      fontStyle: FontStyle.normal,
+                  style: GoogleFonts.notoSans(
                       fontWeight: FontWeight.w700,
+                      color: Colors.black,
                       fontSize: 15),
                 ),
               ],
@@ -97,9 +97,9 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Khoản Vay",
-                  style: GoogleFonts.lato(
-                      fontStyle: FontStyle.normal,
+                  style: GoogleFonts.notoSans(
                       fontWeight: FontWeight.w700,
+                      color: Colors.black,
                       fontSize: 15),
                 ),
               ],
@@ -117,9 +117,9 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Thẻ Tín Dụng",
-                  style: GoogleFonts.lato(
-                      fontStyle: FontStyle.normal,
+                  style: GoogleFonts.notoSans(
                       fontWeight: FontWeight.w700,
+                      color: Colors.black,
                       fontSize: 15),
                 ),
               ],
@@ -137,9 +137,9 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Lệnh Chuyển Tiền",
-                  style: GoogleFonts.lato(
-                      fontStyle: FontStyle.normal,
+                  style: GoogleFonts.notoSans(
                       fontWeight: FontWeight.w700,
+                      color: Colors.black,
                       fontSize: 14),
                 ),
               ],
@@ -157,12 +157,11 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Thông Tin Tổng Hợp",
-                  style: GoogleFonts.lato(
-                      fontStyle: FontStyle.normal,
+                  style: GoogleFonts.notoSans(
                       fontWeight: FontWeight.w700,
+                      color: Colors.black,
                       fontSize: 14),
                 ),
-                
               ],
             ),
           ),

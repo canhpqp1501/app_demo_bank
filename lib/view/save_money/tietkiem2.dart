@@ -4,7 +4,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 
@@ -19,7 +18,7 @@ class _TietKiem2State extends State<TietKiem2> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: bgColor,
+        decoration: const BoxDecoration(color: Colors.white),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
@@ -38,7 +37,7 @@ class _TietKiem2State extends State<TietKiem2> {
                 ),
               ],
             ),
-            backgroundColor: const Color.fromARGB(255, 125, 221, 165),
+            backgroundColor: const Color.fromARGB(255, 217, 190, 252),
             elevation: 0,
             centerTitle: true,
           ),
@@ -73,12 +72,12 @@ class Size3 extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
-            const Text(
+            Text(
               "Giá trị sổ",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400),
+              style: GoogleFonts.notoSans(
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xff085078),
+                  fontSize: 20),
             ),
             const SizedBox(
               height: 25,
@@ -87,35 +86,35 @@ class Size3 extends StatelessWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.only(left: 18),
-                  child: const Text(
+                  child: Text(
                     "10,000,000",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400),
+                    style: GoogleFonts.notoSans(
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xff085078),
+                        fontSize: 20),
                   ),
                 ),
                 const SizedBox(
                   width: 10,
                 ),
-                const Text(
+                Text(
                   "VND",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400),
+                  style: GoogleFonts.notoSans(
+                      fontWeight: FontWeight.w700,
+                      color: const Color(0xff085078),
+                      fontSize: 20),
                 )
               ],
             ),
             const SizedBox(
               height: 15,
             ),
-            const Text(
+            Text(
               "Kỳ hạn 2 tháng ",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400),
+              style: GoogleFonts.notoSans(
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xff085078),
+                  fontSize: 20),
             ),
           ],
         ),
@@ -151,31 +150,33 @@ class _Size4State extends State<Size4> {
         child: Column(
           children: [
             Container(
-              width: 353,
-              height: 382,
-              decoration: color2,
+              // width: 353,
+              // height: 382,
+              // decoration: color2,
               child: Column(
                 children: [
                   Container(
                     padding: const EdgeInsets.only(top: 10, right: 92),
-                    child: const Text(
+                    child: Text(
                       "TÀI KHOẢN TRÍCH TIỀN",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18,
-                      ),
+                      style: GoogleFonts.notoSans(
+                          fontWeight: FontWeight.w700,
+                          color: const Color(0xff085078),
+                          fontSize: 18),
                     ),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: const Color(0xffDCF6F8),
+                        color: const Color(0xff0FFF1E6FF),
                         boxShadow: const [
                           BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.25),
+                            color: Color.fromRGBO(0, 0, 0, 0.15),
                             spreadRadius: 2,
                             blurRadius: 7,
                             offset: Offset(0, 3),
@@ -183,8 +184,8 @@ class _Size4State extends State<Size4> {
                         ],
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      width: 335,
-                      height: 50,
+                      // width: 335,
+                      // height: 50,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -197,10 +198,14 @@ class _Size4State extends State<Size4> {
                                   '1 333 555 6666',
 
                                   /// kết nối vs tk ở màn home?
-                                  style: GoogleFonts.lato(
-                                      fontStyle: FontStyle.normal,
+                                  style: GoogleFonts.notoSans(
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.black,
                                       fontSize: 15),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 5,
                               ),
                               Container(
                                 child: Container(
@@ -209,11 +214,10 @@ class _Size4State extends State<Size4> {
                                     '10,000,000   VND',
                                     //${widget.passData}
                                     //pass data từ màn tiet kiem sang
-                                    style: GoogleFonts.lato(
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 15,
-                                    ),
+                                    style: GoogleFonts.notoSans(
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black,
+                                        fontSize: 15),
                                   ),
                                 ),
                               ),
@@ -236,12 +240,12 @@ class _Size4State extends State<Size4> {
                   ),
                   Container(
                     padding: const EdgeInsets.only(right: 200),
-                    child: const Text(
+                    child: Text(
                       "KHI HẾT HẠN",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18,
-                      ),
+                      style: GoogleFonts.notoSans(
+                          fontWeight: FontWeight.w700,
+                          color: const Color(0xff085078),
+                          fontSize: 18),
                     ),
                   ),
                   Column(
@@ -259,10 +263,10 @@ class _Size4State extends State<Size4> {
                             decoration: BoxDecoration(
                               color: indexColor == indexGen
                                   ? const Color(0xffFF8551)
-                                  : const Color(0xffDCF6F8),
+                                  : Color(0xffffffff),
                               boxShadow: const [
                                 BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
+                                  color: Color.fromRGBO(0, 0, 0, 0.15),
                                   spreadRadius: 2,
                                   blurRadius: 7,
                                   offset: Offset(
@@ -271,17 +275,18 @@ class _Size4State extends State<Size4> {
                               ],
                               borderRadius: BorderRadius.circular(30),
                             ),
-                            width: 335,
-                            height: 50,
-                            padding: const EdgeInsets.only(right: 10, left: 10),
+                            // width: 335,
+                            // height: 50,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 12, horizontal: 32),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
                                   day[indexGen],
-                                  style: GoogleFonts.lato(
-                                      fontStyle: FontStyle.normal,
+                                  style: GoogleFonts.notoSans(
                                       fontWeight: FontWeight.w700,
+                                      color: Colors.black,
                                       fontSize: 15),
                                 ),
                                 const Icon((Icons.done_all)),
@@ -296,7 +301,7 @@ class _Size4State extends State<Size4> {
               ),
             ),
             const SizedBox(
-              height: 105,
+              height: 30,
             ),
             ElevatedButtonWidget(
               buttonText: 'TIẾP TỤC',

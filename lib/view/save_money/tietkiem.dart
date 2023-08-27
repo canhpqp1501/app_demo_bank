@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moment_dart/moment_dart.dart';
 
-import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 import 'package:app_demo_banking/view/homepage/view_model/tiet_kiem_cubit.dart';
@@ -35,7 +34,7 @@ class _TietKiemState extends State<TietKiem> {
     return BlocProvider(
       create: (context) => tietKiemCubit(),
       child: Container(
-          decoration: bgColor,
+          decoration: BoxDecoration(color: Colors.white),
           child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
@@ -54,7 +53,7 @@ class _TietKiemState extends State<TietKiem> {
                   ),
                 ],
               ),
-              backgroundColor: const Color.fromARGB(255, 125, 221, 165),
+              backgroundColor: const Color.fromARGB(255, 217, 190, 252),
               elevation: 0,
               centerTitle: true,
             ),
@@ -77,12 +76,11 @@ class _TietKiemState extends State<TietKiem> {
                       ),
                       Container(
                         padding: const EdgeInsets.only(left: 25),
-                        child: const Text(
+                        child: Text(
                           "MỤC TIÊU TIẾT KIỆM",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              color: Colors.white,
+                          style: GoogleFonts.notoSans(
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xff085078),
                               fontSize: 25),
                         ),
                       ),
@@ -121,32 +119,32 @@ class Size1 extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               "Giá trị sổ",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400),
+              style: GoogleFonts.notoSans(
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xff085078),
+                  fontSize: 20),
             ),
             const SizedBox(
               height: 25,
             ),
             Text(
               ' $money VND',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400),
+              style: GoogleFonts.notoSans(
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xff085078),
+                  fontSize: 20),
             ),
             const SizedBox(
               height: 25,
             ),
             Text(
               'Kỳ hạn ${month.title}',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400),
+              style: GoogleFonts.notoSans(
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xff085078),
+                  fontSize: 20),
             ),
           ],
         ),
@@ -190,28 +188,25 @@ class _Size2State extends State<Size2> {
       child: Column(
         children: [
           Container(
-            width: 353,
-            height: 450,
-            decoration: color2,
+            // width: 353,
+            // height: 450,
+            // decoration: BoxDecoration(
+            //   color: Color.fromARGB(255, 225, 205, 252),
+            //   borderRadius: BorderRadius.circular(30),
+            // ),
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 10),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 13, horizontal: 16),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xffDCF6F8),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.25),
-                          spreadRadius: 2,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(30),
+                      // ignore: use_full_hex_values_for_flutter_colors
+                      color: const Color(0xff0FFF1E6FF),
+                      borderRadius: BorderRadius.circular(25),
                     ),
-                    width: 330,
-                    height: 50,
+                    // width: 330,
+                    // height: 50,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -222,19 +217,23 @@ class _Size2State extends State<Size2> {
                                   const EdgeInsets.only(top: 8, right: 150),
                               child: Text(
                                 'Tên Số',
-                                style: GoogleFonts.lato(
-                                    fontStyle: FontStyle.normal, fontSize: 11),
+                                style: GoogleFonts.notoSans(
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black,
+                                    fontSize: 11),
                               ),
+                            ),
+                            const SizedBox(
+                              height: 7,
                             ),
                             Container(
                               padding: const EdgeInsets.only(left: 15),
                               child: Text(
                                 'Tiết kiệm điện tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}',
-                                style: GoogleFonts.lato(
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                                style: GoogleFonts.notoSans(
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black,
+                                    fontSize: 15),
                               ),
                             ),
                           ],
@@ -249,20 +248,24 @@ class _Size2State extends State<Size2> {
                   child: TextField(
                     onChanged: (value) {
                       context.read<tietKiemCubit>().setMoneyHandle(
-                          int.tryParse(value.replaceAll("\$", "")) ?? 0);
+                          int.tryParse(value.replaceAll('', "")) ?? 0);
                     },
                     controller: _moneyController,
                     keyboardType: TextInputType.number,
                     inputFormatters: [TextInputMoneyFormatter()],
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: const Color.fromRGBO(96, 216, 222, 0.24),
+                      fillColor: const Color(0xff0FFF1E6FF),
                       hintText: 'Số tiền tiết kiệm ',
-                      prefixText: '\$',
+                      // prefixText: '\$',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 244, 244, 244)),
+                        // ignore: unnecessary_null_comparison
+                        borderSide: _moneyController != null
+                            ? const BorderSide(
+                                color: Color.fromARGB(255, 244, 244, 244),
+                              )
+                            : BorderSide.none,
                       ),
                     ),
                     maxLength: 12,
@@ -270,12 +273,12 @@ class _Size2State extends State<Size2> {
                 ),
                 Container(
                   padding: const EdgeInsets.only(right: 242),
-                  child: const Text(
+                  child: Text(
                     "KỲ HẠN",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                    ),
+                    style: GoogleFonts.notoSans(
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xff085078),
+                        fontSize: 18),
                   ),
                 ),
                 Container(
@@ -287,115 +290,91 @@ class _Size2State extends State<Size2> {
                         widget.onChangeMonth(checked);
                       }),
                 ),
+                SizedBox(
+                  height: 5,
+                ),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xffDCF6F8),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.25),
-                          spreadRadius: 2,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    // width: 335,
-                    // height: 50,
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              padding:
-                                  const EdgeInsets.only(right: 100, top: 3),
-                              child: Text(' ${widget.month.title}',
-                                  // kì hạn cộng theo index tương ứng
-                                  style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold)),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(left: 5),
-                              child: Text(
-                                'Kết thúc ngày ${Moment(DateTime.now().add(Duration(days: widget.month.termDuration))).format('DD/MM/YYYY')}',
-                                style: GoogleFonts.lato(
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 14,
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(right: 100, top: 3),
+                            child: Text(
+                              ' ${widget.month.title}',
+                              // kì hạn cộng theo index tương ứng
+                              style: GoogleFonts.notoSans(
                                   fontWeight: FontWeight.w700,
-                                  textStyle:
-                                      const TextStyle(color: Color(0xff979797)),
-                                ),
-                              ),
+                                  color: Colors.black,
+                                  fontSize: 16),
                             ),
+                          ),
+                          const SizedBox(
+                            height: 7,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(left: 16),
+                            child: Text(
+                              'Kết thúc ngày ${Moment(DateTime.now().add(Duration(days: widget.month.termDuration))).format('DD/MM/YYYY')}',
+                              style: GoogleFonts.notoSans(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black,
+                                  fontSize: 14),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(left: 76, top: 5),
+                        child: Column(
+                          children: [
+                            Text(
+                              'Lãi Suất \n7,8%/Năm',
+                              style: GoogleFonts.notoSans(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.amber.shade900,
+                                  fontSize: 13),
+                            )
                           ],
                         ),
-                        Container(
-                          padding: const EdgeInsets.only(left: 76, top: 5),
-                          child: const Column(
-                            children: [
-                              Text(
-                                'Lãi Suất \n7,8%/Năm',
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 250, 180, 75),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(
                   height: 25,
                 ),
                 Container(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xffDCF6F8),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.25),
-                          spreadRadius: 2,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    width: 335,
-                    height: 50,
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.only(left: 10, top: 3),
-                              child: Text(
-                                'Lãi tạm tính cuối kì',
-                                style: GoogleFonts.lato(
-                                    fontStyle: FontStyle.normal, fontSize: 14),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(left: 5),
-                              child: Text(
-                                '--VND',
-                                style: GoogleFonts.lato(
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 20,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(left: 15, top: 3),
+                            child: Text(
+                              'Lãi tạm tính cuối kì',
+                              style: GoogleFonts.notoSans(
                                   fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
+                                  color: Colors.black,
+                                  fontSize: 14),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              '--VND',
+                              style: GoogleFonts.notoSans(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black,
+                                  fontSize: 20),
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -457,10 +436,10 @@ class _KyhanListState extends State<KyhanList> {
                   decoration: BoxDecoration(
                     color: activeItem?.title == item.title
                         ? const Color(0xffFF8551)
-                        : const Color(0xffDCF6F8),
+                        : const Color(0xffffffff),
                     boxShadow: const [
                       BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.25),
+                        color: Color.fromRGBO(0, 0, 0, 0.15),
                         spreadRadius: 2,
                         blurRadius: 7,
                         offset: Offset(0, 3), // changes position of shadow
@@ -472,10 +451,10 @@ class _KyhanListState extends State<KyhanList> {
                       const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
                   child: Text(
                     item.title,
-                    style: GoogleFonts.lato(
-                        fontStyle: FontStyle.normal,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700),
+                    style: GoogleFonts.notoSans(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                        fontSize: 14),
                   ),
                 ),
               ))

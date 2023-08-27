@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, use_full_hex_values_for_flutter_colors
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,18 +22,15 @@ class ElevatedButtonWidget extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
-                color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
+                color: Colors.black26, offset: Offset(0, 2), blurRadius: 4.0)
           ],
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            stops: const [0.0, 1.0],
-            colors: [
-              Colors.deepPurple.shade400,
-              Colors.deepPurple.shade200,
-            ],
+            stops: [0.0, 1.0],
+            colors: [Color(0xff0ff6f35a5), Color(0xff0ff6f35a5)],
           ),
-          color: Colors.deepPurple.shade300,
+          // color: Colors.deepPurple.shade300,
           borderRadius: BorderRadius.circular(20),
         ),
         child: ElevatedButton(
@@ -58,8 +55,8 @@ class ElevatedButtonWidget extends StatelessWidget {
             ),
             child: Text(
               buttonText,
-              style: GoogleFonts.lato(
-                  fontWeight: FontWeight.w700,
+              style: GoogleFonts.notoSans(
+                  fontWeight: FontWeight.bold,
                   color: const Color(0xffffffff),
                   fontSize: 20),
             ),

@@ -23,6 +23,7 @@ class _DialogBoxState extends State<DialogBox> {
           height: 280,
           child: BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
+              print(state.userInfo);
               return Column(children: [
                 const Text(
                   "MY QR",

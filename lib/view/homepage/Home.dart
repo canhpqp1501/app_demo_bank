@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: must_be_immutable, avoid_unnecessary_containers, file_names
 
+import 'dart:ui';
+
 import 'package:app_demo_banking/view/qr_scan.dart/dialog_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -14,8 +16,6 @@ import 'package:app_demo_banking/themes/themes_cubit.dart';
 import 'package:app_demo_banking/themes/themes_state.dart';
 import 'package:app_demo_banking/view/homepage/view_model/home_cubit.dart';
 import 'package:app_demo_banking/view/homepage/view_model/home_state.dart';
-
-import '../../../color.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -46,18 +46,20 @@ class _HomeState extends State<Home> {
     return BlocBuilder<ThemeCubit, ThemeState>(
       builder: (context, state) {
         return Container(
-          decoration: state.themeData.boxDecoration,
+          decoration: const BoxDecoration(color: Colors.white),
           child: Scaffold(
             bottomNavigationBar: Container(
               child: GNav(
                   selectedIndex: 0,
-                  backgroundColor: const Color.fromRGBO(0, 0, 0, 0.25),
-                  color: Colors.white,
-                  tabBackgroundGradient: state.themeData.primaryGradient,
+                  // backgroundColor: Color(0xff0FFF1E6FF),
+                  color: const Color.fromARGB(255, 201, 161, 254),
+                  // tabBackgroundGradient: state.themeData.primaryGradient,
+                  // ignore: use_full_hex_values_for_flutter_colors
+                  tabBackgroundColor: const Color(0xff0FFF1E6FF),
                   gap: 8,
                   padding: const EdgeInsets.all(18),
                   onTabChange: (index) {},
-                  activeColor: Colors.white,
+                  activeColor: Colors.black54,
                   tabs: [
                     const GButton(
                       icon: Icons.home,
@@ -88,7 +90,7 @@ class _HomeState extends State<Home> {
                     ),
                   ]),
             ),
-            backgroundColor: Colors.transparent,
+            backgroundColor: const Color(0xffffffff),
             body: BlocBuilder<HomeCubit, HomeState>(
               builder: (context, state) {
                 return SafeArea(
@@ -98,7 +100,7 @@ class _HomeState extends State<Home> {
                                 child: Icon(
                                   Icons.back_hand,
                                   size: size.height * 0.03,
-                                  color: Colors.orange,
+                                  color: Colors.amber.shade900,
                                 ),
                                 onComplete: (controller) {
                                   controller.reverse();
@@ -121,14 +123,14 @@ class _HomeState extends State<Home> {
                                             onPressed: () {
                                               logOutHandle();
                                             },
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.logout,
-                                              color: Colors.orange,
+                                              color: Colors.amber.shade900,
                                             ),
-                                            label: const Text(
+                                            label: Text(
                                               'Đăng Xuất',
                                               style: TextStyle(
-                                                  color: Colors.orange),
+                                                  color: Colors.amber.shade900),
                                             )),
                                         TextButton.icon(
                                             onPressed: () {
@@ -136,14 +138,14 @@ class _HomeState extends State<Home> {
                                                   .read<ThemeCubit>()
                                                   .changeThemeMode();
                                             },
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.stacked_bar_chart,
-                                              color: Colors.orange,
+                                              color: Colors.amber.shade900,
                                             ),
-                                            label: const Text(
+                                            label: Text(
                                               'đổi theme',
                                               style: TextStyle(
-                                                  color: Colors.orange),
+                                                  color: Colors.amber.shade900),
                                             )),
                                       ],
                                     ),
@@ -160,10 +162,11 @@ class _HomeState extends State<Home> {
                                             children: [
                                               Text(
                                                 "Xin chào ${state.userInfo?.name.toUpperCase()}",
-                                                style: const TextStyle(
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Colors.white),
+                                                style: GoogleFonts.notoSans(
+                                                    fontWeight: FontWeight.w700,
+                                                    color:
+                                                        Colors.amber.shade900,
+                                                    fontSize: 15),
                                               ),
                                               Animate(
                                                       child: Icon(
@@ -218,8 +221,8 @@ class _HomeState extends State<Home> {
                                   money: state.userInfo?.money ?? 0,
                                   number: state.userInfo?.number ?? 0),
                               Sizebox2(),
-                              const SizedBox(
-                                height: 7,
+                              SizedBox(
+                                height: 20,
                               ),
                               Sizebox3(),
 
@@ -274,7 +277,7 @@ class _Sizebox1State extends State<Sizebox1> {
   //   moneyCard: '10,000,000',
   //   numberCard: 333333,
   // );
-  TextStyle style1 = GoogleFonts.lato(
+  TextStyle style1 = GoogleFonts.notoSans(
       fontWeight: FontWeight.w700, fontStyle: FontStyle.normal, fontSize: 15);
 
   bool isShowVND = false;
@@ -289,17 +292,17 @@ class _Sizebox1State extends State<Sizebox1> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 25),
       decoration: BoxDecoration(
-        boxShadow: const [],
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          stops: [0.0, 1.0],
-          colors: [Color(0xff85d8ce), Color(0xff085078)],
-        ),
-        color: Colors.deepPurple.shade300,
-        borderRadius: BorderRadius.circular(30),
+        // boxShadow: const [],
+        // gradient: const LinearGradient(
+        //   begin: Alignment.topLeft,
+        //   end: Alignment.bottomRight,
+        //   stops: [0.0, 0.0],
+        //   colors: [Color(0xff85d8ce), Color(0xff85d8ce)],
+        // ),
+        color: const Color.fromARGB(255, 227, 210, 250),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         children: [
@@ -310,27 +313,27 @@ class _Sizebox1State extends State<Sizebox1> {
                 Text(
                   '${widget.number}',
                   //số tk bank
-                  style: const TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff085078)),
+                  style: GoogleFonts.notoSans(
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xff085078),
+                      fontSize: 17),
                 ),
               ],
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 8, left: 15),
+            padding: const EdgeInsets.only(top: 8, left: 12),
             margin: const EdgeInsets.only(bottom: 9),
             child: Row(
               children: [
                 Row(
                   children: [
                     Text(
-                      "\$ ${widget.money} ",
-                      style: const TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff085078)),
+                      " ${widget.money} ",
+                      style: GoogleFonts.notoSans(
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xff085078),
+                          fontSize: 20),
                     ),
                   ],
                 ),
@@ -339,12 +342,12 @@ class _Sizebox1State extends State<Sizebox1> {
                 ),
                 Row(
                   children: [
-                    const Text(
+                    Text(
                       'VND',
-                      style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff085078)),
+                      style: GoogleFonts.notoSans(
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xff085078),
+                          fontSize: 15),
                     ),
                     const SizedBox(
                       width: 10,
@@ -396,7 +399,7 @@ class _Sizebox1State extends State<Sizebox1> {
                   ),
                   Container(
                     padding: const EdgeInsets.only(
-                      top: 13,
+                      top: 12,
                     ),
                     child: Text(
                       "Chuyển tiền",
@@ -477,7 +480,7 @@ class _Sizebox1State extends State<Sizebox1> {
 }
 
 class Sizebox2 extends StatelessWidget {
-  TextStyle style2 = GoogleFonts.lato(
+  TextStyle style2 = GoogleFonts.notoSans(
       fontWeight: FontWeight.w700, fontStyle: FontStyle.normal, fontSize: 15);
   Sizebox2({super.key});
 
@@ -487,7 +490,7 @@ class Sizebox2 extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          padding: const EdgeInsets.only(top: 41, left: 11),
+          padding: const EdgeInsets.only(left: 11),
           child: Text(
             "Tính năng ưu thích",
             style: style2,
@@ -497,20 +500,14 @@ class Sizebox2 extends StatelessWidget {
           width: 98,
         ),
         Container(
-          padding: const EdgeInsets.only(
-            top: 41,
-          ),
-          child: const Text(
-            "Xem tất cả",
-          ),
+          padding: const EdgeInsets.only(),
+          child: Text("Xem tất cả", style: style2),
         ),
         Container(
-          padding: const EdgeInsets.only(
-            top: 41,
-          ),
-          child: const Icon(
+          padding: const EdgeInsets.only(),
+          child: Icon(
             Icons.arrow_forward_ios,
-            color: Colors.orange,
+            color: Colors.amber.shade900,
           ),
         )
       ],
@@ -531,7 +528,7 @@ class Style extends StatelessWidget {
 }
 
 class Sizebox3 extends StatelessWidget {
-  TextStyle style3 = GoogleFonts.lato(
+  TextStyle style3 = GoogleFonts.notoSans(
     fontWeight: FontWeight.w700,
     fontStyle: FontStyle.normal,
   );
@@ -542,11 +539,7 @@ class Sizebox3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
-      // margin: const EdgeInsets.only(top: 9),
-      // width: 367,
-      // height: 175,
-      decoration: color2,
+      padding: EdgeInsets.symmetric(horizontal: 14),
       child: Column(
         children: [
           Container(
