@@ -100,8 +100,8 @@ class _SignUpState extends State<SignUp> {
                       padding: const EdgeInsets.only(top: 32),
                       child: Text(
                         "ĐĂNG KÍ",
-                        style: GoogleFonts.notoSans(
-                            fontWeight: FontWeight.w700,
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.normal,
                             color: Colors.black,
                             fontSize: 30),
                       ),

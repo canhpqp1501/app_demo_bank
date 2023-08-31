@@ -71,14 +71,12 @@ class _Login extends State<Login> {
 
                 // width: 161,
                 // height: 40,
-                child: const Text(
-                  "Đăng nhập",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 34,
-                  ),
-                ),
+                child: Text("Đăng nhập",
+                    style: GoogleFonts.poppins(
+                      color: Colors.black,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 34,
+                    )),
               ),
               Container(
                 margin: const EdgeInsets.only(top: 10),
@@ -220,8 +218,8 @@ class _Login extends State<Login> {
                 children: [
                   Text(
                     "không có tài khoản?",
-                    style: GoogleFonts.notoSans(
-                        fontWeight: FontWeight.w700,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
                         color: Colors.black,
                         fontSize: 15),
                   ),
@@ -231,8 +229,8 @@ class _Login extends State<Login> {
                     },
                     child: Text(
                       'Đăng kí',
-                      style: GoogleFonts.notoSans(
-                          fontWeight: FontWeight.w700,
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.normal,
                           color: Colors.black,
                           fontSize: 16),
                     ),
