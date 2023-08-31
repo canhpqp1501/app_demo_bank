@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: must_be_immutable, avoid_unnecessary_containers, file_names
 
-
 import 'package:app_demo_banking/view/qr_scan.dart/dialog_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -51,6 +50,7 @@ class _HomeState extends State<Home> {
               child: GNav(
                   selectedIndex: 0,
                   // backgroundColor: Color(0xff0FFF1E6FF),
+
                   color: const Color.fromARGB(255, 201, 161, 254),
                   // tabBackgroundGradient: state.themeData.primaryGradient,
                   // ignore: use_full_hex_values_for_flutter_colors
@@ -161,8 +161,9 @@ class _HomeState extends State<Home> {
                                             children: [
                                               Text(
                                                 "Xin chào ${state.userInfo?.name.toUpperCase()}",
-                                                style: GoogleFonts.notoSans(
-                                                    fontWeight: FontWeight.w700,
+                                                style: GoogleFonts.poppins(
+                                                    fontWeight:
+                                                        FontWeight.normal,
                                                     color:
                                                         Colors.amber.shade900,
                                                     fontSize: 15),
@@ -276,8 +277,8 @@ class _Sizebox1State extends State<Sizebox1> {
   //   moneyCard: '10,000,000',
   //   numberCard: 333333,
   // );
-  TextStyle style1 = GoogleFonts.notoSans(
-      fontWeight: FontWeight.w700, fontStyle: FontStyle.normal, fontSize: 15);
+  TextStyle style1 =
+      GoogleFonts.poppins(fontWeight: FontWeight.normal, fontSize: 15);
 
   bool isShowVND = false;
   void createNewTask() {
@@ -306,22 +307,22 @@ class _Sizebox1State extends State<Sizebox1> {
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 15, left: 15),
+            padding: const EdgeInsets.only(top: 10, left: 15),
             child: Row(
               children: [
                 Text(
                   '${widget.number}',
                   //số tk bank
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w400,
                       color: const Color(0xff085078),
-                      fontSize: 17),
+                      fontSize: 20),
                 ),
               ],
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 8, left: 12),
+            padding: const EdgeInsets.only(left: 12),
             margin: const EdgeInsets.only(bottom: 9),
             child: Row(
               children: [
@@ -329,8 +330,8 @@ class _Sizebox1State extends State<Sizebox1> {
                   children: [
                     Text(
                       " ${widget.money} ",
-                      style: GoogleFonts.notoSans(
-                          fontWeight: FontWeight.w700,
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.normal,
                           color: const Color(0xff085078),
                           fontSize: 20),
                     ),
@@ -343,7 +344,7 @@ class _Sizebox1State extends State<Sizebox1> {
                   children: [
                     Text(
                       'VND',
-                      style: GoogleFonts.notoSans(
+                      style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w700,
                           color: const Color(0xff085078),
                           fontSize: 15),
@@ -479,8 +480,8 @@ class _Sizebox1State extends State<Sizebox1> {
 }
 
 class Sizebox2 extends StatelessWidget {
-  TextStyle style2 = GoogleFonts.notoSans(
-      fontWeight: FontWeight.w700, fontStyle: FontStyle.normal, fontSize: 15);
+  TextStyle style2 =
+      GoogleFonts.poppins(fontWeight: FontWeight.normal, fontSize: 15);
   Sizebox2({super.key});
 
   @override
@@ -527,9 +528,8 @@ class Style extends StatelessWidget {
 }
 
 class Sizebox3 extends StatelessWidget {
-  TextStyle style3 = GoogleFonts.notoSans(
-    fontWeight: FontWeight.w700,
-    fontStyle: FontStyle.normal,
+  TextStyle style3 = GoogleFonts.poppins(
+    fontWeight: FontWeight.normal,
   );
   Sizebox3({
     super.key,

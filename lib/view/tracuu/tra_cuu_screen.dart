@@ -14,6 +14,8 @@ class TraCuuScreen extends StatefulWidget {
 }
 
 class _TraCuuScreenState extends State<TraCuuScreen> {
+  final TextStyle style7 = GoogleFonts.poppins(
+      fontWeight: FontWeight.normal, color: Colors.black, fontSize: 15);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,10 +55,7 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Tài Khoản",
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                      fontSize: 15),
+                  style: style7,
                 ),
               ],
             ),
@@ -77,10 +76,7 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Tiết Kiệm",
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                      fontSize: 15),
+                  style: style7,
                 ),
               ],
             ),
@@ -97,10 +93,7 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Khoản Vay",
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                      fontSize: 15),
+                  style: style7,
                 ),
               ],
             ),
@@ -117,16 +110,13 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Thẻ Tín Dụng",
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                      fontSize: 15),
+                  style: style7,
                 ),
               ],
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 25, left: 45),
+            padding: const EdgeInsets.only(top: 17, left: 45),
             child: Column(
               children: [
                 const Icon(
@@ -137,16 +127,13 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Lệnh Chuyển Tiền",
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                      fontSize: 14),
+                  style: style7,
                 ),
               ],
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 25, right: 32),
+            padding: const EdgeInsets.only(top: 17, right: 32),
             child: Column(
               children: [
                 const Icon(
@@ -157,10 +144,7 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
                 const Spacer(),
                 Text(
                   "Thông Tin Tổng Hợp",
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                      fontSize: 14),
+                  style: style7,
                 ),
               ],
             ),

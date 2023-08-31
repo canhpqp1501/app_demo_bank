@@ -55,8 +55,8 @@ class ElevatedButtonWidget extends StatelessWidget {
             ),
             child: Text(
               buttonText,
-              style: GoogleFonts.notoSans(
-                  fontWeight: FontWeight.bold,
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.normal,
                   color: const Color(0xffffffff),
                   fontSize: 20),
             ),

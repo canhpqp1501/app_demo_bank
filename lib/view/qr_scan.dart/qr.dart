@@ -127,7 +127,7 @@ class _QrscanState extends State<Qrscan> {
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
-                        fontSize: 13,
+                        fontSize: 11,
                       ),
                     )
                   ],

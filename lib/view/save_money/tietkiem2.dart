@@ -41,16 +41,16 @@ class _TietKiem2State extends State<TietKiem2> {
             elevation: 0,
             centerTitle: true,
           ),
-          body: const Column(
+          body: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Size3(),
-              SizedBox(
-                height: 45,
+              const SizedBox(
+                height: 35,
               ),
-              Size4(
+              const Size4(
                   // passData: ,
                   ),
             ],
@@ -60,7 +60,11 @@ class _TietKiem2State extends State<TietKiem2> {
 }
 
 class Size3 extends StatelessWidget {
-  const Size3({
+  TextStyle style4 = GoogleFonts.poppins(
+      fontWeight: FontWeight.normal,
+      color: const Color(0xff085078),
+      fontSize: 20);
+  Size3({
     super.key,
   });
 
@@ -74,13 +78,10 @@ class Size3 extends StatelessWidget {
           children: [
             Text(
               "Giá trị sổ",
-              style: GoogleFonts.notoSans(
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0xff085078),
-                  fontSize: 20),
+              style: style4,
             ),
             const SizedBox(
-              height: 25,
+              height: 15,
             ),
             Row(
               children: [
@@ -88,10 +89,7 @@ class Size3 extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 18),
                   child: Text(
                     "10,000,000",
-                    style: GoogleFonts.notoSans(
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xff085078),
-                        fontSize: 20),
+                    style: style4,
                   ),
                 ),
                 const SizedBox(
@@ -99,10 +97,7 @@ class Size3 extends StatelessWidget {
                 ),
                 Text(
                   "VND",
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
-                      color: const Color(0xff085078),
-                      fontSize: 20),
+                  style: style4,
                 )
               ],
             ),
@@ -111,10 +106,7 @@ class Size3 extends StatelessWidget {
             ),
             Text(
               "Kỳ hạn 2 tháng ",
-              style: GoogleFonts.notoSans(
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0xff085078),
-                  fontSize: 20),
+              style: style4,
             ),
           ],
         ),
@@ -125,6 +117,7 @@ class Size3 extends StatelessWidget {
 
 class Size4 extends StatefulWidget {
   // final int passData;
+
   const Size4({
     Key? key,
     // required this.passData,
@@ -135,6 +128,8 @@ class Size4 extends StatefulWidget {
 }
 
 class _Size4State extends State<Size4> {
+  final TextStyle style6 = GoogleFonts.poppins(
+      fontWeight: FontWeight.normal, color: Colors.black, fontSize: 15);
   List day = [
     'Chuyển cả gốc và lãi sang kỳ hạn mới ',
     'Nhận lãi, chuyển gốc sang ký hạn mới ',
@@ -156,11 +151,11 @@ class _Size4State extends State<Size4> {
               child: Column(
                 children: [
                   Container(
-                    padding: const EdgeInsets.only(top: 10, right: 92),
+                    padding: const EdgeInsets.only(right: 120),
                     child: Text(
                       "TÀI KHOẢN TRÍCH TIỀN",
-                      style: GoogleFonts.notoSans(
-                          fontWeight: FontWeight.w700,
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.normal,
                           color: const Color(0xff085078),
                           fontSize: 18),
                     ),
@@ -199,10 +194,7 @@ class _Size4State extends State<Size4> {
                                   '1 333 555 6666',
 
                                   /// kết nối vs tk ở màn home?
-                                  style: GoogleFonts.notoSans(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black,
-                                      fontSize: 15),
+                                  style: style6,
                                 ),
                               ),
                               const SizedBox(
@@ -215,10 +207,7 @@ class _Size4State extends State<Size4> {
                                     '10,000,000   VND',
                                     //${widget.passData}
                                     //pass data từ màn tiet kiem sang
-                                    style: GoogleFonts.notoSans(
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.black,
-                                        fontSize: 15),
+                                    style: style6,
                                   ),
                                 ),
                               ),
@@ -243,8 +232,8 @@ class _Size4State extends State<Size4> {
                     padding: const EdgeInsets.only(right: 200),
                     child: Text(
                       "KHI HẾT HẠN",
-                      style: GoogleFonts.notoSans(
-                          fontWeight: FontWeight.w700,
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.normal,
                           color: const Color(0xff085078),
                           fontSize: 18),
                     ),
@@ -285,10 +274,7 @@ class _Size4State extends State<Size4> {
                               children: [
                                 Text(
                                   day[indexGen],
-                                  style: GoogleFonts.notoSans(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black,
-                                      fontSize: 15),
+                                  style: style6,
                                 ),
                                 const Icon((Icons.done_all)),
                               ],

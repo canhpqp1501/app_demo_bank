@@ -37,8 +37,8 @@ class _TraCuuSavingState extends State<TraCuuSaving> {
               Tab(
                 child: Text(
                   'TIẾT KIỆM',
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.normal,
                       color: Colors.black,
                       fontSize: 15),
                 ),
@@ -46,8 +46,8 @@ class _TraCuuSavingState extends State<TraCuuSaving> {
               Tab(
                 child: Text(
                   'THẺ TÍN DỤNG',
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.normal,
                       color: Colors.black,
                       fontSize: 13),
                 ),
@@ -55,8 +55,8 @@ class _TraCuuSavingState extends State<TraCuuSaving> {
               Tab(
                 child: Text(
                   'KHOẢN VAY',
-                  style: GoogleFonts.notoSans(
-                      fontWeight: FontWeight.w700,
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.normal,
                       color: Colors.black,
                       fontSize: 15),
                 ),
@@ -100,15 +100,15 @@ class Homepage1 extends StatelessWidget {
         child: Column(children: [
           Text(
             'TỔNG TIẾT KIỆM VND',
-            style: GoogleFonts.notoSans(
-                fontWeight: FontWeight.w700,
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.normal,
                 color: Colors.amber.shade900,
                 fontSize: 15),
           ),
           Text(
             '10,000,000 VND',
-            style: GoogleFonts.notoSans(
-                fontWeight: FontWeight.w700,
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.normal,
                 color: Colors.amber.shade900,
                 fontSize: 29),
           ),
@@ -125,8 +125,8 @@ class Homepage1 extends StatelessWidget {
                       children: [
                         Text(
                           "Tiết Kiệm Điện Tử (1)",
-                          style: GoogleFonts.notoSans(
-                              fontWeight: FontWeight.w700,
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.normal,
                               color: Colors.black,
                               fontSize: 15),
                         ),
@@ -152,8 +152,8 @@ class Homepage1 extends StatelessWidget {
                           children: [
                             Text(
                               "Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}",
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.black,
                                   fontSize: 13),
                             ),
@@ -161,8 +161,8 @@ class Homepage1 extends StatelessWidget {
                               padding: const EdgeInsets.only(right: 105),
                               child: Text(
                                 "1333 555 00E",
-                                style: GoogleFonts.notoSans(
-                                    fontWeight: FontWeight.w700,
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.normal,
                                     color: Colors.black,
                                     fontSize: 13),
                               ),
@@ -171,8 +171,8 @@ class Homepage1 extends StatelessWidget {
                               padding: const EdgeInsets.only(right: 90),
                               child: Text(
                                 "10,000,000 VND",
-                                style: GoogleFonts.notoSans(
-                                    fontWeight: FontWeight.w700,
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.normal,
                                     color: Colors.black,
                                     fontSize: 13),
                               ),
@@ -181,8 +181,8 @@ class Homepage1 extends StatelessWidget {
                               padding: const EdgeInsets.only(right: 55),
                               child: Text(
                                 "Tất Toán 12/10/2023",
-                                style: GoogleFonts.notoSans(
-                                    fontWeight: FontWeight.w700,
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.normal,
                                     color: Colors.black,
                                     fontSize: 13),
                               ),
@@ -194,8 +194,8 @@ class Homepage1 extends StatelessWidget {
                         ),
                         Text(
                           "Xem chi tiết",
-                          style: GoogleFonts.notoSans(
-                              fontWeight: FontWeight.w700,
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.normal,
                               color: Colors.amber.shade900,
                               fontSize: 15),
                         ),
@@ -225,8 +225,10 @@ class Homepage2 extends StatelessWidget {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Text(
             "Không Có Dữ Liệu",
-            style: GoogleFonts.notoSans(
-                fontWeight: FontWeight.w700, color: Colors.black, fontSize: 14),
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+                fontSize: 14),
           )
         ]),
       ),
@@ -245,8 +247,10 @@ class Homepage3 extends StatelessWidget {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Text(
             "Không Có Dữ Liệu",
-            style: GoogleFonts.notoSans(
-                fontWeight: FontWeight.w700, color: Colors.black, fontSize: 14),
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+                fontSize: 14),
           )
         ]),
       ),

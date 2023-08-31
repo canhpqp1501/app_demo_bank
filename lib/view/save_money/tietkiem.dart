@@ -22,6 +22,7 @@ class TietKiem extends StatefulWidget {
 
 class _TietKiemState extends State<TietKiem> {
   SavingTerm activeMonth = SavingTerm('1 tuần ', 7);
+  
 
   void onChangeMonth(SavingTerm month) {
     setState(() {
@@ -78,8 +79,8 @@ class _TietKiemState extends State<TietKiem> {
                         padding: const EdgeInsets.only(left: 25),
                         child: Text(
                           "MỤC TIÊU TIẾT KIỆM",
-                          style: GoogleFonts.notoSans(
-                              fontWeight: FontWeight.w700,
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.normal,
                               color: const Color(0xff085078),
                               fontSize: 25),
                         ),
@@ -103,12 +104,15 @@ class Size1 extends StatelessWidget {
   final SavingTerm month;
   final int money;
   // int passData = money;
+  TextStyle style5 = GoogleFonts.poppins(
+      fontWeight: FontWeight.normal,
+      color: const Color(0xff085078),
+      fontSize: 20);
 
-  const Size1({
+  Size1({
     Key? key,
     required this.month,
     required this.money,
-    // required this.passData,
   }) : super(key: key);
 
   @override
@@ -119,33 +123,15 @@ class Size1 extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Giá trị sổ",
-              style: GoogleFonts.notoSans(
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0xff085078),
-                  fontSize: 20),
-            ),
+            Text("Giá trị sổ", style: style5),
             const SizedBox(
-              height: 25,
+              height: 15,
             ),
-            Text(
-              ' $money VND',
-              style: GoogleFonts.notoSans(
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0xff085078),
-                  fontSize: 20),
-            ),
+            Text(' $money VND', style: style5),
             const SizedBox(
-              height: 25,
+              height: 15,
             ),
-            Text(
-              'Kỳ hạn ${month.title}',
-              style: GoogleFonts.notoSans(
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0xff085078),
-                  fontSize: 20),
-            ),
+            Text('Kỳ hạn ${month.title}', style: style5),
           ],
         ),
       ),
@@ -217,21 +203,21 @@ class _Size2State extends State<Size2> {
                                   const EdgeInsets.only(top: 8, right: 150),
                               child: Text(
                                 'Tên Số',
-                                style: GoogleFonts.notoSans(
-                                    fontWeight: FontWeight.w700,
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.normal,
                                     color: Colors.black,
                                     fontSize: 11),
                               ),
                             ),
                             const SizedBox(
-                              height: 7,
+                              height: 5,
                             ),
                             Container(
                               padding: const EdgeInsets.only(left: 15),
                               child: Text(
                                 'Tiết kiệm điện tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}',
-                                style: GoogleFonts.notoSans(
-                                    fontWeight: FontWeight.w700,
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.normal,
                                     color: Colors.black,
                                     fontSize: 15),
                               ),
@@ -257,7 +243,7 @@ class _Size2State extends State<Size2> {
                       filled: true,
                       // ignore: use_full_hex_values_for_flutter_colors
                       fillColor: const Color(0xff0FFF1E6FF),
-                      hintText: 'Số tiền tiết kiệm ',
+                      hintText: 'Nhập Số tiền tiết kiệm ',
                       // prefixText: '\$',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -273,11 +259,11 @@ class _Size2State extends State<Size2> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(right: 242),
+                  padding: const EdgeInsets.only(right: 262),
                   child: Text(
                     "KỲ HẠN",
-                    style: GoogleFonts.notoSans(
-                        fontWeight: FontWeight.w700,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
                         color: const Color(0xff085078),
                         fontSize: 18),
                   ),
@@ -307,8 +293,8 @@ class _Size2State extends State<Size2> {
                             child: Text(
                               ' ${widget.month.title}',
                               // kì hạn cộng theo index tương ứng
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.black,
                                   fontSize: 16),
                             ),
@@ -320,8 +306,8 @@ class _Size2State extends State<Size2> {
                             padding: const EdgeInsets.only(left: 16),
                             child: Text(
                               'Kết thúc ngày ${Moment(DateTime.now().add(Duration(days: widget.month.termDuration))).format('DD/MM/YYYY')}',
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.black,
                                   fontSize: 14),
                             ),
@@ -334,8 +320,8 @@ class _Size2State extends State<Size2> {
                           children: [
                             Text(
                               'Lãi Suất \n7,8%/Năm',
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.amber.shade900,
                                   fontSize: 13),
                             )
@@ -346,7 +332,7 @@ class _Size2State extends State<Size2> {
                   ),
                 ),
                 const SizedBox(
-                  height: 25,
+                  height: 5,
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -355,11 +341,13 @@ class _Size2State extends State<Size2> {
                       Column(
                         children: [
                           Container(
-                            padding: const EdgeInsets.only(left: 15, top: 3),
+                            padding: const EdgeInsets.only(
+                              left: 15,
+                            ),
                             child: Text(
                               'Lãi tạm tính cuối kì',
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.black,
                                   fontSize: 14),
                             ),
@@ -368,8 +356,8 @@ class _Size2State extends State<Size2> {
                             padding: const EdgeInsets.only(left: 10),
                             child: Text(
                               '--VND',
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.black,
                                   fontSize: 20),
                             ),
@@ -453,8 +441,8 @@ class _KyhanListState extends State<KyhanList> {
                       const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
                   child: Text(
                     item.title,
-                    style: GoogleFonts.notoSans(
-                        fontWeight: FontWeight.w700,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
                         color: Colors.black,
                         fontSize: 14),
                   ),

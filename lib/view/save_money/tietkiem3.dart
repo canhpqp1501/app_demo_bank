@@ -51,8 +51,8 @@ class _Tietkiem3State extends State<Tietkiem3> {
                   children: [
                     Text(
                       "Tiết Kiệm Điện Tử",
-                      style: GoogleFonts.notoSans(
-                          fontWeight: FontWeight.w700,
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.normal,
                           color: const Color(0xff085078),
                           fontSize: 20),
                     ),
@@ -84,8 +84,8 @@ class Size5 extends StatelessWidget {
             children: [
               Text(
                 'XÁC NHẬN THÔNG  TIN TẠO SỐ',
-                style: GoogleFonts.notoSans(
-                    fontWeight: FontWeight.w700,
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.normal,
                     color: const Color(0xff085078),
                     fontSize: 15),
               ),
@@ -94,8 +94,8 @@ class Size5 extends StatelessWidget {
               ),
               Text(
                 '10,000,000 VND',
-                style: GoogleFonts.notoSans(
-                    fontWeight: FontWeight.w700,
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.normal,
                     color: Colors.amber.shade900,
                     fontSize: 20),
               ),
@@ -134,15 +134,15 @@ class Size5 extends StatelessWidget {
                           children: [
                             Text(
                               ' Nguồn tiền ',
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.black,
                                   fontSize: 12),
                             ),
                             Text(
                               '       13335556666 ',
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.amber.shade900,
                                   fontSize: 15),
                             ),
@@ -182,8 +182,8 @@ class Size5 extends StatelessWidget {
                             padding: const EdgeInsets.only(right: 85),
                             child: Text(
                               'Sổ tiết kiệm ',
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.black,
                                   fontSize: 12),
                             ),
@@ -192,8 +192,8 @@ class Size5 extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 30),
                             child: Text(
                               ' Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}',
-                              style: GoogleFonts.notoSans(
-                                  fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.amber.shade900,
                                   fontSize: 15),
                             ),
@@ -212,15 +212,15 @@ class Size5 extends StatelessWidget {
                 children: [
                   Text(
                     'Kỳ hạn & Lãi suất ',
-                    style: GoogleFonts.notoSans(
-                        fontWeight: FontWeight.w700,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
                         color: Colors.black,
                         fontSize: 11),
                   ),
                   Text(
                     '2 tháng - 5,45%/Năm ',
-                    style: GoogleFonts.notoSans(
-                        fontWeight: FontWeight.w700,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
                         color: Colors.amber.shade900,
                         fontSize: 15),
                   ),
@@ -234,8 +234,8 @@ class Size5 extends StatelessWidget {
                 children: [
                   Text(
                     'Lãi tạm tính ',
-                    style: GoogleFonts.notoSans(
-                        fontWeight: FontWeight.w700,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
                         color: Colors.black,
                         fontSize: 11),
                   ),
@@ -244,8 +244,8 @@ class Size5 extends StatelessWidget {
                   ),
                   Text(
                     '41,659 VND ',
-                    style: GoogleFonts.notoSans(
-                        fontWeight: FontWeight.w700,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
                         color: Colors.amber.shade900,
                         fontSize: 15),
                   ),
@@ -261,8 +261,8 @@ class Size5 extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 30),
                       child: Text(
                         'Cài đặt tự động tái tục',
-                        style: GoogleFonts.notoSans(
-                            fontWeight: FontWeight.w700,
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.normal,
                             color: Colors.black,
                             fontSize: 11),
                       ),
@@ -272,8 +272,8 @@ class Size5 extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 35),
                     child: Text(
                       'Chuyển cả gốc và lãi\n sang kỳ hạn mới',
-                      style: GoogleFonts.notoSans(
-                          fontWeight: FontWeight.w700,
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.normal,
                           color: Colors.amber.shade900,
                           fontSize: 15),
                     ),
@@ -287,23 +287,25 @@ class Size5 extends StatelessWidget {
       const SizedBox(height: 60),
       Text(
         'Bằng việc Xác Nhận Quý Khách sẽ đồng ý với ',
-        style: GoogleFonts.notoSans(
-            fontWeight: FontWeight.w700, color: Colors.black, fontSize: 15),
+        style: GoogleFonts.poppins(
+            fontWeight: FontWeight.normal, color: Colors.black, fontSize: 15),
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             'Điều khoản & Chính sách sử dụng',
-            style: GoogleFonts.notoSans(
-                fontWeight: FontWeight.w700,
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.normal,
                 color: Colors.amber.shade900,
                 fontSize: 13),
           ),
           Text(
             'của FPBank',
-            style: GoogleFonts.notoSans(
-                fontWeight: FontWeight.w700, color: Colors.black, fontSize: 15),
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+                fontSize: 15),
           ),
         ],
       ),
@@ -323,8 +325,8 @@ class Size5 extends StatelessWidget {
                   },
                   child: Text(
                     " HỦY BỎ",
-                    style: GoogleFonts.notoSans(
-                        fontWeight: FontWeight.w700,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.normal,
                         color: const Color.fromARGB(255, 67, 88, 122),
                         fontSize: 19),
                   )),
