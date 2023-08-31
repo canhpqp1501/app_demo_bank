@@ -345,9 +345,9 @@ class _Sizebox1State extends State<Sizebox1> {
                     Text(
                       'VND',
                       style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.normal,
                           color: const Color(0xff085078),
-                          fontSize: 15),
+                          fontSize: 20),
                     ),
                     const SizedBox(
                       width: 10,
