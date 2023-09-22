@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, prefer_typing_uninitialized_variables, prefer_final_fields
 // ignore_for_file: avoid_unnecessary_containers, avoid_types_as_parameter_names, non_constant_identifier_names, must_be_immutable
 
+import 'package:app_demo_banking/view/save_money/tietkiem2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:moment_dart/moment_dart.dart';
 
 import 'package:app_demo_banking/common/elevated_button_widget.dart';
-import 'package:app_demo_banking/router/app_router.dart';
 import 'package:app_demo_banking/view/homepage/view_model/tiet_kiem_cubit.dart';
 import 'package:app_demo_banking/view/homepage/view_model/tiet_kiem_state.dart';
 import 'package:app_demo_banking/view/save_money/saving_term.dart';
@@ -22,7 +22,6 @@ class TietKiem extends StatefulWidget {
 
 class _TietKiemState extends State<TietKiem> {
   SavingTerm activeMonth = SavingTerm('1 tuần ', 7);
-  
 
   void onChangeMonth(SavingTerm month) {
     setState(() {
@@ -155,7 +154,7 @@ class Size2 extends StatefulWidget {
 }
 
 class _Size2State extends State<Size2> {
-  TextEditingController _moneyController = TextEditingController();
+  final moneyController = TextEditingController();
 
   final listTerm = [
     SavingTerm('1 tuần ', 7),
@@ -234,9 +233,9 @@ class _Size2State extends State<Size2> {
                   child: TextField(
                     onChanged: (value) {
                       context.read<tietKiemCubit>().setMoneyHandle(
-                          int.tryParse(value.replaceAll('', "")) ?? 0);
+                          int.tryParse(value.replaceAll(',', "")) ?? 0,);
                     },
-                    controller: _moneyController,
+                    controller: moneyController,
                     keyboardType: TextInputType.number,
                     inputFormatters: [TextInputMoneyFormatter()],
                     decoration: InputDecoration(
@@ -248,7 +247,7 @@ class _Size2State extends State<Size2> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         // ignore: unnecessary_null_comparison
-                        borderSide: _moneyController != null
+                        borderSide: moneyController != null
                             ? const BorderSide(
                                 color: Color.fromARGB(255, 244, 244, 244),
                               )
@@ -376,16 +375,33 @@ class _Size2State extends State<Size2> {
           ElevatedButtonWidget(
             buttonText: " TIẾP TỤC",
             onpressed: () {
-              Navigator.pushNamed(context, AppRouterName.tietKiem2);
+              // setState(() {
+              //   Navigator.of(context).push(MaterialPageRoute(
+              //       builder: (context) => TietKiem2(
+              //             passM: moneyController.text,
+              //           )));
+              // });
               // Navigator.of(context)
               //     .push(MaterialPageRoute(builder: (context) => const TietKiem()));
               // context.read<tietKiemCubit>().setMoneyHandle();
+              _sendDataToSecondScreen(context);
             },
             width: 250,
           ),
         ],
       ),
     );
+  }
+
+  void _sendDataToSecondScreen(BuildContext context) {
+    String textToSend = moneyController.text;
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => TietKiem2(
+            passM: textToSend,
+          ),
+        ));
   }
 }
 

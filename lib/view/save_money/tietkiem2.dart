@@ -8,7 +8,11 @@ import 'package:app_demo_banking/common/elevated_button_widget.dart';
 import 'package:app_demo_banking/router/app_router.dart';
 
 class TietKiem2 extends StatefulWidget {
-  const TietKiem2({super.key});
+  String passM;
+  TietKiem2({
+    Key? key,
+    required this.passM,
+  }) : super(key: key);
 
   @override
   State<TietKiem2> createState() => _TietKiem2State();
@@ -46,7 +50,9 @@ class _TietKiem2State extends State<TietKiem2> {
               const SizedBox(
                 height: 15,
               ),
-              Size3(),
+              Size3(
+                passM: '10,000,000',
+              ),
               const SizedBox(
                 height: 35,
               ),
@@ -59,14 +65,24 @@ class _TietKiem2State extends State<TietKiem2> {
   }
 }
 
-class Size3 extends StatelessWidget {
+@override
+class Size3 extends StatefulWidget {
+  String passM;
+
+  Size3({
+    Key? key,
+    required this.passM,
+  }) : super(key: key);
+
+  @override
+  State<Size3> createState() => _Size3State();
+}
+
+class _Size3State extends State<Size3> {
   TextStyle style4 = GoogleFonts.poppins(
       fontWeight: FontWeight.normal,
       color: const Color(0xff085078),
       fontSize: 20);
-  Size3({
-    super.key,
-  });
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +104,7 @@ class Size3 extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(left: 18),
                   child: Text(
-                    "10,000,000",
+                    widget.passM,
                     style: style4,
                   ),
                 ),
@@ -243,6 +259,7 @@ class _Size4State extends State<Size4> {
                     children: [
                       ...List.generate(3, (indexGen) {
                         return GestureDetector(
+                          // Inwek();
                           onTap: () {
                             setState(() {
                               indexColor = indexGen;

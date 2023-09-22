@@ -140,68 +140,39 @@ class Homepage1 extends StatelessWidget {
                     const SizedBox(
                       height: 25,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Icon(
-                          Icons.savings_rounded,
-                          color: Colors.pink.shade200,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}",
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.black,
-                                  fontSize: 13),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(right: 105),
-                              child: Text(
-                                "1333 555 00E",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.black,
-                                    fontSize: 13),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(right: 90),
-                              child: Text(
-                                "10,000,000 VND",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.black,
-                                    fontSize: 13),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(right: 55),
-                              child: Text(
-                                "Tất Toán 12/10/2023",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.black,
-                                    fontSize: 13),
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
+                    ListTile(
+                      contentPadding: EdgeInsets.all(10),
+                      leading: const Icon(
+                        Icons.savings_rounded,
+                        // color: Colors.pink.shade200,
+                      ),
+                      title: Column(children: [
                         Text(
+                            "Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}"),
+                        const Padding(
+                          padding: EdgeInsets.only(right: 49.5),
+                          child: Text('10,000,000 VND'),
+                        ),
+                        const Padding(
+                          padding: const EdgeInsets.only(right: 12),
+                          child: Text(
+                            "Tất Toán 12/10/2023",
+                          ),
+                        )
+                      ]),
+                      trailing: TextButton(
+                        child: Text(
                           "Xem chi tiết",
                           style: GoogleFonts.poppins(
                               fontWeight: FontWeight.normal,
                               color: Colors.amber.shade900,
                               fontSize: 15),
                         ),
-                        Icon(Icons.arrow_forward_ios_outlined,
-                            color: Colors.amber.shade900),
-                      ],
+                        onPressed: () {
+                          ///
+                        },
+                      ),
+                      iconColor: Colors.pink.shade200,
                     ),
                   ],
                 ),
