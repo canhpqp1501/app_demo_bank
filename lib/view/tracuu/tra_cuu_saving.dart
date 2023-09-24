@@ -141,7 +141,7 @@ class Homepage1 extends StatelessWidget {
                       height: 25,
                     ),
                     ListTile(
-                      contentPadding: EdgeInsets.all(10),
+                      contentPadding: const EdgeInsets.all(10),
                       leading: const Icon(
                         Icons.savings_rounded,
                         // color: Colors.pink.shade200,
@@ -154,7 +154,7 @@ class Homepage1 extends StatelessWidget {
                           child: Text('10,000,000 VND'),
                         ),
                         const Padding(
-                          padding: const EdgeInsets.only(right: 12),
+                          padding: EdgeInsets.only(right: 12),
                           child: Text(
                             "Tất Toán 12/10/2023",
                           ),

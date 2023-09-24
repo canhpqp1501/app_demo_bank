@@ -39,11 +39,27 @@ class _Login extends State<Login> {
   }
 
   void loginHandle() async {
+    if (usernameController.text == "" || passwordController.text == "") {
+      final snackBar = SnackBar(
+        backgroundColor: const Color(0xffBC7AF9),
+        content: const Text(
+          "Vui lòng nhập email và password",
+          // style: AppStyle.textBodyScaffoldBigType4BlackSlim,
+        ),
+        action: SnackBarAction(
+          label: "Thoát",
+          textColor: const Color(0xffffffff),
+          onPressed: () {},
+        ),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
     await Auth().loginWithEmailAndPassword(
         email: usernameController.text.trim(),
         password: passwordController.text.trim());
     // print(Auth().currentUser);
   }
+  // Xử lý login
 
   @override
   Widget build(BuildContext context) {
@@ -193,12 +209,18 @@ class _Login extends State<Login> {
               ElevatedButtonWidget(
                 onpressed: () {
                   loginHandle();
-                  if (usernameController.text.isEmpty &&
-                      passwordController.text.isEmpty) {
+                  if (usernameController.text.isNotEmpty &&
+                      passwordController.text.isNotEmpty) {
                     setState(() {
-                      userEmailError = 'Email không được để trống';
-                      passwordError = 'password không được để trống';
-                      errorMessage = "Sai tài khoản hoặc mật khẩu";
+                      final snackbar = SnackBar(
+                        backgroundColor: const Color(0xffBC7AF9),
+                        content: const Text(
+                          "Sai tài khoản hoặc mật khẩu",
+                        ),
+                        action:
+                            SnackBarAction(label: "Thoát", onPressed: () {}),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
                     });
                   } else {
                     setState(() {

@@ -233,7 +233,8 @@ class _Size2State extends State<Size2> {
                   child: TextField(
                     onChanged: (value) {
                       context.read<tietKiemCubit>().setMoneyHandle(
-                          int.tryParse(value.replaceAll(',', "")) ?? 0,);
+                            int.tryParse(value.replaceAll(',', "")) ?? 0,
+                          );
                     },
                     controller: moneyController,
                     keyboardType: TextInputType.number,

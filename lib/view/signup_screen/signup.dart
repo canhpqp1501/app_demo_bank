@@ -305,10 +305,37 @@ class _SignUpState extends State<SignUp> {
                             passController.text.isEmpty &&
                             pass1Controller.text.isEmpty) {
                           setState(() {
-                            nameTextError = 'Họ & tên không được để trống';
-                            emailTextError = 'Email không được để trống';
-                            passwordTextError = 'passwork không được để trống';
-                            password1TextError = 'Không được để trống';
+                            final snackbar = SnackBar(
+                              backgroundColor: const Color(0xffBC7AF9),
+                              content: const Text(
+                                "Không được để trống",
+                              ),
+                              action: SnackBarAction(
+                                  label: "Thoát",
+                                  textColor: const Color(0xffffffff),
+                                  onPressed: () {}),
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackbar);
+                          });
+                        } else if (nameController.text == '' ||
+                            emailController.text == '' ||
+                            passController.text == '' ||
+                            pass1Controller.text == '') {
+                          setState(() {
+                            final snackbar = SnackBar(
+                              backgroundColor: const Color(0xffBC7AF9),
+                              content: const Text(
+                                  "Không được để trống các ô còn lại"),
+                              action: SnackBarAction(
+                                  label: "Thoát",
+                                  textColor: const Color(0xffffffff),
+                                  onPressed: () {
+                                    ////
+                                  }),
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackbar);
                           });
                         } else {
                           setState(() {
