@@ -217,8 +217,10 @@ class _Login extends State<Login> {
                         content: const Text(
                           "Sai tài khoản hoặc mật khẩu",
                         ),
-                        action:
-                            SnackBarAction(label: "Thoát", onPressed: () {}),
+                        action: SnackBarAction(
+                            label: "Thoát",
+                            textColor: const Color(0xffffffff),
+                            onPressed: () {}),
                       );
                       ScaffoldMessenger.of(context).showSnackBar(snackbar);
                     });
