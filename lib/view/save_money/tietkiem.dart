@@ -154,7 +154,8 @@ class Size2 extends StatefulWidget {
 }
 
 class _Size2State extends State<Size2> {
-  final moneyController = TextEditingController();
+  final _moneyController = TextEditingController();
+  late String error = '';
 
   final listTerm = [
     SavingTerm('1 tuần ', 7),
@@ -236,7 +237,7 @@ class _Size2State extends State<Size2> {
                             int.tryParse(value.replaceAll(',', "")) ?? 0,
                           );
                     },
-                    controller: moneyController,
+                    controller: _moneyController,
                     keyboardType: TextInputType.number,
                     inputFormatters: [TextInputMoneyFormatter()],
                     decoration: InputDecoration(
@@ -248,7 +249,7 @@ class _Size2State extends State<Size2> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         // ignore: unnecessary_null_comparison
-                        borderSide: moneyController != null
+                        borderSide: _moneyController != null
                             ? const BorderSide(
                                 color: Color.fromARGB(255, 244, 244, 244),
                               )
@@ -376,15 +377,6 @@ class _Size2State extends State<Size2> {
           ElevatedButtonWidget(
             buttonText: " TIẾP TỤC",
             onpressed: () {
-              // setState(() {
-              //   Navigator.of(context).push(MaterialPageRoute(
-              //       builder: (context) => TietKiem2(
-              //             passM: moneyController.text,
-              //           )));
-              // });
-              // Navigator.of(context)
-              //     .push(MaterialPageRoute(builder: (context) => const TietKiem()));
-              // context.read<tietKiemCubit>().setMoneyHandle();
               _sendDataToSecondScreen(context);
             },
             width: 250,
@@ -395,14 +387,31 @@ class _Size2State extends State<Size2> {
   }
 
   void _sendDataToSecondScreen(BuildContext context) {
-    String textToSend = moneyController.text;
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => TietKiem2(
-            passM: textToSend,
+    String textToSend = _moneyController.text;
+
+    if (_moneyController.text == '') {
+      setState(() {
+        final snackbar = SnackBar(
+          backgroundColor: const Color(0xffBC7AF9),
+          content: const Text(
+            "Vui lòng nhập só tiền",
           ),
-        ));
+          action: SnackBarAction(
+              label: "Thoát",
+              textColor: const Color(0xffffffff),
+              onPressed: () {}),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackbar);
+      });
+    } else if (_moneyController.text.isNotEmpty) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TietKiem2(
+              passM: textToSend,
+            ),
+          ));
+    }
   }
 }
 

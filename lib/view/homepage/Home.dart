@@ -49,8 +49,6 @@ class _HomeState extends State<Home> {
             bottomNavigationBar: Container(
               child: GNav(
                   selectedIndex: 0,
-                  // backgroundColor: Color(0xff0FFF1E6FF),
-
                   color: const Color.fromARGB(255, 201, 161, 254),
                   // tabBackgroundGradient: state.themeData.primaryGradient,
                   // ignore: use_full_hex_values_for_flutter_colors
@@ -90,148 +88,159 @@ class _HomeState extends State<Home> {
                   ]),
             ),
             backgroundColor: const Color(0xffffffff),
-            body: BlocBuilder<HomeCubit, HomeState>(
-              builder: (context, state) {
-                return SafeArea(
-                  child: SingleChildScrollView(
-                    child: state.isLoading
-                        ? Animate(
-                                child: Icon(
-                                  Icons.back_hand,
-                                  size: size.height * 0.03,
-                                  color: Colors.amber.shade900,
-                                ),
-                                onComplete: (controller) {
-                                  controller.reverse();
-                                })
-                            .shake(
-                                duration: const Duration(seconds: 10),
-                                rotation: 0.3,
-                                hz: 0.1)
-                        : Column(
-                            children: [
-                              Column(
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.only(
-                                      left: 25,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        TextButton.icon(
-                                            onPressed: () {
-                                              logOutHandle();
-                                            },
-                                            icon: Icon(
-                                              Icons.logout,
-                                              color: Colors.amber.shade900,
-                                            ),
-                                            label: Text(
-                                              'Đăng Xuất',
-                                              style: TextStyle(
-                                                  color: Colors.amber.shade900),
-                                            )),
-                                        TextButton.icon(
-                                            onPressed: () {
-                                              context
-                                                  .read<ThemeCubit>()
-                                                  .changeThemeMode();
-                                            },
-                                            icon: Icon(
-                                              Icons.stacked_bar_chart,
-                                              color: Colors.amber.shade900,
-                                            ),
-                                            label: Text(
-                                              'đổi theme',
-                                              style: TextStyle(
-                                                  color: Colors.amber.shade900),
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          padding: const EdgeInsets.only(
-                                            left: 24,
-                                          ),
-                                          child: Row(
-                                            children: [
-                                              Text(
-                                                "Xin chào ${state.userInfo?.name.toUpperCase()}",
-                                                style: GoogleFonts.poppins(
-                                                    fontWeight:
-                                                        FontWeight.normal,
+            body: WillPopScope(
+              onWillPop: () async {
+                return false;
+              },
+              child: BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  return SafeArea(
+                    child: SingleChildScrollView(
+                      child: state.isLoading
+                          ? Center(
+                              child: Animate(
+                                      child: Icon(
+                                        Icons.back_hand,
+                                        size: size.height * 0.075,
+                                        color: const Color.fromARGB(
+                                            255, 227, 210, 250),
+                                      ),
+                                      onComplete: (controller) {
+                                        controller.reverse();
+                                      })
+                                  .shake(
+                                      duration: const Duration(seconds: 10),
+                                      rotation: 0.3,
+                                      hz: 0.1),
+                            )
+                          : Column(
+                              children: [
+                                Column(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.only(
+                                        left: 25,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          TextButton.icon(
+                                              onPressed: () {
+                                                logOutHandle();
+                                              },
+                                              icon: Icon(
+                                                Icons.logout,
+                                                color: Colors.amber.shade900,
+                                              ),
+                                              label: Text(
+                                                'Đăng Xuất',
+                                                style: TextStyle(
                                                     color:
-                                                        Colors.amber.shade900,
-                                                    fontSize: 15),
+                                                        Colors.amber.shade900),
+                                              )),
+                                          TextButton.icon(
+                                              onPressed: () {
+                                                context
+                                                    .read<ThemeCubit>()
+                                                    .changeThemeMode();
+                                              },
+                                              icon: Icon(
+                                                Icons.stacked_bar_chart,
+                                                color: Colors.amber.shade900,
                                               ),
-                                              Animate(
-                                                      child: Icon(
-                                                        Icons.back_hand,
-                                                        size:
-                                                            size.height * 0.03,
-                                                        color: Colors.orange,
-                                                      ),
-                                                      onComplete: (controller) {
-                                                        controller.reverse();
-                                                      })
-                                                  .shake(
-                                                      duration: const Duration(
-                                                          hours: 1),
-                                                      rotation: 0.3,
-                                                      hz: 3)
-                                            ],
+                                              label: Text(
+                                                'đổi theme',
+                                                style: TextStyle(
+                                                    color:
+                                                        Colors.amber.shade900),
+                                              )),
+                                        ],
+                                      ),
+                                    ),
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.only(
+                                              left: 24,
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                Text(
+                                                  "Xin chào ${state.userInfo?.name.toUpperCase()}",
+                                                  style: GoogleFonts.poppins(
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      color:
+                                                          Colors.amber.shade900,
+                                                      fontSize: 15),
+                                                ),
+                                                Animate(
+                                                        child: Icon(
+                                                          Icons.back_hand,
+                                                          size: size.height *
+                                                              0.03,
+                                                          color: Colors.orange,
+                                                        ),
+                                                        onComplete: (controller) {
+                                                          controller.reverse();
+                                                        })
+                                                    .shake(
+                                                        duration:
+                                                            const Duration(
+                                                                hours: 1),
+                                                        rotation: 0.3,
+                                                        hz: 3)
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Container(
-                                          padding: const EdgeInsets.only(
-                                            right: 24,
-                                          ),
-                                          child: Row(
-                                            children: [
-                                              const Icon(
-                                                Icons.search,
-                                                color: Colors.orange,
-                                              ),
-                                              Animate(
-                                                child: Icon(
-                                                  Icons.notifications_on,
-                                                  size: size.height * 0.03,
+                                          Container(
+                                            padding: const EdgeInsets.only(
+                                              right: 24,
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.search,
                                                   color: Colors.orange,
                                                 ),
-                                                onComplete: (controller) {
-                                                  controller.reverse();
-                                                },
-                                              ).shake(
-                                                  duration:
-                                                      const Duration(hours: 1),
-                                                  rotation: 0.3,
-                                                  hz: 3),
-                                            ],
+                                                Animate(
+                                                  child: Icon(
+                                                    Icons.notifications_on,
+                                                    size: size.height * 0.03,
+                                                    color: Colors.orange,
+                                                  ),
+                                                  onComplete: (controller) {
+                                                    controller.reverse();
+                                                  },
+                                                ).shake(
+                                                    duration: const Duration(
+                                                        hours: 1),
+                                                    rotation: 0.3,
+                                                    hz: 3),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ]),
-                                ],
-                              ),
+                                        ]),
+                                  ],
+                                ),
 
-                              Sizebox1(
-                                  money: state.userInfo?.money ?? 0,
-                                  number: state.userInfo?.number ?? 0),
-                              Sizebox2(),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Sizebox3(),
+                                Sizebox1(
+                                    money: state.userInfo?.money ?? 0,
+                                    number: state.userInfo?.number ?? 0),
+                                Sizebox2(),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Sizebox3(),
 
-                              // vị trí của sizebox1
-                            ],
-                          ),
-                  ),
-                );
-              },
+                                // vị trí của sizebox1
+                              ],
+                            ),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         );
@@ -278,7 +287,7 @@ class _Sizebox1State extends State<Sizebox1> {
   //   numberCard: 333333,
   // );
   TextStyle style1 =
-      GoogleFonts.poppins(fontWeight: FontWeight.normal, fontSize: 15);
+      GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 15);
 
   bool isShowVND = false;
   void createNewTask() {
@@ -301,179 +310,179 @@ class _Sizebox1State extends State<Sizebox1> {
         //   stops: [0.0, 0.0],
         //   colors: [Color(0xff85d8ce), Color(0xff85d8ce)],
         // ),
-        color: const Color.fromARGB(255, 227, 210, 250),
-        borderRadius: BorderRadius.circular(20),
+        color: const Color(0xffffffff),
+        borderRadius: BorderRadius.circular(25),
       ),
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.only(top: 10, left: 15),
-            child: Row(
-              children: [
-                Text(
-                  '${widget.number}',
-                  //số tk bank
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xff085078),
-                      fontSize: 20),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 12),
-            margin: const EdgeInsets.only(bottom: 9),
-            child: Row(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      " ${widget.money} ",
-                      style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.normal,
-                          color: const Color(0xff085078),
-                          fontSize: 20),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'VND',
-                      style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.normal,
-                          color: const Color(0xff085078),
-                          fontSize: 20),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isShowVND = !isShowVND;
-                        });
-                      },
-                      child: Icon(
-                        isShowVND ? Icons.visibility_off : Icons.visibility,
-                        size: 20,
-                        color: const Color(0xff085078),
-                      ),
-                      // child: const Icon(
-                      //   Icons.visibility,
-                      //   size: 17,
-                      //   color: Color(0xff085078),
-                      // ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
+      child: Card(
+        color: const Color(0xffFFF6F6),
+        elevation: 18,
+        shadowColor: const Color.fromARGB(255, 201, 161, 254),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(top: 10, left: 15),
+              child: Row(
                 children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(30),
-                      ),
-                    ),
-                    child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 8, horizontal: 8),
-                        child: Animate(
-                          child: const Icon(
-                            Icons.arrow_forward,
-                            size: 38,
-                            color: Colors.amber,
-                          ),
-                        ).scaleXY(duration: const Duration(seconds: 4))),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(
-                      top: 12,
-                    ),
-                    child: Text(
-                      "Chuyển tiền",
-                      style: style1,
-                    ),
+                  Text(
+                    '${widget.number}',
+                    //số tk bank
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xff000000),
+                        fontSize: 20),
                   ),
                 ],
               ),
-              Column(
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 12),
+              margin: const EdgeInsets.only(bottom: 9),
+              child: Row(
                 children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(30),
+                  Row(
+                    children: [
+                      Text(
+                        " ${widget.money} ",
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xff000000),
+                            fontSize: 20),
                       ),
-                    ),
-                    child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 8, horizontal: 8),
-                        child: Animate(
-                          child: const Icon(
-                            Icons.timer,
-                            size: 38,
-                            color: Colors.amber,
-                          ),
-                        ).scaleXY(
-                            duration: const Duration(
-                          seconds: 4,
-                        ))),
+                    ],
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(
-                      top: 10,
-                    ),
-                    child: Text(
-                      "Tra cứu GD",
-                      style: style1,
-                    ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        'VND',
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xff000000),
+                            fontSize: 20),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isShowVND = !isShowVND;
+                          });
+                        },
+                        child: Icon(
+                          isShowVND ? Icons.visibility_off : Icons.visibility,
+                          size: 20,
+                          color: const Color(0xff000000),
+                        ),
+                        // child: const Icon(
+                        //   Icons.visibility,
+                        //   size: 17,
+                        //   color: Color(0xff085078),
+                        // ),
+                      )
+                    ],
                   ),
                 ],
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Column(
-                  children: [
-                    FloatingActionButton(
-                        backgroundColor: Colors.white,
-                        onPressed: createNewTask,
-                        child: Animate(
-                          child: const Icon(
-                            Icons.qr_code_scanner,
-                            size: 35,
-                            color: Colors.amber,
-                          ),
-                        ).scaleXY(
-                          duration: const Duration(seconds: 2),
-                          curve: Curves.easeInOut,
-                        )),
-                    Container(
-                      padding: const EdgeInsets.only(
-                        top: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  // padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: Column(
+                    children: [
+                      FloatingActionButton(
+                          backgroundColor: Colors.white,
+                          onPressed: createNewTask,
+                          child: Animate(
+                            child: const Icon(
+                              Icons.paid,
+                              size: 35,
+                              color: Color.fromARGB(255, 201, 161, 254),
+                            ),
+                          ).scaleXY(
+                            duration: const Duration(seconds: 2),
+                            curve: Curves.easeInOut,
+                          )),
+                      Container(
+                        padding: const EdgeInsets.only(
+                          top: 10,
+                        ),
+                        child: Text(
+                          "Chuyển Tiền",
+                          style: style1,
+                        ),
                       ),
-                      child: Text(
-                        "My QR",
-                        style: style1,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Column(
+                    children: [
+                      FloatingActionButton(
+                          backgroundColor: Colors.white,
+                          onPressed: createNewTask,
+                          child: Animate(
+                            child: const Icon(
+                              Icons.query_stats,
+                              size: 35,
+                              color: Color.fromARGB(255, 201, 161, 254),
+                            ),
+                          ).scaleXY(
+                            duration: const Duration(seconds: 2),
+                            curve: Curves.easeInOut,
+                          )),
+                      Container(
+                        padding: const EdgeInsets.only(
+                          top: 10,
+                        ),
+                        child: Text(
+                          "Tra Cứu",
+                          style: style1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Column(
+                    children: [
+                      FloatingActionButton(
+                          backgroundColor: Colors.white,
+                          onPressed: createNewTask,
+                          child: Animate(
+                            child: const Icon(
+                              Icons.qr_code_scanner,
+                              size: 35,
+                              color: Color.fromARGB(255, 201, 161, 254),
+                            ),
+                          ).scaleXY(
+                            duration: const Duration(seconds: 2),
+                            curve: Curves.easeInOut,
+                          )),
+                      Container(
+                        padding: const EdgeInsets.only(
+                          top: 10,
+                        ),
+                        child: Text(
+                          "My QR",
+                          style: style1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -481,7 +490,7 @@ class _Sizebox1State extends State<Sizebox1> {
 
 class Sizebox2 extends StatelessWidget {
   TextStyle style2 =
-      GoogleFonts.poppins(fontWeight: FontWeight.normal, fontSize: 15);
+      GoogleFonts.poppins(fontWeight: FontWeight.w500, fontSize: 15);
   Sizebox2({super.key});
 
   @override
@@ -529,7 +538,7 @@ class Style extends StatelessWidget {
 
 class Sizebox3 extends StatelessWidget {
   TextStyle style3 = GoogleFonts.poppins(
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w500,
   );
   Sizebox3({
     super.key,
@@ -660,8 +669,8 @@ class Sizebox3 extends StatelessWidget {
             ],
           ),
           Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 32),
-              child: Image.asset('assets/images/quangcao.png')),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+              child: Image.asset('assets/images/imgtpbank.jpg')),
         ],
       ),
     );

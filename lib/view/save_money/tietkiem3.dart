@@ -294,7 +294,7 @@ class Size5 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Điều khoản & Chính sách sử dụng',
+            'Điều khoản & Chính sách sử dụng  ',
             style: GoogleFonts.poppins(
                 fontWeight: FontWeight.normal,
                 color: Colors.amber.shade900,

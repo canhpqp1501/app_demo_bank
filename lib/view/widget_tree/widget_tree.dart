@@ -20,17 +20,16 @@ class WidgetTree extends StatelessWidget {
             child: Home(
               args: ScreenArgument(
                 username: SnapshotData.data?.email ?? "",
-                password: '',
+                password: "",
               ),
             ),
           );
         } else {
           return const Login(title: 'Đăng nhập');
         }
+        // nếu có data thì cho vào màn home, còn chưa có cho ra màn login
       },
       stream: Auth().authenStateChanes,
     );
   }
 }
-
-

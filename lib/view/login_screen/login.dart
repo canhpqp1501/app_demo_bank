@@ -37,26 +37,44 @@ class _Login extends State<Login> {
   void initSharedPref() async {
     Prefs = await SharedPreferences.getInstance();
   }
+  @override
+  void dispose() {
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   void loginHandle() async {
-    if (usernameController.text == "" || passwordController.text == "") {
-      final snackBar = SnackBar(
-        backgroundColor: const Color(0xffBC7AF9),
-        content: const Text(
-          "Vui lòng nhập email và password",
-          // style: AppStyle.textBodyScaffoldBigType4BlackSlim,
-        ),
-        action: SnackBarAction(
-          label: "Thoát",
-          textColor: const Color(0xffffffff),
-          onPressed: () {},
-        ),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
-    await Auth().loginWithEmailAndPassword(
+    try{ await Auth().loginWithEmailAndPassword(
         email: usernameController.text.trim(),
         password: passwordController.text.trim());
+    }
+    catch(e){
+      if (usernameController.text.isNotEmpty &&
+          passwordController.text.isNotEmpty) {
+        setState(() {
+          final snackbar = SnackBar(
+            backgroundColor: const Color(0xffBC7AF9),
+            content: const Text(
+              "Sai tài khoản hoặc mật khẩu",
+            ),
+            action: SnackBarAction(
+                label: "Thoát",
+                textColor: const Color(0xffffffff),
+                onPressed: () {}),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackbar);
+        });
+      } else {
+        setState(() {
+          userEmailError = null;
+          passwordError = null;
+        });
+      }
+    }
+
+
+
     // print(Auth().currentUser);
   }
   // Xử lý login
@@ -209,13 +227,13 @@ class _Login extends State<Login> {
               ElevatedButtonWidget(
                 onpressed: () {
                   loginHandle();
-                  if (usernameController.text.isNotEmpty &&
-                      passwordController.text.isNotEmpty) {
+                  if (usernameController.text == '' ||
+                      passwordController.text == '') {
                     setState(() {
                       final snackbar = SnackBar(
                         backgroundColor: const Color(0xffBC7AF9),
                         content: const Text(
-                          "Sai tài khoản hoặc mật khẩu",
+                          "Vui lòng nhập email và password",
                         ),
                         action: SnackBarAction(
                             label: "Thoát",

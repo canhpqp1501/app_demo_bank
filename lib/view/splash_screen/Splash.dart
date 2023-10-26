@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../router/app_router.dart';
@@ -23,7 +21,6 @@ class _SplashScreenState extends State<SplashScreen> {
   bool isLoading = true;
   @override
   void initState() {
-    
     requestPermission();
     super.initState();
   }
@@ -57,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 214, 240, 225),
+      backgroundColor: const Color(0xffE5E0FF),
       body: Center(
         child: Container(
             child: Image.asset(

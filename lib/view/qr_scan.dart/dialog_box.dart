@@ -23,18 +23,26 @@ class _DialogBoxState extends State<DialogBox> {
           height: 280,
           child: BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
-              return Column(children: [
-                const Text(
-                  "MY QR",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 30,
                 ),
-                Image.asset(
-                  "assets/images/MyQR.jpg",
-                  height: 200,
-                ),
-                Text('${state.userInfo?.name} \n ${state.userInfo?.number}',
-                    style: const TextStyle(fontWeight: FontWeight.bold)),
-              ]);
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "MY QR",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Image.asset(
+                        "assets/images/MyQR.jpg",
+                        height: 200,
+                      ),
+
+                      // Text('${state.userInfo?.name} \n ${state.userInfo?.number}',
+                      //     style: const TextStyle(fontWeight: FontWeight.bold)),
+                    ]),
+              );
             },
           ),
         ),
