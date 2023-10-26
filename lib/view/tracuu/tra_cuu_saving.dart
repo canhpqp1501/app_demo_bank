@@ -97,89 +97,90 @@ class Homepage1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(children: [
-          Text(
-            'TỔNG TIẾT KIỆM VND',
-            style: GoogleFonts.poppins(
-                fontWeight: FontWeight.normal,
-                color: Colors.amber.shade900,
-                fontSize: 15),
-          ),
-          Text(
-            '10,000,000 VND',
-            style: GoogleFonts.poppins(
-                fontWeight: FontWeight.normal,
-                color: Colors.amber.shade900,
-                fontSize: 29),
-          ),
-          Column(
-            children: [
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Tiết Kiệm Điện Tử (1)",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                              fontSize: 15),
-                        ),
-                        Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          color: Colors.amber.shade900,
-                          size: 30,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    ListTile(
-                      contentPadding: const EdgeInsets.all(10),
-                      leading: const Icon(
-                        Icons.savings_rounded,
-                        // color: Colors.pink.shade200,
-                      ),
-                      title: Column(children: [
-                        Text(
-                            "Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}"),
-                        const Padding(
-                          padding: EdgeInsets.only(right: 49.5),
-                          child: Text('10,000,000 VND'),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(right: 12),
-                          child: Text(
-                            "Tất Toán 12/10/2023",
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 23),
+          child: Column(children: [
+            Text(
+              'TỔNG TIẾT KIỆM VND',
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.amber.shade900,
+                  fontSize: 15),
+            ),
+            Text(
+              '10,000,000 VND',
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.amber.shade900,
+                  fontSize: 29),
+            ),
+            Column(
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Tiết Kiệm Điện Tử (1)",
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                                fontSize: 15),
                           ),
-                        )
-                      ]),
-                      trailing: TextButton(
-                        child: Text(
-                          "Xem chi tiết",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.amber.shade900,
-                              fontSize: 15),
-                        ),
-                        onPressed: () {
-                          ///
-                        },
+                          Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: Colors.amber.shade900,
+                            size: 30,
+                          ),
+                        ],
                       ),
-                      iconColor: Colors.pink.shade200,
-                    ),
-                  ],
+                      const SizedBox(height: 7),
+                      ListTile(
+                        contentPadding: const EdgeInsets.all(10),
+                        leading: const Icon(
+                          Icons.savings_rounded,
+                          // color: Colors.pink.shade200,
+                        ),
+                        title: Column(children: [
+                          Text(
+                              "Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}"),
+                          const Padding(
+                            padding: EdgeInsets.only(right: 49.5),
+                            child: Text('10,000,000 VND'),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(right: 12),
+                            child: Text(
+                              "Tất Toán 12/10/2023",
+                            ),
+                          )
+                        ]),
+                        trailing: TextButton(
+                          child: Text(
+                            "Xem chi tiết",
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.amber.shade900,
+                                fontSize: 15),
+                          ),
+                          onPressed: () {
+                            ///
+                          },
+                        ),
+                        iconColor: Colors.pink.shade200,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          )
-        ]),
+              ],
+            )
+          ]),
+        ),
       ),
     );
   }

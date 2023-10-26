@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: must_be_immutable, avoid_unnecessary_containers, file_names
 
+import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/view/qr_scan.dart/dialog_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -322,7 +323,7 @@ class _Sizebox1State extends State<Sizebox1> {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(top: 10, left: 15),
+              padding: const EdgeInsets.only(top: 10, left: 15, bottom: 5),
               child: Row(
                 children: [
                   Text(
@@ -393,12 +394,14 @@ class _Sizebox1State extends State<Sizebox1> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  // padding: const EdgeInsets.symmetric(horizontal: 5),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
                   child: Column(
                     children: [
-                      FloatingActionButton(
-                          backgroundColor: Colors.white,
-                          onPressed: createNewTask,
+                      InkWell(
+                          onTap: () {
+                            //
+                          },
+                          borderRadius: BorderRadius.circular(20),
                           child: Animate(
                             child: const Icon(
                               Icons.paid,
@@ -412,6 +415,7 @@ class _Sizebox1State extends State<Sizebox1> {
                       Container(
                         padding: const EdgeInsets.only(
                           top: 10,
+                          bottom: 5,
                         ),
                         child: Text(
                           "Chuyển Tiền",
@@ -425,9 +429,11 @@ class _Sizebox1State extends State<Sizebox1> {
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
                     children: [
-                      FloatingActionButton(
-                          backgroundColor: Colors.white,
-                          onPressed: createNewTask,
+                      InkWell(
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {
+                            //
+                          },
                           child: Animate(
                             child: const Icon(
                               Icons.query_stats,
@@ -442,9 +448,12 @@ class _Sizebox1State extends State<Sizebox1> {
                         padding: const EdgeInsets.only(
                           top: 10,
                         ),
-                        child: Text(
-                          "Tra Cứu",
-                          style: style1,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            "Tra Cứu",
+                            style: style1,
+                          ),
                         ),
                       ),
                     ],
@@ -454,9 +463,9 @@ class _Sizebox1State extends State<Sizebox1> {
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
                     children: [
-                      FloatingActionButton(
-                          backgroundColor: Colors.white,
-                          onPressed: createNewTask,
+                      InkWell(
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: createNewTask,
                           child: Animate(
                             child: const Icon(
                               Icons.qr_code_scanner,
@@ -471,9 +480,12 @@ class _Sizebox1State extends State<Sizebox1> {
                         padding: const EdgeInsets.only(
                           top: 10,
                         ),
-                        child: Text(
-                          "My QR",
-                          style: style1,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            "My QR",
+                            style: style1,
+                          ),
                         ),
                       ),
                     ],
