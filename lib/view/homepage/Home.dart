@@ -1,7 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, use_full_hex_values_for_flutter_colors
 // ignore_for_file: must_be_immutable, avoid_unnecessary_containers, file_names
 
-import 'package:app_demo_banking/color.dart';
 import 'package:app_demo_banking/view/qr_scan.dart/dialog_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -52,7 +51,6 @@ class _HomeState extends State<Home> {
                   selectedIndex: 0,
                   color: const Color.fromARGB(255, 201, 161, 254),
                   // tabBackgroundGradient: state.themeData.primaryGradient,
-                  // ignore: use_full_hex_values_for_flutter_colors
                   tabBackgroundColor: const Color(0xff0FFF1E6FF),
                   gap: 8,
                   padding: const EdgeInsets.all(18),
@@ -62,10 +60,12 @@ class _HomeState extends State<Home> {
                     const GButton(
                       icon: Icons.home,
                       text: 'Trang chủ',
+                      textStyle: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     const GButton(
                       icon: Icons.search,
                       text: 'Tìm Kiếm',
+                      textStyle: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     GButton(
                       icon: Icons.qr_code_scanner,
@@ -78,13 +78,18 @@ class _HomeState extends State<Home> {
                     GButton(
                       icon: Icons.paid,
                       text: 'Tra cứu ',
+                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
                       onPressed: () {
                         Navigator.pushNamed(context, AppRouterName.tracuu);
                       },
                     ),
-                    const GButton(
+                    GButton(
                       icon: Icons.settings,
                       text: 'Cài đặt',
+                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRouterName.setting);
+                      },
                     ),
                   ]),
             ),
@@ -116,115 +121,70 @@ class _HomeState extends State<Home> {
                             )
                           : Column(
                               children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      padding: const EdgeInsets.only(
-                                        left: 25,
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          TextButton.icon(
-                                              onPressed: () {
-                                                logOutHandle();
-                                              },
-                                              icon: Icon(
-                                                Icons.logout,
-                                                color: Colors.amber.shade900,
-                                              ),
-                                              label: Text(
-                                                'Đăng Xuất',
-                                                style: TextStyle(
-                                                    color:
-                                                        Colors.amber.shade900),
-                                              )),
-                                          TextButton.icon(
-                                              onPressed: () {
-                                                context
-                                                    .read<ThemeCubit>()
-                                                    .changeThemeMode();
-                                              },
-                                              icon: Icon(
-                                                Icons.stacked_bar_chart,
-                                                color: Colors.amber.shade900,
-                                              ),
-                                              label: Text(
-                                                'đổi theme',
-                                                style: TextStyle(
-                                                    color:
-                                                        Colors.amber.shade900),
-                                              )),
-                                        ],
-                                      ),
-                                    ),
-                                    Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Container(
-                                            padding: const EdgeInsets.only(
-                                              left: 24,
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                          top: 20,
+                                          left: 24,
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              "Xin chào ${state.userInfo?.name.toUpperCase()}",
+                                              style: GoogleFonts.poppins(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.amber.shade900,
+                                                  fontSize: 15),
                                             ),
-                                            child: Row(
-                                              children: [
-                                                Text(
-                                                  "Xin chào ${state.userInfo?.name.toUpperCase()}",
-                                                  style: GoogleFonts.poppins(
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                      color:
-                                                          Colors.amber.shade900,
-                                                      fontSize: 15),
-                                                ),
-                                                Animate(
-                                                        child: Icon(
-                                                          Icons.back_hand,
-                                                          size: size.height *
-                                                              0.03,
-                                                          color: Colors.orange,
-                                                        ),
-                                                        onComplete: (controller) {
-                                                          controller.reverse();
-                                                        })
-                                                    .shake(
-                                                        duration:
-                                                            const Duration(
-                                                                hours: 1),
-                                                        rotation: 0.3,
-                                                        hz: 3)
-                                              ],
-                                            ),
-                                          ),
-                                          Container(
-                                            padding: const EdgeInsets.only(
-                                              right: 24,
-                                            ),
-                                            child: Row(
-                                              children: [
-                                                const Icon(
-                                                  Icons.search,
-                                                  color: Colors.orange,
-                                                ),
-                                                Animate(
-                                                  child: Icon(
-                                                    Icons.notifications_on,
-                                                    size: size.height * 0.03,
-                                                    color: Colors.orange,
-                                                  ),
-                                                  onComplete: (controller) {
-                                                    controller.reverse();
-                                                  },
-                                                ).shake(
+                                            Animate(
+                                                    child: Icon(
+                                                      Icons.back_hand,
+                                                      size: size.height * 0.03,
+                                                      color: Colors.orange,
+                                                    ),
+                                                    onComplete: (controller) {
+                                                      controller.reverse();
+                                                    })
+                                                .shake(
                                                     duration: const Duration(
                                                         hours: 1),
                                                     rotation: 0.3,
-                                                    hz: 3),
-                                              ],
+                                                    hz: 3)
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                          top: 20,
+                                          right: 24,
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            const Icon(
+                                              Icons.search,
+                                              color: Colors.orange,
                                             ),
-                                          ),
-                                        ]),
-                                  ],
-                                ),
+                                            Animate(
+                                              child: Icon(
+                                                Icons.notifications_on,
+                                                size: size.height * 0.03,
+                                                color: Colors.orange,
+                                              ),
+                                              onComplete: (controller) {
+                                                controller.reverse();
+                                              },
+                                            ).shake(
+                                                duration:
+                                                    const Duration(hours: 1),
+                                                rotation: 0.3,
+                                                hz: 3),
+                                          ],
+                                        ),
+                                      ),
+                                    ]),
 
                                 Sizebox1(
                                     money: state.userInfo?.money ?? 0,

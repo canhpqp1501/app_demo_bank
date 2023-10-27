@@ -25,7 +25,7 @@ class _DialogBoxState extends State<DialogBox> {
             builder: (context, state) {
               return Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 30,
+                  vertical: 28,
                 ),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,

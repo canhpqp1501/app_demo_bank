@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../view/save_money/tietkiem.dart';
+import '../view/setting/setting_screen.dart';
 import '../view/widget_tree/widget_tree.dart';
 
 class AppRouter {
@@ -72,6 +73,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => const TraCuuSaving(),
         );
+        case AppRouterName.setting:
+        return MaterialPageRoute(
+          builder: (context) => const SettingScreen(),
+        );
     }
     return null;
   }
@@ -90,4 +95,5 @@ class AppRouterName {
   static const qr = '/qr';
   static const tracuu = 'tra_cuu_screen';
   static const TraCuuSaving = 'tra_cuu_saving';
+  static const setting = 'setting';
 }

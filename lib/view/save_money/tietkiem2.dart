@@ -33,17 +33,25 @@ class _TietKiem2State extends State<TietKiem2> {
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
-                        color: Colors.white)),
+                        color: Colors.amber)),
                 Icon(
                   Icons.quiz,
                   size: 35,
-                  color: Colors.white,
+                  color: Colors.amber,
                 ),
               ],
             ),
-            backgroundColor: const Color.fromARGB(255, 217, 190, 252),
-            elevation: 0,
+            backgroundColor: const Color(0xffFFF6F6),
             centerTitle: true,
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.amber,
+              ),
+            ),
           ),
           body: Column(
             children: [

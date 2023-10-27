@@ -35,6 +35,15 @@ class _QrscanState extends State<Qrscan> {
         backgroundColor: const Color(0xff0FFF1E6FF),
         elevation: 0,
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.amber,
+          ),
+        ),
       ),
       body: Column(
         children: [

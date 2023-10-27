@@ -20,19 +20,21 @@ class _TraCuuScreenState extends State<TraCuuScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          // children: [
-          //   Text('Tra Cứu',
-          //       style: TextStyle(
-          //           fontSize: 20,
-          //           fontWeight: FontWeight.w700,
-          //           color: Colors.white)),
-          // ],
+        title: const Text(
+          'T R A C Ứ U',
+          style: TextStyle(color: Colors.amber),
         ),
-        backgroundColor: const Color.fromARGB(255, 217, 190, 252),
-        elevation: 0,
+        backgroundColor: const Color(0xffFFF6F6),
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.amber,
+          ),
+        ),
       ),
       backgroundColor: const Color(0xffffffff),
       body: GridView(

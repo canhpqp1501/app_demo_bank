@@ -25,9 +25,17 @@ class _TraCuuSavingState extends State<TraCuuSaving> {
             //           color: Colors.white)),
             // ],
           ),
-          backgroundColor: const Color.fromARGB(255, 217, 190, 252),
-          elevation: 0,
+          backgroundColor: const Color(0xffFFF6F6),
           titleSpacing: 20,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.amber,
+            ),
+          ),
           centerTitle: true,
           bottom: TabBar(
             //isScrollable: true,
@@ -150,17 +158,17 @@ class Homepage1 extends StatelessWidget {
                           Text(
                               "Tiết Kiệm Điện Tử ${Moment(DateTime.now()).format('DD/MM/YYYY')}"),
                           const Padding(
-                            padding: EdgeInsets.only(right: 49.5),
+                            padding: EdgeInsets.only(right: 40),
                             child: Text('10,000,000 VND'),
                           ),
                           const Padding(
-                            padding: EdgeInsets.only(right: 12),
+                            padding: EdgeInsets.only(right: 17),
                             child: Text(
                               "Tất Toán 12/10/2023",
                             ),
                           )
                         ]),
-                        trailing: TextButton(
+                        trailing: InkWell(
                           child: Text(
                             "Xem chi tiết",
                             style: GoogleFonts.poppins(
@@ -168,7 +176,7 @@ class Homepage1 extends StatelessWidget {
                                 color: Colors.amber.shade900,
                                 fontSize: 15),
                           ),
-                          onPressed: () {
+                          onTap: () {
                             ///
                           },
                         ),
